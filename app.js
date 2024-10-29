@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files (CSS, JS, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Generate a secure random secret key for the session
 const sessionSecret = process.env.SESSION_SECRET || crypto.randomBytes(32).toString('hex');
 
