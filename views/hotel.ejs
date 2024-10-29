@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Reservations</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #ff9900;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            border: 2px solid white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        header a:hover {
+            background-color: white;
+            color: #004d40;
+            transition: background-color 0.3s ease;
+        }
+
+        .reservation-form button {
+            background-color: orange;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .reservation-form button:hover {
+            background-color: black;
+            transition: background-color 0.3s ease;
+        }
+
+        footer {
+            background-color:  rgba(255, 153, 0, 0.6); /* Semi-transparent overlay */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        .hero-section {
+    background-image: url('../uploads/istockphoto-519870714-1024x1024.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="mb-4">
+        <h1>Hotel Reservations</h1>
+        <a href="/">Back to Services</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Welcome to Our Hotel Booking Service</h1>
+        <p>Experience comfort and luxury at our finest hotels worldwide</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mt-5">
+        <div class="row">
+            <!-- Main Content Area -->
+            <div class="col-lg-8 col-md-12 mb-4">
+                <h2>Book Your Stay Effortlessly</h2>
+                <p>We offer a wide range of hotel options, including apartments and lodges, to suit your preferences and budget. Whether you are traveling for business or leisure, we have accommodations that fit your needs.</p>
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li>Variety of Choices: Select from luxury hotels, cozy lodges, and spacious apartments.</li>
+                    <li>Special Discounts: Enjoy exclusive discounts for group bookings and long stays.</li>
+                    <li>Easy Online Booking: Our user-friendly platform allows you to book your stay in just a few clicks.</li>
+                </ul>
+                <h3>Our Services</h3>
+                <p>In addition to accommodations, we provide a range of services to enhance your stay:</p>
+                <ul>
+                    <li>24/7 Customer Support</li>
+                    <li>Transportation Arrangements</li>
+                    <li>Local Tours and Activities</li>
+                </ul>
+
+                <!-- Reservation Form -->
+                <h3 class="mt-5">Make a Reservation</h3>
+                <form class="reservation-form row g-3" action="/submit-reservation" method="post">
+                    <div class="col-md-6">
+                        <label for="checkin" class="form-label">Check-in Date</label>
+                        <input type="date" class="form-control" id="checkin" name="checkin" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="checkout" class="form-label">Check-out Date</label>
+                        <input type="date" class="form-control" id="checkout" name="checkout" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="guests" class="form-label">Number of Guests</label>
+                        <select class="form-select" id="guests" name="guests" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5+">5+</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="room" class="form-label">Room Type</label>
+                        <select class="form-select" id="room" name="room" required>
+                            <option value="single">Single Room</option>
+                            <option value="double">Double Room</option>
+                            <option value="suite">Suite</option>
+                            <option value="apartment">Apartment</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-lg btn-block w-100">Reserve Now</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="col-lg-4 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Quick Links</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="/hotels" class="text-decoration-none">Browse Hotels</a></li>
+                            <li><a href="/specials" class="text-decoration-none">Special Offers</a></li>
+                            <li><a href="/group-bookings" class="text-decoration-none">Group Bookings</a></li>
+                            <li><a href="/contact" class="text-decoration-none">Contact Us</a></li>
+                            <li><a href="/faq" class="text-decoration-none">Frequently Asked Questions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    
+    <!-- Bootstrap JS (Optional for interactivity, popovers, modals, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

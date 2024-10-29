@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride-hailing Services</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #ff9900; /* Header background */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url('https://via.placeholder.com/1500x500'); /* Replace with your image */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Container for main content */
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* List styles */
+        ul {
+            list-style-type: none; /* Remove bullets */
+            padding: 0;
+        }
+
+        ul li {
+            background: #ff9900;
+            color: white;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Button styles */
+        .btn-custom {
+            background: #333;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: #555; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Ride-hailing Services</h1>
+        <a href="/" class="btn btn-light">Back to Services</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h2>Convenience at Your Fingertips</h2>
+        <p>Experience the ease of modern ride-hailing services, including options like Bolt and more.</p>
+    </section>
+
+    <!-- Main Section -->
+    <main>
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Instant Bookings:</strong> Schedule your ride in seconds through our user-friendly app.</li>
+            <li><strong>Multiple Payment Options:</strong> Pay securely using credit/debit cards, digital wallets, or cash.</li>
+            <li><strong>Real-time Tracking:</strong> Track your driver’s location and ETA in real-time for added convenience.</li>
+            <li><strong>Ride History:</strong> Keep track of all your previous rides for easy reference.</li>
+            <li><strong>24/7 Support:</strong> Our dedicated support team is available around the clock to assist you.</li>
+        </ul>
+
+        <h2>Benefits of Using Our Ride-hailing Service</h2>
+        <p>With our ride-hailing service, you can enjoy:</p>
+        <ul>
+            <li><strong>Flexibility:</strong> Choose from various vehicle options to suit your needs, from economy to luxury.</li>
+            <li><strong>Safety:</strong> All drivers undergo background checks and training to ensure your safety.</li>
+            <li><strong>Affordability:</strong> Competitive pricing with no hidden fees.</li>
+            <li><strong>Environmental Consciousness:</strong> Options for eco-friendly rides are available to help reduce your carbon footprint.</li>
+        </ul>
+
+        <h2>Get Started Today!</h2>
+        <p>Download our app or visit our website to start enjoying hassle-free rides!</p>
+        <a href="/download-app" class="btn btn-lg btn-custom">Download the App</a>
+
+        <!-- Contact Form -->
+        <h3 class="mt-5">Contact Us</h3>
+        <form class="row g-3" action="/submit-contact" method="post">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Let us know your inquiry" required></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-lg btn-custom w-100">Submit</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Bootstrap JS (Optional for interactivity, popovers, modals, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
