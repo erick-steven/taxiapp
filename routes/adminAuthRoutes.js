@@ -1,11 +1,9 @@
-
-
 // auth.js
 
 
-
+const bcrypt = require('bcryptjs');
 const express = require('express');
-const bcrypt = require('bcrypt');
+
 const nodemailer = require('nodemailer');
 const User = require('../models/User');
 
@@ -51,7 +49,7 @@ router.get('/register', (req, res) => {
 });
 
 // Registration endpoint with image upload
-router.post('/register', upload.single('image'), async (req, res) => {
+router.post('/register', upload.single('image'), async(req, res) => {
     const { email, password, name } = req.body; // Include name in the destructuring
     const imageUrl = req.file ? req.file.path : null; // Get the file path
 
@@ -90,7 +88,7 @@ router.post('/register', upload.single('image'), async (req, res) => {
 
 
 // Verification route
-router.get('/verify/:token', async (req, res) => {
+router.get('/verify/:token', async(req, res) => {
     try {
         const user = await User.findOne({ verificationToken: req.params.token });
         if (user) {
@@ -112,7 +110,7 @@ router.get('/login', (req, res) => {
     res.render('admin/login'); // Render the login page
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', async(req, res) => {
     const { email, password } = req.body;
 
     try {

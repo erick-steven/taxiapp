@@ -3,6 +3,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const path = require('path');
+const bcrypt = require('bcryptjs');
 
 // Routes
 const adminAuthRoutes = require('./routes/adminAuthRoutes');
@@ -38,16 +39,16 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/adminDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log('Database connected'))
-  .catch(err => console.error('Database connection error:', err));
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }).then(() => console.log('Database connected'))
+    .catch(err => console.error('Database connection error:', err));
 
 // Use the admin authentication routes
 app.use('/admin', adminAuthRoutes);
 
 
-  // Route to render index.ejs
+// Route to render index.ejs
 app.get('/', (req, res) => {
     res.render('index'); // Render index.ejs
 });
