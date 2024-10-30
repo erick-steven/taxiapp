@@ -201,11 +201,32 @@
                 /* Show the toggle button */
                 margin-top: 20px;
                 background-color: #ffcc00;
+                /* Button background */
                 border: none;
                 padding: 10px 20px;
                 color: white;
+                /* Button text color */
                 cursor: pointer;
                 border-radius: 5px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                /* Optional shadow for depth */
+                transition: background-color 0.2s, transform 0.2s;
+                /* Smooth transitions */
+            }
+            .toggle-button:hover {
+                background-color: #ff9900;
+                /* Darker on hover */
+                transform: translateY(-2px);
+                /* Slight lift effect on hover */
+            }
+            /* Adjust service item for small screens */
+            .service-item {
+                background-color: rgba(255, 165, 0, 0.6);
+                /* Semi-transparent orange for glass effect */
+                backdrop-filter: blur(10px);
+                /* Frosted glass effect */
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                /* Optional shadow */
             }
         }
         
@@ -410,12 +431,23 @@
             margin-bottom: 30px;
             padding: 20px;
             border-radius: 12px;
-            background-color: orange;
-            ;
+            background-color: rgba(255, 165, 0, 0.6);
+            /* Semi-transparent orange */
+            backdrop-filter: blur(10px);
+            /* Frosted glass effect */
             transition: transform 0.3s, box-shadow 0.3s;
             z-index: 2;
             text-align: center;
             color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            /* Optional: adds depth */
+        }
+        /* Optional hover effect */
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            /* Enhance shadow on hover */
         }
         
         .service-item:hover {
