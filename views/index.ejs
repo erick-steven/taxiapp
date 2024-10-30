@@ -49,7 +49,6 @@
         .content {
             position: relative;
             z-index: 2;
-            display: flex;
             max-width: 1200px;
             width: 100%;
             padding: 50px;
@@ -83,7 +82,6 @@
             top: 20px;
             right: 20px;
             display: flex;
-            justify-content: flex-end;
             z-index: 100;
         }
         
@@ -95,7 +93,7 @@
         }
         
         .navbar-nav .nav-link:hover {
-            color: #ffcc00;
+            color: #ff9900;
         }
         
         .left-section {
@@ -154,46 +152,35 @@
         
         .card {
             background: rgba(255, 255, 255, 0.9);
-            /* Slight transparency */
             border-radius: 8px;
-            /* Rounded corners */
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             width: 90%;
             max-width: 350px;
-            /* Reduced max width */
             margin-top: 70px;
             padding: 10px;
-            /* Reduced padding */
+            display: none;
+            /* Hide the card by default on small screens */
         }
         
         .card h2 {
             margin: 0 0 10px;
-            /* Bottom margin for spacing */
             font-size: 20px;
-            /* Slightly smaller heading size */
         }
         
         .card p {
             margin-bottom: 10px;
-            /* Reduced bottom margin */
             line-height: 1.4;
-            /* Improved readability */
         }
-        /* Styles for Call Now button */
         
         .cta-button {
             padding: 6px 12px;
-            /* Reduced padding */
             background-color: #ffcc00;
             color: white;
             border: none;
             border-radius: 4px;
-            /* Slightly rounded corners */
             font-size: 14px;
-            /* Kept font size moderate */
             cursor: pointer;
             margin-top: 10px;
-            /* Reduced margin */
             transition: background-color 0.2s, transform 0.2s;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
@@ -202,34 +189,25 @@
             background-color: #ff9900;
             transform: translateY(-1px);
         }
-        /* Main section */
+        /* Responsive styles */
         
-        .home {
-            background-image: url('../uploads/istockphoto-519870714-1024x1024.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
+        @media (max-width: 768px) {
+            .card {
+                display: none;
+                /* Hide the form on small screens */
+            }
+            .toggle-button {
+                display: block;
+                /* Show the toggle button */
+                margin-top: 20px;
+                background-color: #ffcc00;
+                border: none;
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+                border-radius: 5px;
+            }
         }
-        
-        .home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        /* Overlay and logo container */
-        
-        .logo-container {
-            z-index: 2;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-        }
-        /* Content card */
-        /* Custom Styling */
-        /* Custom Styling */
         
         .welcome-section {
             background-color: #f7f7f7;
@@ -873,9 +851,10 @@
                     <h2 class="phone">0677231271</h2>
                     <p>Enjoy city breaks or extended holidays with convenient travel. Stay in a small and friendly setting for a unique experience.</p>
                     <button class="cta-button btn btn-lg" onclick="window.location.href='tel:0677231271'">Call Now</button>
+                    <button class="toggle-button" onclick="toggleForm()">Book Your Taxi</button>
                 </div>
                 <div class="col-md-6 right-section">
-                    <div class="card p-4">
+                    <div class="card p-4" id="bookingCard">
                         <h2>Book Your Taxi!</h2>
                         <form class="booking-form" action="/book" method="POST">
                             <input type="text" class="form-control" name="name" placeholder="Your name" required>
@@ -907,7 +886,6 @@
             </div>
         </div>
     </section>
-
 
 
 
@@ -1247,15 +1225,11 @@
     </footer>
 
 
-
-
-
     <!-- JavaScript files and Libraries -->
     <script src="/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <!-- AOS JS -->
 
     <script>
         // Modal Functions
@@ -1309,6 +1283,7 @@
             const customRegion = document.getElementById('custom-region');
             customRegion.style.display = select.value ? 'block' : 'none';
         }
+
         document.addEventListener("DOMContentLoaded", function() {
             const elements = document.querySelectorAll('.text-section, .image-section img, .service-item, .car-card, .icon, .gallery-item, .support-section h2, .support-section p, .support-call-to-action');
 
@@ -1325,8 +1300,13 @@
             window.addEventListener('scroll', animateOnScroll);
             animateOnScroll(); // Initial check
         });
-    </script>
 
+        // Toggle Booking Form
+        function toggleForm() {
+            const card = document.getElementById('bookingCard');
+            card.style.display = card.style.display === 'none' ? 'flex' : 'none';
+        }
+    </script>
     </body>
 
 </html>
