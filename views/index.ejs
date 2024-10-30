@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <link rel="stylesheet" href="styles.css">
     <!-- Custom styles -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -994,6 +996,28 @@
 
 
 
+    <section id="why-choose-us" class="why-choose-us py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Why Choose Us</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="icon display-4">🚖</div>
+                    <h3>Reliable Service</h3>
+                    <p>Our drivers are prompt, courteous, and professional, ensuring a smooth journey every time.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="icon display-4">📍</div>
+                    <h3>Wide Coverage</h3>
+                    <p>We cover multiple regions, making it easier to get where you need to go.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="icon display-4">💼</div>
+                    <h3>Professional Drivers</h3>
+                    <p>Our experienced drivers provide a safe and comfortable travel experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -1223,10 +1247,29 @@
                 observer.observe(section);
             });
         });
+
+
+
+
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            offset: 200, // Offset from the original trigger point
+            easing: 'ease', // Animation easing function
+        });
+
+        function showCustomLocationField() {
+            const select = document.getElementById('pickup-location');
+            const customRegion = document.getElementById('custom-region');
+            customRegion.style.display = select.value ? 'block' : 'none';
+        }
     </script>
 
+    < /body>
 
+        < /html>}); }, observerOptions); sections.forEach(section => { observer.observe(section); }); }); AOS.init({ duration: 1000, // Animation duration in milliseconds offset: 200, // Offset from the original trigger point easing: 'ease', // Animation easing
+            function }); function showCustomLocationField() { const select = document.getElementById('pickup-location'); const customRegion = document.getElementById('custom-region'); customRegion.style.display = select.value ? 'block' : 'none'; }
+            </script>
 
-    </body>
+            < /body>
 
-</html>
+                < /html>
