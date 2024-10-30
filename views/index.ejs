@@ -114,13 +114,6 @@
             align-items: center;
         }
         
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
         .booking-form input,
         .booking-form select,
         .booking-form button {
@@ -129,12 +122,6 @@
             border-radius: 5px;
             font-size: 16px;
             transition: border-color 0.3s;
-        }
-        
-        .booking-form input:focus,
-        .booking-form select:focus {
-            border-color: #ff9900;
-            outline: none;
         }
         
         .booking-form button {
@@ -149,6 +136,7 @@
             background-color: #ff9900;
             transform: translateY(-2px);
         }
+        /* Card for large screens */
         
         .card {
             background: rgba(255, 255, 255, 0.9);
@@ -158,18 +146,7 @@
             max-width: 350px;
             margin-top: 70px;
             padding: 10px;
-            display: none;
-            /* Hide the card by default on small screens */
-        }
-        
-        .card h2 {
-            margin: 0 0 10px;
-            font-size: 20px;
-        }
-        
-        .card p {
-            margin-bottom: 10px;
-            line-height: 1.4;
+            display: block;
         }
         
         .cta-button {
@@ -184,11 +161,6 @@
             transition: background-color 0.2s, transform 0.2s;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
-        
-        .cta-button:hover {
-            background-color: #ff9900;
-            transform: translateY(-1px);
-        }
         /* Responsive styles */
         
         @media (max-width: 768px) {
@@ -198,65 +170,39 @@
             }
             .toggle-button {
                 display: block;
-                /* Show the toggle button */
                 margin-top: 20px;
                 background-color: #ffcc00;
-                /* Button background */
                 border: none;
                 padding: 10px 20px;
                 color: white;
-                /* Button text color */
                 cursor: pointer;
                 border-radius: 5px;
                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-                /* Optional shadow for depth */
                 transition: background-color 0.2s, transform 0.2s;
-                /* Smooth transitions */
             }
             .toggle-button:hover {
                 background-color: #ff9900;
-                /* Darker on hover */
                 transform: translateY(-2px);
-                /* Slight lift effect on hover */
-            }
-            /* Adjust service item for small screens */
-            .service-item {
-                background-color: rgba(255, 165, 0, 0.6);
-                /* Semi-transparent orange for glass effect */
-                backdrop-filter: blur(10px);
-                /* Frosted glass effect */
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-                /* Optional shadow */
             }
         }
+        /* Modal styles */
         
         .modal {
             display: none;
-            /* Hidden by default */
             position: fixed;
-            /* Stay in place */
             z-index: 1000;
-            /* Sit on top */
             left: 0;
             top: 0;
             width: 100%;
-            /* Full width */
             height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
             background-color: rgba(0, 0, 0, 0.8);
-            /* Black w/ opacity */
         }
         
         .modal-content {
             background-color: #fefefe;
             margin: 15% auto;
-            /* 15% from the top and centered */
             padding: 20px;
-            border: 1px solid #888;
             width: 90%;
-            /* Could be more or less, depending on screen size */
             max-width: 400px;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -274,14 +220,6 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
-        }
-        /* Responsive styles */
-        
-        @media (min-width: 769px) {
-            .modal {
-                display: none;
-                /* Hide the modal on larger screens */
-            }
         }
         
         .welcome-section {
@@ -402,7 +340,9 @@
             background-color: black;
             background-size: cover;
             background-position: center;
-            color: white;
+            color: rgba(243, 196, 108, 0.863);
+            background-color: rgba(243, 196, 108, 0.863);
+            ;
         }
         
         .services::before {
@@ -412,8 +352,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ffffff;
-            z-index: 1;
+            background: linear-gradient( 135deg, rgba(255, 255, 255, 0.25), rgba(173, 155, 120, 0.35), rgba(255, 204, 128, 0.2), rgba(245, 130, 130, 0.3));
+            /* Adds multiple color stops for depth */
+            backdrop-filter: blur(20px) saturate(180%);
+            /* Higher blur and saturation for a more dynamic glass effect */
+            border-radius: 15px;
+            /* Smoother corner rounding */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            /* Deepened shadow for strong depth */
+            z-index: -1;
         }
         
         .services h2 {
@@ -431,7 +378,7 @@
             margin-bottom: 30px;
             padding: 20px;
             border-radius: 12px;
-            background-color: rgba(255, 165, 0, 0.6);
+            background-color: rgb(255, 255, 255);
             /* Semi-transparent orange */
             backdrop-filter: blur(10px);
             /* Frosted glass effect */
@@ -923,6 +870,7 @@
             animation-delay: 0.4s;
         }
     </style>
+
     <div class="logo-container" onclick="window.location.href='/'">
         <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="Logo">
         <h1>FMK</h1>
@@ -930,9 +878,9 @@
 
     <section class="home">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
@@ -951,35 +899,25 @@
                     <h1>Need a Taxi? Just Call</h1>
                     <h2 class="phone">0677231271</h2>
                     <p>Enjoy city breaks or extended holidays with convenient travel. Stay in a small and friendly setting for a unique experience.</p>
-                    <button class="cta-button btn btn-lg" onclick="window.location.href='tel:0677231271'">Call Now</button>
+                    <button class="cta-button" onclick="window.location.href='tel:0677231271'">Call Now</button>
                     <button class="toggle-button" onclick="toggleModal()">Book Your Taxi</button>
                 </div>
                 <div class="col-md-6 right-section">
-                    <div class="card p-4" id="bookingCard" style="display: block;">
+                    <div class="card" id="bookingCard">
                         <h2>Book Your Taxi!</h2>
                         <form class="booking-form" action="/book" method="POST">
-                            <input type="text" class="form-control" name="name" placeholder="Your name" required>
-                            <input type="email" class="form-control" name="email" placeholder="Email address" required>
-                            <input type="tel" class="form-control" name="phone" placeholder="Phone number" required>
-                            <select class="form-control" name="pickupLocation" id="pickup-location" required onchange="showCustomLocationField()">
-                                <option value="" disabled selected>Select your region</option>
-                                <option value="dar-es-salaam">Dar es Salaam</option>
-                                <option value="dodoma">Dodoma</option>
-                                <option value="arusha">Arusha</option>
-                                <option value="mwanza">Mwanza</option>
-                                <option value="mbeya">Mbeya</option>
-                                <option value="tanga">Tanga</option>
-                                <option value="zanzibar">Zanzibar</option>
-                                <option value="kilifi">Kilifi</option>
-                                <option value="kilimanjaro">Kilimanjaro</option>
-                                <option value="singida">Singida</option>
-                            </select>
-                            <div id="custom-region" style="display:none;">
-                                <input type="text" class="form-control mt-2" name="customPickup" id="custom-pickup" placeholder="Your custom pickup region">
-                            </div>
-                            <input type="text" class="form-control" name="destination" placeholder="Enter your destination" required>
-                            <input type="date" class="form-control" name="date" required>
-                            <input type="time" class="form-control" name="time" required>
+                            <input type="text" name="name" placeholder="Your name" required>
+                            <input type="email" name="email" placeholder="Email address" required>
+                            <input type="tel" name="phone" placeholder="Phone number" required>
+                            <select name="pickupLocation" required onchange="showCustomLocationField()">
+                            <option value="" disabled selected>Select your region</option>
+                            <option value="dar-es-salaam">Dar es Salaam</option>
+                            <option value="dodoma">Dodoma</option>
+                            <option value="morogoro">Morogoro</option>
+                            <option value="arusha">Arusha</option>
+                            <option value="custom">Custom Location</option>
+                        </select>
+                            <input type="text" id="customLocationField" name="customLocation" placeholder="Enter custom location" style="display: none;">
                             <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
                         </form>
                     </div>
@@ -987,6 +925,30 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal for small screens -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <h2>Book Your Taxi!</h2>
+            <form class="booking-form" action="/book" method="POST">
+                <input type="text" name="name" placeholder="Your name" required>
+                <input type="email" name="email" placeholder="Email address" required>
+                <input type="tel" name="phone" placeholder="Phone number" required>
+                <select name="pickupLocation" required onchange="showCustomLocationField()">
+                <option value="" disabled selected>Select your region</option>
+                <option value="dar-es-salaam">Dar es Salaam</option>
+                <option value="dodoma">Dodoma</option>
+                <option value="morogoro">Morogoro</option>
+                <option value="arusha">Arusha</option>
+                <option value="custom">Custom Location</option>
+            </select>
+                <input type="text" id="modalCustomLocationField" name="customLocation" placeholder="Enter custom location" style="display: none;">
+                <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
+            </form>
+        </div>
+    </div>
+
 
     <!-- Modal for small screens -->
     <div class="modal" id="bookingModal">
@@ -1469,19 +1431,34 @@
             window.addEventListener('scroll', animateOnScroll);
             animateOnScroll(); // Initial check
         });
-
+        // Toggle modal visibility
         function toggleModal() {
             const modal = document.getElementById('bookingModal');
             modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Close the modal when the user clicks outside of it
+        // Close modal when clicking outside it
         window.onclick = function(event) {
             const modal = document.getElementById('bookingModal');
             if (event.target === modal) {
                 modal.style.display = "none";
             }
         };
+
+        // Show custom location field
+        function showCustomLocationField() {
+            const selectElement = document.querySelector("select[name='pickupLocation']");
+            const customLocationField = document.getElementById('customLocationField');
+            const modalCustomLocationField = document.getElementById('modalCustomLocationField');
+
+            if (selectElement.value === "custom") {
+                customLocationField.style.display = "block";
+                modalCustomLocationField.style.display = "block";
+            } else {
+                customLocationField.style.display = "none";
+                modalCustomLocationField.style.display = "none";
+            }
+        }
     </script>
     </body>
 
