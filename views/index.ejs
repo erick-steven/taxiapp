@@ -90,6 +90,8 @@
             font-weight: bold;
             margin-left: 20px;
             transition: color 0.3s;
+            z-index: 100;
+            background-color: palegreen;
         }
         
         .navbar-nav .nav-link:hover {
@@ -241,7 +243,7 @@
         .background-img {
             width: 100%;
             border-radius: 10px;
-            max-height: 350px;
+            max-height: 400px;
             /* Increased image height */
             object-fit: cover;
         }
@@ -275,7 +277,7 @@
             font-size: 2.5rem;
             /* Increased font size */
             font-weight: bold;
-            color: #333;
+            color: #ff9c00;
             margin-bottom: 20px;
         }
         
@@ -413,6 +415,7 @@
         .service-item h3 {
             font-size: 1.5rem;
             font-weight: bold;
+            color: #ff9c00;
         }
         
         .service-item p {
@@ -450,6 +453,16 @@
             background-color: black;
         }
         
+        .service-icon {
+            width: 150px;
+            /* Adjust width */
+            height: 100px;
+            ;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            /* Optional: adds rounded corners */
+        }
+        
         .gallery-item {
             cursor: pointer;
             transition: transform 0.3s;
@@ -483,7 +496,7 @@
         
         .reviews-container h2 {
             font-size: 2.5em;
-            color: #2c3e50;
+            color: #ff9c00;
             margin-bottom: 10px;
         }
         
@@ -547,7 +560,7 @@
         }
         
         .review-card h3 {
-            color: #2c3e50;
+            color: #ff9c00;
             margin-bottom: 10px;
         }
         
@@ -1059,7 +1072,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon">🚖</div>
+                        <div class="icon"><img src="uploads/pexels-esmihel-15256361.jpg" alt="Taxi Service" class="service-icon"></div>
                         <h3>Taxi Service</h3>
                         <p>Enjoy seamless rides with our reliable taxi services, available at your fingertips.</p>
                         <hr>
@@ -1068,7 +1081,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon">🏢</div>
+                        <div class="icon"><img src="uploads/istockphoto-1313422727-1024x1024.jpg" alt="Taxi Service" class="service-icon"></div>
                         <h3>Office Pick-ups</h3>
                         <p>Convenient transportation solutions for your daily commutes and meetings.</p>
                         <hr>
@@ -1077,7 +1090,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon">🎉</div>
+                        <div class="icon"><img src="uploads/download (3).jpg" alt="Taxi Service" class="service-icon"></div>
                         <h3>Event Transportation</h3>
                         <p>Arrive in style with our dedicated event transportation services.</p>
                         <hr>
@@ -1087,7 +1100,7 @@
                 <!-- Additional Service Items -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon">🛬</div>
+                        <div class="icon"><img src="uploads/13 Ways to Save Major Cash on Holiday Travel.jpg" alt="Taxi Service" class="service-icon"></div>
                         <h3>Airport Transfers</h3>
                         <p>Efficient airport transfer services for a stress-free travel experience.</p>
                         <hr>
@@ -1097,24 +1110,24 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon">🚚</div>
-                        <h3>Logistics Services</h3>
-                        <p>Professional logistics and transportation solutions tailored to your needs.</p>
+                        <div class="icon"><img src="uploads/Cloud Hotel Reservation System.jpg" alt="Hotel Reservation" class="service-icon"></div>
+                        <h3>Hotel Reservation</h3>
+                        <p>Book premium accommodations with ease for your travel needs.</p>
                         <hr>
-                        <a href="/logistics" class="read-more">Read More</a>
+                        <a href="/hotel" class="read-more">Read More</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon">💼</div>
-                        <h3>Corporate Solutions</h3>
-                        <p>Customized transport solutions designed for corporate clients and businesses.</p>
+                        <div class="icon"><img src="uploads/Shoe pallets.jpg" alt="Apartment Rental" class="service-icon"></div>
+                        <h3>Apartment Rentals</h3>
+                        <p>Find comfortable apartment rentals for short or long stays.</p>
                         <hr>
-                        <a href="/corporate" class="read-more">Read More</a>
+                        <a href="/apartment" class="read-more">Read More</a>
                     </div>
                 </div>
+
             </div>
-        </div>
     </section>
 
 
