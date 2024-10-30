@@ -21,7 +21,6 @@
         
         .home {
             position: relative;
-            /* Position relative to contain the pseudo-element */
             background-image: url('../uploads/istockphoto-519870714-1024x1024.jpg');
             background-size: cover;
             background-position: center;
@@ -42,16 +41,16 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.5);
-            /* Dark overlay */
             z-index: 1;
-            /* Make sure it's below the content */
         }
         
         .content {
             position: relative;
-            /* Make content relative to stack on top of overlay */
             z-index: 2;
-            /* Ensure content is above the overlay */
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            padding: 50px;
         }
         
         .logo-container {
@@ -60,28 +59,21 @@
             left: 20px;
             display: flex;
             align-items: center;
-            z-index: 100;
             color: beige;
-            /* Ensure this contrasts well with the background */
-            padding: 20px;
-            /* Increased padding for better spacing */
+            padding: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            /* Slightly larger shadow for depth */
+            z-index: 100;
+            cursor: pointer;
         }
         
         .logo-container img {
-            height: 100px;
-            /* Increased height */
-            width: 80px;
-            /* Increased width */
-            margin-right: 15px;
-            /* Adjusted spacing between logo and name */
+            height: 60px;
+            width: 60px;
+            margin-right: 10px;
         }
         
         .logo-container h1 {
-            /* Example if there's a heading */
             font-size: 24px;
-            /* Increase this as needed */
         }
         
         .navbar {
@@ -90,32 +82,24 @@
             right: 20px;
             display: flex;
             justify-content: flex-end;
-            /* Aligns items to the right */
-            width: auto;
-            /* Set to auto for right alignment */
-        }
-        
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            margin-left: 29px;
-            /* Spacing between links */
             z-index: 100;
         }
         
-        .content {
-            display: flex;
-            max-width: 1200px;
-            width: 100%;
-            padding: 50px;
+        .navbar-nav .nav-link {
+            color: #ffcc00;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00;
         }
         
         .left-section {
             flex: 1;
-            padding: 70px;
-            margin-top: 105px;
-            /* Add margin to lower the section */
+            padding: 40px;
+            margin-top: 80px;
             text-align: left;
         }
         
@@ -130,40 +114,26 @@
             align-items: center;
         }
         
-        .phone {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        /* Styles for the booking form */
-        
         .booking-form {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            /* Reduced gap */
-            margin-top: 10px;
-            /* Kept margin minimal */
+            gap: 10px;
+            margin-top: 15px;
         }
         
         .booking-form input,
         .booking-form select,
         .booking-form button {
-            padding: 6px;
-            /* Reduced padding */
+            padding: 10px;
             border: 1px solid #ccc;
-            /* Soft border color */
-            border-radius: 4px;
-            /* Slightly rounded corners */
-            font-size: 14px;
-            /* Kept font size moderate */
-            transition: border-color 0.2s;
-            /* Smooth transition */
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
         }
         
         .booking-form input:focus,
         .booking-form select:focus {
             border-color: #ff9900;
-            /* Focus color */
             outline: none;
         }
         
@@ -172,15 +142,13 @@
             color: white;
             cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         
         .booking-form button:hover {
             background-color: #ff9900;
-            transform: translateY(-1px);
-            /* Subtle hover effect */
+            transform: translateY(-2px);
         }
-        /* Card styles */
         
         .card {
             background: rgba(255, 255, 255, 0.9);
@@ -258,16 +226,104 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
         /* Content card */
+        /* Custom Styling */
+        /* Custom Styling */
         
-        .nested-image img:hover,
-        .overlay-image img:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
+        .welcome-section {
+            background-color: #f7f7f7;
+            padding: 100px 0;
+            /* Increased padding for more height */
+            max-width: 1400px;
+            /* Increased width */
+            margin: auto;
         }
         
-        .overlay-image {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
+        .image-section {
+            position: relative;
+            max-width: 500px;
+            /* Increased image section width */
+            margin: auto;
+        }
+        
+        .background-img {
+            width: 100%;
+            border-radius: 10px;
+            max-height: 350px;
+            /* Increased image height */
+            object-fit: cover;
+        }
+        
+        .foreground-img {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100px;
+            /* Increased foreground image size */
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+        
+        .overlay-text {
+            position: absolute;
+            top: 70px;
+            left: 130px;
+            font-size: 1.75rem;
+            /* Increased text size */
+            font-weight: bold;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            /* Increased padding for more space around text */
+            border-radius: 5px;
+        }
+        
+        .text-section h1 {
+            font-size: 2.5rem;
+            /* Increased font size */
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .text-section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        .cta-button {
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 12px 24px;
+            /* Increased padding for button */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        /* Responsive Adjustments */
+        
+        @media (max-width: 576px) {
+            .foreground-img {
+                width: 70px;
+                top: 10px;
+                left: 10px;
+            }
+            .overlay-text {
+                top: 30px;
+                left: 90px;
+                font-size: 1.35rem;
+            }
+            .text-section h1 {
+                font-size: 1.75rem;
+            }
         }
         
         .services {
@@ -277,6 +333,7 @@
             background-image: url('../uploads/istockphoto-519870714-1024x1024.jpg');
             background-size: cover;
             background-position: center;
+            color: white;
         }
         
         .services::before {
@@ -286,7 +343,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(255, 153, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
         
@@ -296,35 +353,37 @@
             font-size: 2.5rem;
             color: #fff;
             font-weight: bold;
+            text-align: center;
+            margin-bottom: 50px;
         }
         
         .service-item {
             position: relative;
             margin-bottom: 30px;
             padding: 20px;
-            border: 1px solid #ddd;
             border-radius: 12px;
-            background-color: #fff;
+            background-color: #fbe899;
             transition: transform 0.3s, box-shadow 0.3s;
             z-index: 2;
             text-align: center;
+            color: white;
         }
         
         .service-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            background-color: #333;
-            color: white;
+            background-color: #dadada;
+            color: black;
         }
         
         .service-item .icon {
             font-size: 3rem;
             color: #ff9c00;
+            margin-bottom: 15px;
         }
         
         .service-item h3 {
             font-size: 1.5rem;
-            color: inherit;
             font-weight: bold;
         }
         
@@ -333,7 +392,7 @@
         }
         
         .service-item:hover p {
-            color: #ddd;
+            color: black;
         }
         
         .read-more {
@@ -343,6 +402,8 @@
             border-radius: 5px;
             font-size: 1rem;
             transition: background-color 0.3s;
+            display: inline-block;
+            text-decoration: none;
         }
         
         .read-more:hover {
@@ -358,7 +419,7 @@
         }
         
         .service-item:hover hr {
-            background-color: white;
+            background-color: black;
         }
         
         .gallery-item {
@@ -471,11 +532,12 @@
             background-color: #e1f5fe;
             transform: translateY(-5px);
         }
-        /* Footer Styles */
+        /*/* Footer Styles */
         
         .footer {
             background-color: #2c3e50;
             color: white;
+            padding: 20px 0;
         }
         
         .footer-links h3,
@@ -509,6 +571,30 @@
         
         .footer-bottom {
             font-size: 0.9em;
+            text-align: center;
+            padding-top: 10px;
+        }
+        /* Center content for small screens */
+        
+        @media (max-width: 768px) {
+            .footer .row {
+                text-align: center;
+            }
+            .footer-links,
+            .footer-social,
+            .footer-newsletter {
+                margin-bottom: 20px;
+            }
+            .footer-newsletter form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-newsletter .form-control,
+            .footer-newsletter .btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
         
         .support-section {
@@ -670,163 +756,62 @@
             background-color: #333;
         }
     </style>
-</head>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Booking</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        
-        .home {
-            position: relative;
-            background-image: url('../uploads/istockphoto-519870714-1024x1024.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        
-        .content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            width: 100%;
-            padding: 50px;
-        }
-        
-        .navbar-nav a {
-            color: #ff9900 !important;
-            font-weight: bold;
-            margin-left: 20px;
-        }
-        
-        .navbar a:hover {
-            color: white !important;
-        }
-        
-        .logo-container img {
-            height: 80px;
-            width: 60px;
-            margin-right: 10px;
-        }
-        
-        .logo-container h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            max-width: 100%;
-        }
-        
-        .cta-button,
-        .booking-form button {
-            background-color: #ffcc00;
-            color: white;
-            border: none;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-        
-        .cta-button:hover,
-        .booking-form button:hover {
-            background-color: #ff9900;
-            transform: translateY(-1px);
-        }
-    </style>
-</head>
-
-<body>
-    <div class="logo-container d-flex align-items-center p-3 bg-dark text-light">
+    <div class="logo-container" onclick="window.location.href='/'">
         <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="Logo">
         <h1>FMK</h1>
     </div>
 
-    <section class="home d-flex align-items-center">
-        <div class="navbar navbar-expand-lg navbar-dark position-absolute w-100">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">SERVICES</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">GALLERY</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">BLOG</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">ELEMENTS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
-                    </ul>
-                </div>
+    <section class="home">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
-        </div>
+        </nav>
 
         <div class="container content">
             <div class="row">
-                <div class="col-md-6">
-                    <h1>NEED A TAXI? JUST CALL</h1>
+                <div class="col-md-6 left-section">
+                    <h1>Need a Taxi? Just Call</h1>
                     <h2 class="phone">0677231271</h2>
-                    <p>Whether you enjoy city breaks or extended holidays in the sun, you can always improve your travel experiences by staying in a small...</p>
-                    <button class="cta-button btn btn-lg" onclick="window.location.href='tel:911999911'">Call Now</button>
+                    <p>Enjoy city breaks or extended holidays with convenient travel. Stay in a small and friendly setting for a unique experience.</p>
+                    <button class="cta-button btn btn-lg" onclick="window.location.href='tel:0677231271'">Call Now</button>
                 </div>
-                <div class="col-md-6">
-                    <div class="card">
+                <div class="col-md-6 right-section">
+                    <div class="card p-4">
                         <h2>Book Your Taxi!</h2>
                         <form class="booking-form" action="/book" method="POST">
                             <input type="text" class="form-control" name="name" placeholder="Your name" required>
                             <input type="email" class="form-control" name="email" placeholder="Email address" required>
                             <input type="tel" class="form-control" name="phone" placeholder="Phone number" required>
-
                             <select class="form-control" name="pickupLocation" id="pickup-location" required onchange="showCustomLocationField()">
-                                <option value="" disabled selected>Select your region</option>
-                                <option value="dar-es-salaam">Dar es Salaam</option>
-                                <option value="dodoma">Dodoma</option>
-                                <option value="arusha">Arusha</option>
-                                <option value="mwanza">Mwanza</option>
-                                <option value="mbeya">Mbeya</option>
-                                <option value="tanga">Tanga</option>
-                                <option value="zanzibar">Zanzibar</option>
-                                <option value="kilifi">Kilifi</option>
-                                <option value="kilimanjaro">Kilimanjaro</option>
-                                <option value="singida">Singida</option>
-                            </select>
-
+                            <option value="" disabled selected>Select your region</option>
+                            <option value="dar-es-salaam">Dar es Salaam</option>
+                            <option value="dodoma">Dodoma</option>
+                            <option value="arusha">Arusha</option>
+                            <option value="mwanza">Mwanza</option>
+                            <option value="mbeya">Mbeya</option>
+                            <option value="tanga">Tanga</option>
+                            <option value="zanzibar">Zanzibar</option>
+                            <option value="kilifi">Kilifi</option>
+                            <option value="kilimanjaro">Kilimanjaro</option>
+                            <option value="singida">Singida</option>
+                        </select>
                             <div id="custom-region" style="display:none;">
                                 <input type="text" class="form-control mt-2" name="customPickup" id="custom-pickup" placeholder="Your custom pickup region">
                             </div>
-
                             <input type="text" class="form-control" name="destination" placeholder="Enter your destination" required>
                             <input type="date" class="form-control" name="date" required>
                             <input type="time" class="form-control" name="time" required>
-
                             <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
                         </form>
                     </div>
@@ -842,39 +827,38 @@
             customRegion.style.display = select.value ? 'block' : 'none';
         }
     </script>
-    <!-- Bootstrap JS -->
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    </section>
 
 
-    <!-- Content Container -->
-    <div class="container my-5">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h2 class="text-primary">Your Ride, Anywhere, Anytime</h2>
-                <p class="text-warning">Experience the difference with our dedicated team ready to serve you.</p>
-                <p class="description">With a vast network of reliable drivers, we ensure you reach your destination safely and swiftly. Whether it's a quick trip across town or an airport transfer, we’re here to make your journey smooth and enjoyable. Choose us for comfort,
-                    convenience, and peace of mind.</p>
-                <button class="btn btn-primary mt-3">GET DETAILS</button>
-            </div>
-            <div class="col-md-6">
-                <div class="nested-image position-relative">
-                    <img src="uploads/pexels-roberto-hund-5357810.jpg" alt="Main Image" class="img-fluid rounded shadow">
-                    <div class="overlay-image position-absolute top-0 start-0 w-75 mt-5 ms-5">
-                        <img src="uploads/pexels-roberto-hund-5357810.jpg" alt="Overlay Image" class="img-fluid rounded">
+    <section class="welcome-section">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+
+                <!-- Left Side: Image Section -->
+                <div class="col-md-6">
+                    <div class="image-section">
+                        <img src="uploads/pexels-esmihel-15256361.jpg " class="background-img img-fluid" alt="Background Image">
+                        <img src="uploads/pexels-esmihel-15256361.jpg " class="foreground-img" alt="Foreground Image">
+                        <div class="overlay-text">Your Ride, Anywhere, Anytime.</div>
                     </div>
                 </div>
+
+                <!-- Right Side: Text Content -->
+                <div class="col-md-6 text-section">
+                    <h1>Welcome.</h1>
+                    <p>Experience the difference with our dedicated team ready to serve you. With a vast network of reliable drivers, we ensure you reach your destination safely and swiftly.</p>
+                    <p> Whether it's a quick trip across town or an airport transfer, we’re here to make your journey smooth and enjoyable. Choose us for comfort, convenience, and peace of mind.!</p>
+
+                    <!-- Call to Action Button -->
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+
             </div>
         </div>
-    </div>
-
-
-
-
-
-
+    </section>
 
 
 
@@ -883,36 +867,65 @@
 
 
     <section class="services">
-        <h2 class="text-center">Globally Connected by Large Network</h2>
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-item taxi card text-center">
-                        <div class="icon display-4">🚖</div>
+            <h2>Globally Connected by Large Network</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">🚖</div>
                         <h3>Taxi Service</h3>
                         <p>Enjoy seamless rides with our reliable taxi services, available at your fingertips.</p>
-                        <a href="/taxi" class="read-more btn btn-primary">Read More</a>
+                        <hr>
+                        <a href="/taxi" class="read-more">Read More</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-item office card text-center">
-                        <div class="icon display-4">🏢</div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">🏢</div>
                         <h3>Office Pick-ups</h3>
                         <p>Convenient transportation solutions for your daily commutes and meetings.</p>
                         <hr>
-                        <a href="/office" class="read-more btn btn-primary">Read More</a>
+                        <a href="/office" class="read-more">Read More</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-item event card text-center">
-                        <div class="icon display-4">🎉</div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">🎉</div>
                         <h3>Event Transportation</h3>
                         <p>Arrive in style with our dedicated event transportation services.</p>
                         <hr>
-                        <a href="/event" class="read-more btn btn-primary">Read More</a>
+                        <a href="/event" class="read-more">Read More</a>
                     </div>
                 </div>
-                <!-- Additional cards go here -->
+                <!-- Additional Service Items -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">🛬</div>
+                        <h3>Airport Transfers</h3>
+                        <p>Efficient airport transfer services for a stress-free travel experience.</p>
+                        <hr>
+
+                        <a href="/airport" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">🚚</div>
+                        <h3>Logistics Services</h3>
+                        <p>Professional logistics and transportation solutions tailored to your needs.</p>
+                        <hr>
+                        <a href="/logistics" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">💼</div>
+                        <h3>Corporate Solutions</h3>
+                        <p>Customized transport solutions designed for corporate clients and businesses.</p>
+                        <hr>
+                        <a href="/corporate" class="read-more">Read More</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -935,45 +948,46 @@
 
 
 
-    <div class="container offer-container">
+
+    <div class="container offer-container ">
         <h2>What We Offer</h2>
-        <p class="subtitle">Choose Your Car</p>
+        <p class="subtitle ">Choose Your Car</p>
 
-        <div class="car-grid">
-            <div class="car-card">
-                <img src="uploads/pexels-esmihel-15256361.jpg" alt="Mercedes Grand Sedan" class="car-image" />
+        <div class="car-grid ">
+            <div class="car-card ">
+                <img src="uploads/pexels-esmihel-15256361.jpg " alt="Mercedes Grand Sedan " class="car-image " />
                 <h3>Mercedes Grand Sedan</h3>
-                <p class="price">$25 FROM / DAY</p>
-                <p class="description">Luxury and comfort combined, perfect for long journeys.</p>
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <button onclick="alert('Booking Mercedes Grand Sedan!')" class="book-now">Book Now</button>
+                <p class="price ">$25 FROM / DAY</p>
+                <p class="description ">Luxury and comfort combined, perfect for long journeys.</p>
+                <div class="rating ">⭐⭐⭐⭐⭐</div>
+                <button onclick="alert( 'Booking Mercedes Grand Sedan!') " class="book-now ">Book Now</button>
             </div>
 
-            <div class="car-card">
-                <img src="uploads/pexels-hawraz-karim-353575904-18362808.jpg" alt="Audi" class="car-image" />
+            <div class="car-card ">
+                <img src="uploads/pexels-hawraz-karim-353575904-18362808.jpg " alt="Audi " class="car-image " />
                 <h3>Audi</h3>
-                <p class="price">$30 FROM / DAY</p>
-                <p class="description">A blend of performance and elegance for the discerning driver.</p>
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <button onclick="alert('Booking Audi!')" class="book-now">Book Now</button>
+                <p class="price ">$30 FROM / DAY</p>
+                <p class="description ">A blend of performance and elegance for the discerning driver.</p>
+                <div class="rating ">⭐⭐⭐⭐⭐</div>
+                <button onclick="alert( 'Booking Audi!') " class="book-now ">Book Now</button>
             </div>
 
-            <div class="car-card">
-                <img src="uploads/pexels-jdm-kuruma-1304609967-24712866.jpg" alt="Ford" class="car-image" />
+            <div class="car-card ">
+                <img src="uploads/pexels-jdm-kuruma-1304609967-24712866.jpg " alt="Ford " class="car-image " />
                 <h3>Ford</h3>
-                <p class="price">$20 FROM / DAY</p>
-                <p class="description">Reliable and economical, ideal for everyday use.</p>
-                <div class="rating">⭐⭐⭐⭐</div>
-                <button onclick="alert('Booking Ford!')" class="book-now">Book Now</button>
+                <p class="price ">$20 FROM / DAY</p>
+                <p class="description ">Reliable and economical, ideal for everyday use.</p>
+                <div class="rating ">⭐⭐⭐⭐</div>
+                <button onclick="alert( 'Booking Ford!') " class="book-now ">Book Now</button>
             </div>
 
-            <div class="car-card">
-                <img src="uploads/pexels-mohsin-mirza-703150220-26841837.jpg" alt="Chevrolet" class="car-image" />
+            <div class="car-card ">
+                <img src="uploads/pexels-mohsin-mirza-703150220-26841837.jpg " alt="Chevrolet " class="car-image " />
                 <h3>Chevrolet</h3>
-                <p class="price">$22 FROM / DAY</p>
-                <p class="description">Versatile and spacious, perfect for family trips.</p>
-                <div class="rating">⭐⭐⭐⭐</div>
-                <button onclick="alert('Booking Chevrolet!')" class="book-now">Book Now</button>
+                <p class="price ">$22 FROM / DAY</p>
+                <p class="description ">Versatile and spacious, perfect for family trips.</p>
+                <div class="rating ">⭐⭐⭐⭐</div>
+                <button onclick="alert( 'Booking Chevrolet!') " class="book-now ">Book Now</button>
             </div>
         </div>
     </div>
@@ -984,55 +998,55 @@
 
 
 
-    <div class="container my-5">
-        <h2 class="text-center">Image Gallery</h2>
-        <p class="text-center">Sharing our love for the eco-friendly system.</p>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="gallery-item" onclick="openModal('uploads/image1.jpg')">
-                    <img src="uploads/1728491070560-_MG_2464.JPG" class="img-fluid" alt="Eco Image 1">
+    <div class="container my-5 ">
+        <h2 class="text-center ">Image Gallery</h2>
+        <p class="text-center ">Sharing our love for the eco-friendly system.</p>
+        <div class="row ">
+            <div class="col-md-4 mb-4 ">
+                <div class="gallery-item " onclick="openModal( 'uploads/image1.jpg') ">
+                    <img src="uploads/1728491070560-_MG_2464.JPG " class="img-fluid " alt="Eco Image 1 ">
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="gallery-item" onclick="openModal('uploads/image2.jpg')">
-                    <img src="uploads/1728491070560-_MG_2464.JPG" class="img-fluid" alt="Eco Image 2">
+            <div class="col-md-4 mb-4 ">
+                <div class="gallery-item " onclick="openModal( 'uploads/image2.jpg') ">
+                    <img src="uploads/1728491070560-_MG_2464.JPG " class="img-fluid " alt="Eco Image 2 ">
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="gallery-item" onclick="openModal('uploads/image3.jpg')">
-                    <img src="uploads/istockphoto-519870714-1024x1024.jpg" class="img-fluid" alt="Eco Image 3">
+            <div class="col-md-4 mb-4 ">
+                <div class="gallery-item " onclick="openModal( 'uploads/image3.jpg') ">
+                    <img src="uploads/istockphoto-519870714-1024x1024.jpg " class="img-fluid " alt="Eco Image 3 ">
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="gallery-item" onclick="openModal('uploads/image4.jpg')">
-                    <img src="uploads/pexels-binyaminmellish-106399.jpg" class="img-fluid" alt="Eco Image 4">
+            <div class="col-md-4 mb-4 ">
+                <div class="gallery-item " onclick="openModal( 'uploads/image4.jpg') ">
+                    <img src="uploads/pexels-binyaminmellish-106399.jpg " class="img-fluid " alt="Eco Image 4 ">
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="gallery-item" onclick="openModal('uploads/image5.jpg')">
-                    <img src="uploads/istockphoto-519870714-1024x1024.jpg" class="img-fluid" alt="Eco Image 5">
+            <div class="col-md-4 mb-4 ">
+                <div class="gallery-item " onclick="openModal( 'uploads/image5.jpg') ">
+                    <img src="uploads/istockphoto-519870714-1024x1024.jpg " class="img-fluid " alt="Eco Image 5 ">
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="gallery-item" onclick="openModal('uploads/image6.jpg')">
-                    <img src="uploads/pexels-binyaminmellish-106399.jpg" class="img-fluid" alt="Eco Image 6">
+            <div class="col-md-4 mb-4 ">
+                <div class="gallery-item " onclick="openModal( 'uploads/image6.jpg') ">
+                    <img src="uploads/pexels-binyaminmellish-106399.jpg " class="img-fluid " alt="Eco Image 6 ">
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal for image preview -->
-    <div id="imageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+    <div id="imageModal " class="modal fade " tabindex="-1 " role="dialog " aria-labelledby="imageModalLabel " aria-hidden="true ">
+        <div class="modal-dialog modal-lg " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="imageModalLabel ">Image Preview</h5>
+                    <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
+                    <span aria-hidden="true ">&times;</span>
                 </button>
                 </div>
-                <div class="modal-body">
-                    <img id="modalImage" class="img-fluid" alt="Preview">
+                <div class="modal-body ">
+                    <img id="modalImage " class="img-fluid " alt="Preview ">
                 </div>
             </div>
         </div>
@@ -1040,33 +1054,33 @@
 
     <script>
         function openModal(imageSrc) {
-            document.getElementById("modalImage").src = imageSrc;
+            document.getElementById("modalImage ").src = imageSrc;
             $('#imageModal').modal('show');
         }
     </script>
     <!-- Modal for image preview -->
-    <div id="imageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+    <div id="imageModal " class="modal fade " tabindex="-1 " role="dialog " aria-labelledby="imageModalLabel " aria-hidden="true ">
+        <div class="modal-dialog modal-lg " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="imageModalLabel ">Image Preview</h5>
+                    <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
+                        <span aria-hidden="true ">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <img id="modalImage" class="img-fluid" alt="Preview">
+                <div class="modal-body ">
+                    <img id="modalImage " class="img-fluid " alt="Preview ">
                 </div>
             </div>
         </div>
     </div>
-    <section class="support-section">
-        <div class="support-container">
+    <section class="support-section ">
+        <div class="support-container ">
             <h2>Experience Great Support</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <div class="support-call-to-action">
+            <div class="support-call-to-action ">
                 <h3>REACH OUR SUPPORT TEAM</h3>
-                <button class="support-button">Contact Us</button>
+                <button class="support-button ">Contact Us</button>
             </div>
         </div>
     </section>
@@ -1076,7 +1090,7 @@
 
     <script>
         function openModal(imageSrc) {
-            document.getElementById("modalImage").src = imageSrc;
+            document.getElementById("modalImage ").src = imageSrc;
             $('#imageModal').modal('show');
         }
     </script>
@@ -1084,78 +1098,78 @@
 
 
 
-    <div class="reviews-container">
+    <div class="reviews-container ">
         <h2>Client's Reviews</h2>
         <p>What our clients say about their love for eco-friendly solutions.</p>
-        <div class="review-form">
+        <div class="review-form ">
             <h3>Leave a Review</h3>
-            <form id="reviewForm">
-                <input type="text" name="name" placeholder="Your Name" required />
-                <input type="email" name="email" placeholder="Your Email" required />
-                <textarea name="review" placeholder="Your Review" required></textarea>
-                <button type="submit">Submit</button>
+            <form id="reviewForm ">
+                <input type="text " name="name " placeholder="Your Name " required />
+                <input type="email " name="email " placeholder="Your Email " required />
+                <textarea name="review " placeholder="Your Review " required></textarea>
+                <button type="submit ">Submit</button>
             </form>
         </div>
 
-        <div class="reviews" id="reviews">
+        <div class="reviews " id="reviews ">
             <!-- Reviews will be dynamically inserted here -->
         </div>
     </div>
 
-    <footer class="footer py-4">
-        <div class="container">
-            <div class="row">
+    <footer class="footer py-4 ">
+        <div class="container ">
+            <div class="row ">
                 <!-- Quick Links -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-links">
-                    <h3 class="text-warning">Quick Links</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Book a Taxi</a></li>
-                        <li><a href="#">Hotel Reservations</a></li>
-                        <li><a href="#">Car Rentals</a></li>
-                        <li><a href="#">Airport Transfers</a></li>
-                        <li><a href="#">Travel Insurance</a></li>
-                        <li><a href="#">Customer Support</a></li>
+                <div class="col-md-3 col-sm-6 mb-4 footer-links ">
+                    <h3 class="text-warning ">Quick Links</h3>
+                    <ul class="list-unstyled ">
+                        <li><a href="# ">Book a Taxi</a></li>
+                        <li><a href="# ">Hotel Reservations</a></li>
+                        <li><a href="# ">Car Rentals</a></li>
+                        <li><a href="# ">Airport Transfers</a></li>
+                        <li><a href="# ">Travel Insurance</a></li>
+                        <li><a href="# ">Customer Support</a></li>
                     </ul>
                 </div>
 
                 <!-- Additional Services -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-links">
-                    <h3 class="text-warning">Additional Services</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="#">City Tours</a></li>
-                        <li><a href="#">Group Bookings</a></li>
-                        <li><a href="#">Loyalty Program</a></li>
-                        <li><a href="#">Promotions</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                <div class="col-md-3 col-sm-6 mb-4 footer-links ">
+                    <h3 class="text-warning ">Additional Services</h3>
+                    <ul class="list-unstyled ">
+                        <li><a href="# ">City Tours</a></li>
+                        <li><a href="# ">Group Bookings</a></li>
+                        <li><a href="# ">Loyalty Program</a></li>
+                        <li><a href="# ">Promotions</a></li>
+                        <li><a href="# ">FAQs</a></li>
+                        <li><a href="# ">Contact Us</a></li>
                     </ul>
                 </div>
 
                 <!-- Follow Us -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-social">
-                    <h3 class="text-warning">Follow Us</h3>
+                <div class="col-md-3 col-sm-6 mb-4 footer-social ">
+                    <h3 class="text-warning ">Follow Us</h3>
                     <p>Stay connected with us</p>
-                    <div class="d-flex gap-3">
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
+                    <div class="d-flex gap-3 ">
+                        <a href="# ">Facebook</a>
+                        <a href="# ">Twitter</a>
+                        <a href="# ">Instagram</a>
+                        <a href="# ">LinkedIn</a>
                     </div>
                 </div>
 
                 <!-- Newsletter -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-newsletter">
-                    <h3 class="text-warning">Newsletter</h3>
+                <div class="col-md-3 col-sm-6 mb-4 footer-newsletter ">
+                    <h3 class="text-warning ">Newsletter</h3>
                     <p>Stay updated with our latest</p>
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Enter Email" aria-label="Email">
-                        <button class="btn btn-warning" type="button">Subscribe</button>
+                    <div class="input-group ">
+                        <input type="email " class="form-control " placeholder="Enter Email " aria-label="Email ">
+                        <button class="btn btn-warning " type="button ">Subscribe</button>
                     </div>
                 </div>
             </div>
 
             <!-- Footer Bottom -->
-            <div class="footer-bottom text-center mt-4">
+            <div class="footer-bottom text-center mt-4 ">
                 <p>Copyright ©2024 All rights reserved | This template is made with ❤️ by Colorlib</p>
             </div>
         </div>
@@ -1168,19 +1182,19 @@
 
 
 
-    <script src="/script.js"></script>
+    <script src="/script.js "></script>
     <!-- Ensure your JS file is linked -->
     <script>
         function openModal(imageSrc) {
-            const modal = document.getElementById("imageModal");
-            const modalImage = document.getElementById("modalImage");
-            modal.style.display = "block"; // Show modal
+            const modal = document.getElementById("imageModal ");
+            const modalImage = document.getElementById("modalImage ");
+            modal.style.display = "block "; // Show modal
             modalImage.src = imageSrc; // Set image source
         }
 
         function closeModal() {
-            const modal = document.getElementById("imageModal");
-            modal.style.display = "none"; // Hide modal
+            const modal = document.getElementById("imageModal ");
+            modal.style.display = "none "; // Hide modal
         }
 
 
@@ -1213,6 +1227,6 @@
 
 
 
-</body>
+    </body>
 
 </html>
