@@ -90,8 +90,33 @@
             font-weight: bold;
             margin-left: 20px;
             transition: color 0.3s;
-            z-index: 100;
-            background-color: palegreen;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-nav .nav-link {
+                color: #ffcc00;
+                font-weight: bold;
+                margin-left: 20px;
+                padding: 10px 15px;
+                transition: color 0.3s, background-color 0.3s, transform 0.2s;
+                background-color: #98fb98;
+                /* Light green */
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            .navbar-nav .nav-link:hover {
+                color: #ffffff;
+                background-color: #32cd32;
+                /* Darker green for hover */
+                transform: scale(1.05);
+                /* Slight zoom effect */
+                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            }
+            /* Spacing between navbar items */
+            .navbar-nav .nav-item {
+                margin-bottom: 10px;
+            }
         }
         
         .navbar-nav .nav-link:hover {
@@ -107,6 +132,12 @@
         
         p {
             color: #e1f5fe;
+        }
+        
+        h2 {
+            color: #ff9c00;
+            font-size: 2.5rem;
+            font-weight: bold;
         }
         
         .right-section {
@@ -368,11 +399,12 @@
         .services h2 {
             position: relative;
             z-index: 2;
-            font-size: 2.5rem;
-            color: black;
             font-weight: bold;
             text-align: center;
             margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff9c00;
         }
         
         .service-item {
@@ -474,6 +506,12 @@
             transform: scale(1.05);
         }
         
+        .gallery-h1 {
+            color: #ff9c00;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
         .modal-body {
             text-align: center;
         }
@@ -495,9 +533,9 @@
         }
         
         .reviews-container h2 {
-            font-size: 2.5em;
             color: #ff9c00;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: bold;
         }
         
         .reviews-container p {
@@ -559,9 +597,10 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         
-        .review-card h3 {
+        .review-card h2 {
             color: #ff9c00;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: bold;
         }
         
         .review-card p {
@@ -714,7 +753,7 @@
         
         .offer-container h2 {
             font-size: 2.5rem;
-            color: #333;
+            color: #ff9c00;
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -910,7 +949,7 @@
             <div class="row">
                 <div class="col-md-6 left-section">
                     <h1>Need a Taxi? Just Call</h1>
-                    <h2 class="phone">0677231271</h2>
+
                     <p>Enjoy city breaks or extended holidays with convenient travel. Stay in a small and friendly setting for a unique experience.</p>
                     <button class="cta-button" onclick="window.location.href='tel:0677231271'">Call Now</button>
                     <button class="toggle-button" onclick="toggleModal()">Book Your Taxi</button>
@@ -1150,7 +1189,7 @@
 
 
     <div class="container offer-container ">
-        <h2>What We Offer</h2>
+        <h2>Find Your Ideal Ride</h2>
         <p class="subtitle ">Choose Your Car</p>
 
         <div class="car-grid ">
@@ -1221,7 +1260,7 @@
 
 
     <div class="container my-5 ">
-        <h2 class="text-center ">Image Gallery</h2>
+        <h1 class="gallery-h1 text-center">Image Gallery</h1>
         <p class="text-center ">Sharing our love for the eco-friendly system.</p>
         <div class="row ">
             <div class="col-md-4 mb-4 ">
@@ -1473,6 +1512,8 @@
             }
         }
     </script>
-    </body>
+    </b ody>
+
+</html>
 
 </html>
