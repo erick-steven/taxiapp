@@ -1,37 +1,25 @@
-// auth.js
-
+// adminAuthRoutes.js
 
 const bcrypt = require('bcryptjs');
 const express = require('express');
-
 const nodemailer = require('nodemailer');
-const User = require('../models/User');
-
-const router = express.Router();
-
-
 const multer = require('multer');
-
-
-
+const User = require('../models/User'); // Ensure the User model path is correct
+const router = express.Router();
+const Booking = require('../models/Booking');
 // Set up multer for file uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/'); // Specify the directory for uploaded files
+        cb(null, 'uploads/'); // Set your upload directory here
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname); // Add timestamp to avoid filename collisions
+        cb(null, Date.now() + '-' + file.originalname); // Append timestamp to avoid name collisions
     }
 });
 
-
 const upload = multer({ storage });
 
-
-
-
-
-// Email transporter
+// Email transporter configuration
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -39,15 +27,27 @@ const transporter = nodemailer.createTransport({
         pass: 'frrl tfdu jfee edon'
     },
     tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: false // Allow self-signed certificates
     }
 });
 
-// Register route
+// Middleware to check authentication
+const isAuthenticated = (req, res, next) => {
+    if (req.session.userId) {
+        return next(); // User is authenticated, proceed to the next middleware or route handler
+    }
+    res.redirect('/admin/login'); // Redirect to login if not authenticated
+};
+
+
 router.get('/register', (req, res) => {
     res.render('admin/register'); // Render the registration page
 });
 
+
+router.get('/register', (req, res) => {
+    res.render('admin/register'); // Render the registration page
+});
 // Registration endpoint with image upload
 router.post('/register', upload.single('image'), async(req, res) => {
     const { email, password, name } = req.body; // Include name in the destructuring
@@ -65,14 +65,14 @@ router.post('/register', upload.single('image'), async(req, res) => {
         const user = new User({
             email,
             password: hashedPassword,
-            name, // Store the name
+            name,
             verificationToken,
             imageUrl // Store the image URL
         });
 
-        await user.save();
+        await user.save(); // Save the new user to the database
 
-        const verificationLink = `http://localhost:${process.env.PORT}/verify/${verificationToken}`;
+        const verificationLink = `http://localhost:${process.env.PORT}/admin/verify/${verificationToken}`;
         await transporter.sendMail({
             to: email,
             subject: 'Email Verification',
@@ -86,6 +86,37 @@ router.post('/register', upload.single('image'), async(req, res) => {
     }
 });
 
+// Login route
+router.get('/login', (req, res) => {
+    res.render('admin/login'); // Render the login page
+});
+
+// Login endpoint
+router.post('/login', async(req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).send('Login failed. Check your credentials or verify your email.');
+        }
+
+        if (!user.verified) {
+            return res.status(403).send('Please verify your email before logging in.');
+        }
+
+        const match = await bcrypt.compare(password, user.password);
+        if (match) {
+            req.session.userId = user._id; // Set session variable
+            return res.redirect('/admin/dashboard'); // Redirect to admin dashboard
+        } else {
+            res.status(400).send('Login failed. Check your credentials or verify your email.');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server error. Please try again later.');
+    }
+});
 
 // Verification route
 router.get('/verify/:token', async(req, res) => {
@@ -104,36 +135,31 @@ router.get('/verify/:token', async(req, res) => {
         res.status(500).send('Server error. Please try again later.');
     }
 });
-
-// Login route
-router.get('/login', (req, res) => {
-    res.render('admin/login'); // Render the login page
+// Register route
+router.get('/register', (req, res) => {
+    res.render('admin/register'); // Render the registration page
 });
 
-router.post('/login', async(req, res) => {
-    const { email, password } = req.body;
-
+router.get('/dashboard', async(req, res) => {
     try {
-        const user = await User.findOne({ email });
+        // Fetch the user data using the session userId
+        const user = await User.findById(req.session.userId);
+
+        // Check if user exists
         if (!user) {
-            return res.status(400).send('Login failed. Check your credentials or verify your email.'); // Handle non-existing user
+            return res.status(404).send('User not found');
         }
 
-        if (!user.verified) {
-            return res.status(403).send('Please verify your email before logging in.'); // Handle unverified user
-        }
+        // Fetch all bookings to get the total count
+        const bookings = await Booking.find();
 
-        const match = await bcrypt.compare(password, user.password);
-        if (match) {
-            req.session.userId = user._id; // Set session variable
-            return res.redirect('/dashboard');
-        } else {
-            res.status(400).send('Login failed. Check your credentials or verify your email.');
-        }
+        // Render the dashboard, passing both user and bookings data
+        res.render('admin/dashboard', { user, bookings });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Server error. Please try again later.');
+        res.status(500).send('Server error');
     }
 });
+
 
 module.exports = router;

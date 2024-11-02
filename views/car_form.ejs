@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Car</title>
+    <link rel="stylesheet" href="/path/to/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Adjust the path as necessary -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+        
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .sidebar i {
+            margin-right: 10px;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .form-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        #imagePreview {
+            margin-top: 15px;
+            width: 200px;
+            /* Set a constant width */
+            height: 150px;
+            /* Set a constant height */
+            object-fit: cover;
+            /* Ensure the image covers the area without stretching */
+            border: 1px solid #ccc;
+            /* Optional: Add border */
+            border-radius: 4px;
+            /* Optional: Add border radius */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="/cars">
+            <i class="fas fa-car"></i> Cars
+        </a>
+        <a href="/bookings">
+            <i class="fas fa-book"></i> Bookings
+        </a>
+        <a href="/reviews">
+            <i class="fas fa-star"></i> Reviews
+        </a>
+        <!-- Add more links as necessary -->
+    </div>
+
+    <div class="main-content">
+        <h2>Add a New Car</h2>
+        <form id="carForm" action="/cars/add" method="POST" enctype="multipart/form-data" class="form-container">
+            <div class="form-group">
+                <label for="carName">Car Name:</label>
+                <input type="text" id="carName" name="carName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="carPrice">Price per Day:</label>
+                <input type="number" id="carPrice" name="carPrice" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="carDescription">Description:</label>
+                <textarea id="carDescription" name="carDescription" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="carImage">Car Image:</label>
+                <input type="file" id="carImage" name="carImage" accept="image/*" class="form-control" required onchange="previewImage(event)">
+            </div>
+            <img id="imagePreview" alt="Image Preview" style="display: none;">
+            <button type="submit" class="btn btn-primary">Add Car</button>
+        </form>
+    </div>
+
+    <script src="/path/to/bootstrap.bundle.js"></script>
+    <script>
+        function previewImage(event) {
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.style.display = 'block'; // Show the image element
+            imagePreview.src = URL.createObjectURL(event.target.files[0]); // Create a URL for the uploaded file
+        }
+    </script>
+    <!-- Adjust the path as necessary -->
+</body>
+
+</html>

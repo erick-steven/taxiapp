@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +11,23 @@
 
     <style>
         /* Custom Styles */
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
         }
-
+        
         header {
             background-color: #dc3545;
             color: white;
             padding: 20px;
             text-align: center;
         }
-
+        
         header h1 {
             margin: 0;
         }
-
+        
         header a {
             color: white;
             text-decoration: none;
@@ -35,15 +37,16 @@
             padding: 5px 10px;
             border-radius: 5px;
         }
-
+        
         header a:hover {
             background-color: white;
             color: #dc3545;
             transition: background-color 0.3s ease;
         }
-
+        
         .hero-section {
-            background-image: url('https://via.placeholder.com/1500x500'); /* Replace with your image */
+            background-image: url('https://via.placeholder.com/1500x500');
+            /* Replace with your image */
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -51,20 +54,20 @@
             text-align: center;
             padding: 100px 20px;
         }
-
+        
         .hero-section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
         }
-
+        
         .hero-section p {
             font-size: 1.2em;
         }
-
+        
         h2 {
             color: #dc3545;
         }
-
+        
         footer {
             background-color: #dc3545;
             color: white;
@@ -72,12 +75,14 @@
             padding: 20px;
             margin-top: 30px;
         }
-
-        .booking-form input, .booking-form select {
+        
+        .booking-form input,
+        .booking-form select {
             margin-bottom: 10px;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header -->
@@ -112,7 +117,7 @@
                     <input type="text" name="name" placeholder="Your name" required class="form-control">
                     <input type="email" name="email" placeholder="Email address" required class="form-control">
                     <input type="tel" name="phone" placeholder="Phone number" required class="form-control">
-                    
+
                     <select name="pickupLocation" id="pickup-location" required class="form-control" onchange="showCustomLocationField()">
                         <option value="" disabled selected>Select your region</option>
                         <option value="dar-es-salaam">Dar es Salaam</option>
@@ -126,16 +131,16 @@
                         <option value="kilimanjaro">Kilimanjaro</option>
                         <option value="singida">Singida</option>
                     </select>
-                    
+
                     <div id="custom-region" style="display:none;">
                         <input type="text" name="customPickup" id="custom-pickup" placeholder="Your custom pickup region" class="form-control">
                     </div>
-                    
+
                     <input type="text" name="destination" id="destination" placeholder="Enter your destination" required class="form-control">
-                    
+
                     <input type="date" name="date" required class="form-control">
                     <input type="time" name="time" required class="form-control">
-                    
+
                     <button type="submit" class="btn btn-lg btn-danger w-100">Book Now</button>
                 </form>
             </section>
@@ -177,4 +182,5 @@
         }
     </script>
 </body>
+
 </html>

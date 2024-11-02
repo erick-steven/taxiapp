@@ -2,14 +2,14 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String,
-  pickupLocation: String,
-  customPickup: String,
-  destination: String,
-  date: Date,
-  time: String,
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
+    pickupLocation: { type: String, required: true },
+    customPickup: { type: String, required: false },
+    destinationLocation: { type: String, required: true }, // Ensured comma here
+    date: { type: Date, required: true },
+    time: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);

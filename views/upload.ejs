@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Upload and Update Image</title>
+    <style>
+        .sidebar {
+            height: 100vh;
+            /* Full height */
+            position: fixed;
+            /* Stay in place */
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background-color: #f8f9fa;
+            /* Light background */
+            padding: 20px;
+        }
+        
+        .sidebar a {
+            color: #333;
+            /* Dark text color */
+        }
+        
+        .sidebar a:hover {
+            color: #007bff;
+            /* Bootstrap primary color */
+        }
+        
+        .content {
+            margin-left: 250px;
+            /* Space for sidebar */
+            padding: 20px;
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            /* Initially hidden */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2 class="text-center">Admin Panel</h2>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="/upload"><i class="fas fa-upload"></i> Upload Image</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/gallery"><i class="fas fa-images"></i> Image Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cars"><i class="fas fa-car"></i> Manage Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/reviews"><i class="fas fa-star"></i> Manage Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/bookings"><i class="fas fa-calendar-check"></i> Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2 class="text-center mb-4">Upload and Update Image</h2>
+
+        <table class="table table-bordered shadow-sm bg-light">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">Image Preview</th>
+                    <th scope="col">Submit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <h5>Upload Image</h5>
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="image" class="font-weight-bold">Choose Image:</label>
+                                <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required onchange="previewImage(event)">
+                            </div>
+                            <img id="imagePreview" class="image-preview" src="" alt="Image Preview" style="display:none;">
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </form>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Update Image</h5>
+                        <form action="/update-image" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="updateImage" class="font-weight-bold">Select Image to Update:</label>
+                                <input type="file" class="form-control-file" id="updateImage" name="updateImage" accept="image/*" onchange="previewUpdateImage(event)">
+                            </div>
+                    </td>
+                    <td>
+                        <img id="updateImagePreview" class="image-preview" src="" alt="Image Preview">
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = URL.createObjectURL(event.target.files[0]);
+            imagePreview.style.display = 'block'; // Show the preview
+        }
+
+        function previewUpdateImage(event) {
+            const updateImagePreview = document.getElementById('updateImagePreview');
+            updateImagePreview.src = URL.createObjectURL(event.target.files[0]);
+            updateImagePreview.style.display = 'block'; // Show the preview
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -369,13 +369,9 @@
         
         .services {
             position: relative;
-            padding: 40px 0;
-            background-color: black;
-            background-size: cover;
-            background-position: center;
-            color: rgba(243, 196, 108, 0.863);
-            background-color: rgba(243, 196, 108, 0.863);
-            ;
+            padding: 60px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
         }
         
         .services::before {
@@ -385,77 +381,77 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient( 135deg, rgba(255, 255, 255, 0.25), rgba(173, 155, 120, 0.35), rgba(255, 204, 128, 0.2), rgba(245, 130, 130, 0.3));
-            /* Adds multiple color stops for depth */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(173, 155, 120, 0.2), rgba(255, 204, 128, 0.1), rgba(245, 130, 130, 0.2));
             backdrop-filter: blur(20px) saturate(180%);
-            /* Higher blur and saturation for a more dynamic glass effect */
             border-radius: 15px;
-            /* Smoother corner rounding */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            /* Deepened shadow for strong depth */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
         
         .services h2 {
-            position: relative;
-            z-index: 2;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-size: 2.5rem;
-            font-weight: bold;
             color: #ff9c00;
         }
         
         .service-item {
-            position: relative;
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 12px;
-            background-color: rgb(255, 255, 255);
-            /* Semi-transparent orange */
-            backdrop-filter: blur(10px);
-            /* Frosted glass effect */
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 70px;
             text-align: center;
-            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            /* Optional: adds depth */
         }
-        /* Optional hover effect */
         
         .service-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            /* Enhance shadow on hover */
-        }
-        
-        .service-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            background-color: #dadada;
-            color: black;
         }
         
         .service-item .icon {
-            font-size: 3rem;
-            color: #ff9c00;
-            margin-bottom: 15px;
+            width: 120px;
+            /* Set a fixed width for the icon */
+            height: 120px;
+            /* Set a fixed height for the icon */
+            margin: 0 auto 15px;
+            /* Center the icon */
+            overflow: hidden;
+            /* Hide overflow */
+            border-radius: 10px;
+            /* Optional: rounded corners */
+            display: flex;
+            /* Use flexbox for centering */
+            justify-content: center;
+            /* Center the image horizontally */
+            align-items: center;
+            /* Center the image vertically */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Optional: background color */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Optional: shadow for better visibility */
+        }
+        
+        .service-icon {
+            width: 100%;
+            /* Fill the width of the icon container */
+            height: 100%;
+            /* Fill the height of the icon container */
+            object-fit: cover;
+            /* Maintain aspect ratio while covering the area */
         }
         
         .service-item h3 {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: bold;
             color: #ff9c00;
         }
         
         .service-item p {
-            color: #666;
-        }
-        
-        .service-item:hover p {
-            color: black;
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
         
         .read-more {
@@ -465,34 +461,18 @@
             border-radius: 5px;
             font-size: 1rem;
             transition: background-color 0.3s;
-            display: inline-block;
             text-decoration: none;
         }
         
         .read-more:hover {
             background-color: orange;
-            color: white;
         }
         
         hr {
             background-color: orange;
             height: 2px;
             border: none;
-            margin: 15px 0;
-        }
-        
-        .service-item:hover hr {
-            background-color: black;
-        }
-        
-        .service-icon {
-            width: 150px;
-            /* Adjust width */
-            height: 100px;
-            ;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            /* Optional: adds rounded corners */
+            margin: 20px 0;
         }
         
         .gallery-item {
@@ -613,6 +593,19 @@
             transform: translateY(-5px);
         }
         /*/* Footer Styles */
+        
+        .reviews {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        
+        .review {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
         
         .footer {
             background-color: #2c3e50;
@@ -764,28 +757,15 @@
             margin-bottom: 30px;
         }
         
-        .car-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        
         .car-card {
             background: #fff;
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            width: 300px;
             padding: 20px;
             text-align: center;
-            position: relative;
-        }
-        
-        .car-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            margin: 10px 0;
         }
         
         .car-image {
@@ -796,29 +776,11 @@
             margin-bottom: 15px;
         }
         
-        .car-card h3 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
         .price {
             font-size: 1.2rem;
             color: #ff6600;
             font-weight: bold;
             margin-bottom: 10px;
-        }
-        
-        .description {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .rating {
-            font-size: 1.2rem;
-            color: #ff9c00;
-            margin-bottom: 15px;
         }
         
         .book-now {
@@ -830,10 +792,6 @@
             font-size: 1rem;
             transition: background-color 0.3s;
             cursor: pointer;
-        }
-        
-        .book-now:hover {
-            background-color: #333;
         }
         
         .why-choose-us {
@@ -923,14 +881,21 @@
         }
     </style>
 
+
+
+    </body>
+    <!-- Logo Container -->
+    <!-- Logo Container -->
     <div class="logo-container" onclick="window.location.href='/'">
-        <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="Logo">
+        <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo">
         <h1>FMK</h1>
     </div>
 
+    <!-- Home Section -->
     <section class="home">
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -945,11 +910,11 @@
             </div>
         </nav>
 
+        <!-- Main Content -->
         <div class="container content">
             <div class="row">
                 <div class="col-md-6 left-section">
                     <h1>Need a Taxi? Just Call</h1>
-
                     <p>Enjoy city breaks or extended holidays with convenient travel. Stay in a small and friendly setting for a unique experience.</p>
                     <button class="cta-button" onclick="window.location.href='tel:0677231271'">Call Now</button>
                     <button class="toggle-button" onclick="toggleModal()">Book Your Taxi</button>
@@ -957,157 +922,99 @@
                 <div class="col-md-6 right-section">
                     <div class="card" id="bookingCard">
                         <h2>Book Your Taxi!</h2>
-                        <form class="booking-form" action="/book" method="POST">
+                        <form class="booking-form" action="/api/book" method="POST">
                             <input type="text" name="name" placeholder="Your name" required>
                             <input type="email" name="email" placeholder="Email address" required>
                             <input type="tel" name="phone" placeholder="Phone number" required>
-                            <select name="pickupLocation" required onchange="showCustomLocationField()">
+
+                            <!-- Region Selection -->
+                            <select name="region" required>
                             <option value="" disabled selected>Select your region</option>
                             <option value="dar-es-salaam">Dar es Salaam</option>
                             <option value="dodoma">Dodoma</option>
                             <option value="morogoro">Morogoro</option>
                             <option value="arusha">Arusha</option>
-                            <option value="custom">Custom Location</option>
                         </select>
-                            <input type="text" id="customLocationField" name="customLocation" placeholder="Enter custom location" style="display: none;">
+
+                            <!-- Pickup and Destination Locations -->
+                            <input type="text" name="pickupLocation" placeholder="Enter Pickup Location" required>
+                            <input type="text" name="destinationLocation" placeholder="Enter Destination Location" required>
+
+                            <!-- Date and Time Fields -->
+                            <input type="date" name="date" required>
+                            <input type="time" name="time" required>
+
                             <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Modal for small screens -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="toggleModal()">&times;</span>
-            <h2>Book Your Taxi!</h2>
-            <form class="booking-form" action="/book" method="POST">
-                <input type="text" name="name" placeholder="Your name" required>
-                <input type="email" name="email" placeholder="Email address" required>
-                <input type="tel" name="phone" placeholder="Phone number" required>
-                <select name="pickupLocation" required onchange="showCustomLocationField()">
-                <option value="" disabled selected>Select your region</option>
-                <option value="dar-es-salaam">Dar es Salaam</option>
-                <option value="dodoma">Dodoma</option>
-                <option value="morogoro">Morogoro</option>
-                <option value="arusha">Arusha</option>
-                <option value="custom">Custom Location</option>
-            </select>
-                <input type="text" id="modalCustomLocationField" name="customLocation" placeholder="Enter custom location" style="display: none;">
-                <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
-            </form>
-        </div>
-    </div>
+        <!-- Booking Modal -->
+        <div id="bookingModal" class="modal" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-content">
+                <span class="close" onclick="toggleModal()" aria-label="Close modal">&times;</span>
+                <h2 id="bookingModalLabel">Book Your Taxi!</h2>
+                <form class="booking-form" action="/api/book" method="POST">
+                    <input type="text" class="form-control" name="name" placeholder="Your name" required>
+                    <input type="email" class="form-control" name="email" placeholder="Email address" required>
+                    <input type="tel" class="form-control" name="phone" placeholder="Phone number" required>
 
-
-    <!-- Modal for small screens -->
-    <div class="modal" id="bookingModal">
-        <div class="modal-content">
-            <span class="close" onclick="toggleModal()">&times;</span>
-            <h2>Book Your Taxi!</h2>
-            <form class="booking-form" action="/book" method="POST">
-                <input type="text" class="form-control" name="name" placeholder="Your name" required>
-                <input type="email" class="form-control" name="email" placeholder="Email address" required>
-                <input type="tel" class="form-control" name="phone" placeholder="Phone number" required>
-                <select class="form-control" name="pickupLocation" id="pickup-location" required onchange="showCustomLocationField()">
+                    <!-- Region Selection -->
+                    <select class="form-control" name="region" required>
                     <option value="" disabled selected>Select your region</option>
                     <option value="dar-es-salaam">Dar es Salaam</option>
                     <option value="dodoma">Dodoma</option>
+                    <option value="morogoro">Morogoro</option>
                     <option value="arusha">Arusha</option>
-                    <option value="mwanza">Mwanza</option>
-                    <option value="mbeya">Mbeya</option>
-                    <option value="tanga">Tanga</option>
-                    <option value="zanzibar">Zanzibar</option>
-                    <option value="kilifi">Kilifi</option>
-                    <option value="kilimanjaro">Kilimanjaro</option>
-                    <option value="singida">Singida</option>
                 </select>
-                <div id="custom-region" style="display:none;">
-                    <input type="text" class="form-control mt-2" name="customPickup" id="custom-pickup" placeholder="Your custom pickup region">
-                </div>
-                <input type="text" class="form-control" name="destination" placeholder="Enter your destination" required>
-                <input type="date" class="form-control" name="date" required>
-                <input type="time" class="form-control" name="time" required>
-                <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
-            </form>
-        </div>
-    </div>
+
+                    <!-- Pickup and Destination Locations -->
+                    <input type="text" class="form-control" name="pickupLocation" placeholder="Enter Pickup Location" required>
+                    <input type="text" name="destinationLocation" placeholder="Enter Destination Location" required>
 
 
-    <!-- Modal for Booking Form -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="toggleModal()">&times;</span>
-            <h2>Book Your Taxi!</h2>
-            <form class="booking-form" action="/book" method="POST">
-                <input type="text" class="form-control" name="name" placeholder="Your name" required>
-                <input type="email" class="form-control" name="email" placeholder="Email address" required>
-                <input type="tel" class="form-control" name="phone" placeholder="Phone number" required>
-                <select class="form-control" name="pickupLocation" id="pickup-location" required onchange="showCustomLocationField()">
-                <option value="" disabled selected>Select your region</option>
-                <option value="dar-es-salaam">Dar es Salaam</option>
-                <option value="dodoma">Dodoma</option>
-                <option value="arusha">Arusha</option>
-                <option value="mwanza">Mwanza</option>
-                <option value="mbeya">Mbeya</option>
-                <option value="tanga">Tanga</option>
-                <option value="zanzibar">Zanzibar</option>
-                <option value="kilifi">Kilifi</option>
-                <option value="kilimanjaro">Kilimanjaro</option>
-                <option value="singida">Singida</option>
-            </select>
-                <div id="custom-region" style="display:none;">
-                    <input type="text" class="form-control mt-2" name="customPickup" id="custom-pickup" placeholder="Your custom pickup region">
-                </div>
-                <input type="text" class="form-control" name="destination" placeholder="Enter your destination" required>
-                <input type="date" class="form-control" name="date" required>
-                <input type="time" class="form-control" name="time" required>
-                <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
-            </form>
-        </div>
-    </div>
+                    <!-- Date and Time Fields -->
+                    <input type="date" class="form-control" name="date" required>
+                    <input type="time" class="form-control" name="time" required>
 
-
-
-
-    <section class="welcome-section">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-
-                <!-- Left Side: Image Section -->
-                <div class="col-md-6">
-                    <div class="image-section">
-                        <img src="uploads/pexels-esmihel-15256361.jpg " class="background-img img-fluid" alt="Background Image">
-                        <img src="uploads/pexels-esmihel-15256361.jpg " class="foreground-img" alt="Foreground Image">
-                        <div class="overlay-text">Your Ride, Anywhere, Anytime.</div>
-                    </div>
-                </div>
-
-                <!-- Right Side: Text Content -->
-                <div class="col-md-6 text-section">
-                    <h1>Welcome.</h1>
-                    <p>Experience the difference with our dedicated team ready to serve you. With a vast network of reliable drivers, we ensure you reach your destination safely and swiftly.</p>
-                    <p> Whether it's a quick trip across town or an airport transfer, we’re here to make your journey smooth and enjoyable. Choose us for comfort, convenience, and peace of mind.!</p>
-
-                    <!-- Call to Action Button -->
-                    <a href="#" class="cta-button">Get Started</a>
-                </div>
-
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Book Now</button>
+                </form>
             </div>
         </div>
     </section>
 
 
+    <section class="welcome-section ">
+        <div class="container ">
+            <div class="row d-flex align-items-center ">
 
+                <!-- Left Side: Image Section -->
+                <div class="col-md-6 ">
+                    <div class="image-section ">
+                        <img src="uploads/pexels-esmihel-15256361.jpg " class="background-img img-fluid " alt="Background Image ">
+                        <img src="uploads/pexels-esmihel-15256361.jpg " class="foreground-img " alt="Foreground Image ">
+                        <div class="overlay-text ">Your Ride, Anywhere, Anytime.</div>
+                    </div>
+                </div>
 
+                <!-- Right Side: Text Content -->
+                <div class="col-md-6 text-section ">
+                    <h1>Welcome.</h1>
+                    <p>Experience the difference with our dedicated team ready to serve you. With a vast network of reliable drivers, we ensure you reach your destination safely and swiftly.</p>
+                    <p> Whether it's a quick trip across town or an airport transfer, we’re here to make your journey smooth and enjoyable. Choose us for comfort, convenience, and peace of mind.!</p>
 
+                    <!-- Call to Action Button -->
+                    <a href="# " class="cta-button ">Get Started</a>
+                </div>
 
-
+            </div>
+        </div>
+    </section>
     <section class="services">
         <div class="container">
-            <h2>our services</h2>
+            <h2>Our Services</h2>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
@@ -1120,7 +1027,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon"><img src="uploads/istockphoto-1313422727-1024x1024.jpg" alt="Taxi Service" class="service-icon"></div>
+                        <div class="icon"><img src="uploads/istockphoto-1313422727-1024x1024.jpg" alt="Office Pick-ups" class="service-icon"></div>
                         <h3>Office Pick-ups</h3>
                         <p>Convenient transportation solutions for your daily commutes and meetings.</p>
                         <hr>
@@ -1129,21 +1036,19 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon"><img src="uploads/download (3).jpg" alt="Taxi Service" class="service-icon"></div>
+                        <div class="icon"><img src="uploads/download (3).jpg" alt="Event Transportation" class="service-icon"></div>
                         <h3>Event Transportation</h3>
                         <p>Arrive in style with our dedicated event transportation services.</p>
                         <hr>
                         <a href="/event" class="read-more">Read More</a>
                     </div>
                 </div>
-                <!-- Additional Service Items -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon"><img src="uploads/13 Ways to Save Major Cash on Holiday Travel.jpg" alt="Taxi Service" class="service-icon"></div>
+                        <div class="icon"><img src="uploads/13 Ways to Save Major Cash on Holiday Travel.jpg" alt="Airport Transfers" class="service-icon"></div>
                         <h3>Airport Transfers</h3>
                         <p>Efficient airport transfer services for a stress-free travel experience.</p>
                         <hr>
-
                         <a href="/airport" class="read-more">Read More</a>
                     </div>
                 </div>
@@ -1158,97 +1063,66 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon"><img src="uploads/Shoe pallets.jpg" alt="Apartment Rental" class="service-icon"></div>
+                        <div class="icon"><img src="uploads/Shoe pallets.jpg" alt="Apartment Rentals" class="service-icon"></div>
                         <h3>Apartment Rentals</h3>
                         <p>Find comfortable apartment rentals for short or long stays.</p>
                         <hr>
                         <a href="/apartment" class="read-more">Read More</a>
                     </div>
                 </div>
-
             </div>
+        </div>
     </section>
 
 
+    <section class="offer-section">
+        <div class="container offer-container">
+            <h2>Find Your Ideal Ride</h2>
+            <p class="subtitle">Choose Your Car</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="container offer-container ">
-        <h2>Find Your Ideal Ride</h2>
-        <p class="subtitle ">Choose Your Car</p>
-
-        <div class="car-grid ">
-            <div class="car-card ">
-                <img src="uploads/pexels-esmihel-15256361.jpg " alt="Mercedes Grand Sedan " class="car-image " />
-                <h3>Mercedes Grand Sedan</h3>
-                <p class="price ">$25 FROM / DAY</p>
-                <p class="description ">Luxury and comfort combined, perfect for long journeys.</p>
-                <div class="rating ">⭐⭐⭐⭐⭐</div>
-                <button onclick="alert( 'Booking Mercedes Grand Sedan!') " class="book-now ">Book Now</button>
-            </div>
-
-            <div class="car-card ">
-                <img src="uploads/pexels-hawraz-karim-353575904-18362808.jpg " alt="Audi " class="car-image " />
-                <h3>Audi</h3>
-                <p class="price ">$30 FROM / DAY</p>
-                <p class="description ">A blend of performance and elegance for the discerning driver.</p>
-                <div class="rating ">⭐⭐⭐⭐⭐</div>
-                <button onclick="alert( 'Booking Audi!') " class="book-now ">Book Now</button>
-            </div>
-
-            <div class="car-card ">
-                <img src="uploads/pexels-jdm-kuruma-1304609967-24712866.jpg " alt="Ford " class="car-image " />
-                <h3>Ford</h3>
-                <p class="price ">$20 FROM / DAY</p>
-                <p class="description ">Reliable and economical, ideal for everyday use.</p>
-                <div class="rating ">⭐⭐⭐⭐</div>
-                <button onclick="alert( 'Booking Ford!') " class="book-now ">Book Now</button>
-            </div>
-
-            <div class="car-card ">
-                <img src="uploads/pexels-mohsin-mirza-703150220-26841837.jpg " alt="Chevrolet " class="car-image " />
-                <h3>Chevrolet</h3>
-                <p class="price ">$22 FROM / DAY</p>
-                <p class="description ">Versatile and spacious, perfect for family trips.</p>
-                <div class="rating ">⭐⭐⭐⭐</div>
-                <button onclick="alert( 'Booking Chevrolet!') " class="book-now ">Book Now</button>
+            <div class="car-grid">
+                <% if (cars && cars.length) { %>
+                    <% cars.forEach(car => { %>
+                        <div class="car-card">
+                            <img src="<%= car.carImage %>" alt="<%= car.carName %>" class="car-image" />
+                            <h3>
+                                <%= car.carName %>
+                            </h3>
+                            <p class="price">$
+                                <%= car.carPrice %> FROM / DAY</p>
+                            <p class="description">
+                                <%= car.carDescription %>
+                            </p>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                            <button onclick="alert('Booking <%= car.carName %>!')" class="book-now">Book Now</button>
+                        </div>
+                        <% }); %>
+                            <!-- End of forEach loop -->
+                            <% } else { %>
+                                <p>No cars available at the moment.</p>
+                                <% } %>
+                                    <!-- End of if condition -->
             </div>
         </div>
-    </div>
+    </section>
 
 
-
-    <section id="why-choose-us" class="why-choose-us py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Why Choose Us</h2>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <div class="icon display-4">🚖</div>
+    <section id="why-choose-us " class="why-choose-us py-5 ">
+        <div class="container ">
+            <h2 class="text-center mb-4 ">Why Choose Us</h2>
+            <div class="row ">
+                <div class="col-md-4 text-center ">
+                    <div class="icon display-4 ">🚖</div>
                     <h3>Reliable Service</h3>
                     <p>Our drivers are prompt, courteous, and professional, ensuring a smooth journey every time.</p>
                 </div>
-                <div class="col-md-4 text-center">
-                    <div class="icon display-4">📍</div>
+                <div class="col-md-4 text-center ">
+                    <div class="icon display-4 ">📍</div>
                     <h3>Wide Coverage</h3>
                     <p>We cover multiple regions, making it easier to get where you need to go.</p>
                 </div>
-                <div class="col-md-4 text-center">
-                    <div class="icon display-4">💼</div>
+                <div class="col-md-4 text-center ">
+                    <div class="icon display-4 ">💼</div>
                     <h3>Professional Drivers</h3>
                     <p>Our experienced drivers provide a safe and comfortable travel experience.</p>
                 </div>
@@ -1256,43 +1130,17 @@
         </div>
     </section>
 
-
-
-
-    <div class="container my-5 ">
+    <div class="container my-5">
         <h1 class="gallery-h1 text-center">Image Gallery</h1>
-        <p class="text-center ">Sharing our love for the eco-friendly system.</p>
-        <div class="row ">
-            <div class="col-md-4 mb-4 ">
-                <div class="gallery-item " onclick="openModal( 'uploads/image1.jpg') ">
-                    <img src="uploads/1728491070560-_MG_2464.JPG " class="img-fluid " alt="Eco Image 1 ">
+        <p class="text-center">Sharing our love for the eco-friendly system.</p>
+        <div class="row">
+            <% images.forEach(image => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-item" onclick="openModal('<%= image.path %>')">
+                        <img src="<%= image.path %>" class="img-fluid" alt="Eco Image">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4 ">
-                <div class="gallery-item " onclick="openModal( 'uploads/image2.jpg') ">
-                    <img src="uploads/1728491070560-_MG_2464.JPG " class="img-fluid " alt="Eco Image 2 ">
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ">
-                <div class="gallery-item " onclick="openModal( 'uploads/image3.jpg') ">
-                    <img src="uploads/istockphoto-519870714-1024x1024.jpg " class="img-fluid " alt="Eco Image 3 ">
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ">
-                <div class="gallery-item " onclick="openModal( 'uploads/image4.jpg') ">
-                    <img src="uploads/pexels-binyaminmellish-106399.jpg " class="img-fluid " alt="Eco Image 4 ">
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ">
-                <div class="gallery-item " onclick="openModal( 'uploads/image5.jpg') ">
-                    <img src="uploads/istockphoto-519870714-1024x1024.jpg " class="img-fluid " alt="Eco Image 5 ">
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ">
-                <div class="gallery-item " onclick="openModal( 'uploads/image6.jpg') ">
-                    <img src="uploads/pexels-binyaminmellish-106399.jpg " class="img-fluid " alt="Eco Image 6 ">
-                </div>
-            </div>
+                <% }) %>
         </div>
     </div>
 
@@ -1330,21 +1178,35 @@
 
 
 
-    <div class="reviews-container ">
+    <div class="reviews-container container mt-5">
         <h2>Client's Reviews</h2>
         <p>What our clients say about their love for eco-friendly solutions.</p>
-        <div class="review-form ">
+        <div class="review-form mb-4">
             <h3>Leave a Review</h3>
-            <form id="reviewForm ">
-                <input type="text " name="name " placeholder="Your Name " required />
-                <input type="email " name="email " placeholder="Your Email " required />
-                <textarea name="review " placeholder="Your Review " required></textarea>
-                <button type="submit ">Submit</button>
+            <form id="reviewForm" method="POST" action="/reviews/add">
+                <input type="text" name="name" placeholder="Your Name" required class="form-control mb-2" />
+                <input type="email" name="email" placeholder="Your Email" required class="form-control mb-2" />
+                <textarea name="review" placeholder="Your Review" required class="form-control mb-2"></textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
 
-        <div class="reviews " id="reviews ">
-            <!-- Reviews will be dynamically inserted here -->
+        <div class="reviews" id="reviews">
+            <% if (reviews && reviews.length) { %>
+                <% reviews.forEach(review => { %>
+                    <div class="review">
+                        <h5>
+                            <%= review.name %>
+                        </h5>
+                        <p>
+                            <%= review.review %>
+                        </p>
+                        <small>Posted on <%= review.createdAt.toLocaleDateString() %></small>
+                    </div>
+                    <% }); %>
+                        <% } else { %>
+                            <p>No reviews yet. Be the first to leave a review!</p>
+                            <% } %>
         </div>
     </div>
 
@@ -1409,23 +1271,23 @@
 
 
     <!-- JavaScript files and Libraries -->
-    <script src="/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="/script.js "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js "></script>
 
     <script>
         // Modal Functions
         function openModal(imageSrc) {
-            const modal = document.getElementById("imageModal");
-            const modalImage = document.getElementById("modalImage");
-            modal.style.display = "block"; // Show modal
+            const modal = document.getElementById("imageModal ");
+            const modalImage = document.getElementById("modalImage ");
+            modal.style.display = "block "; // Show modal
             modalImage.src = imageSrc; // Set image source
         }
 
         function closeModal() {
-            const modal = document.getElementById("imageModal");
-            modal.style.display = "none"; // Hide modal
+            const modal = document.getElementById("imageModal ");
+            modal.style.display = "none "; // Hide modal
         }
 
         // Intersection Observer for Scroll Animation
@@ -1467,7 +1329,7 @@
             customRegion.style.display = select.value ? 'block' : 'none';
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded ", function() {
             const elements = document.querySelectorAll('.text-section, .image-section img, .service-item, .car-card, .icon, .gallery-item, .support-section h2, .support-section p, .support-call-to-action');
 
             function animateOnScroll() {
@@ -1493,22 +1355,22 @@
         window.onclick = function(event) {
             const modal = document.getElementById('bookingModal');
             if (event.target === modal) {
-                modal.style.display = "none";
+                modal.style.display = "none ";
             }
         };
 
         // Show custom location field
         function showCustomLocationField() {
-            const selectElement = document.querySelector("select[name='pickupLocation']");
+            const selectElement = document.querySelector("select[name='pickupLocation' ] ");
             const customLocationField = document.getElementById('customLocationField');
             const modalCustomLocationField = document.getElementById('modalCustomLocationField');
 
-            if (selectElement.value === "custom") {
-                customLocationField.style.display = "block";
-                modalCustomLocationField.style.display = "block";
+            if (selectElement.value === "custom ") {
+                customLocationField.style.display = "block ";
+                modalCustomLocationField.style.display = "block ";
             } else {
-                customLocationField.style.display = "none";
-                modalCustomLocationField.style.display = "none";
+                customLocationField.style.display = "none ";
+                modalCustomLocationField.style.display = "none ";
             }
         }
     </script>
