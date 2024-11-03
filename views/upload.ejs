@@ -101,7 +101,8 @@
                 <tr>
                     <td>
                         <h5>Update Image</h5>
-                        <form action="/update-image" method="POST" enctype="multipart/form-data">
+                        <form action="/gallery/upload" method="POST" enctype="multipart/form-data">
+
                             <div class="form-group">
                                 <label for="updateImage" class="font-weight-bold">Select Image to Update:</label>
                                 <input type="file" class="form-control-file" id="updateImage" name="updateImage" accept="image/*" onchange="previewUpdateImage(event)">

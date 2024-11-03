@@ -56,6 +56,8 @@ app.use('/cars', carRoutes);
 app.use('/api', bookingRoutes);
 app.use('/gallery', imageRoutes);
 
+
+
 // Default route to render index.ejs with car and review data
 app.get('/', async(req, res) => {
     try {

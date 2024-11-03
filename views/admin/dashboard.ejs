@@ -15,18 +15,22 @@
         
         .sidebar {
             min-height: 100vh;
-            background-color: #343a40;
+            background-color: #004188;
             color: white;
             padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
         
         .sidebar a {
             color: white;
             text-decoration: none;
+            transition: background-color 0.3s;
         }
         
         .sidebar a:hover {
             background-color: #495057;
+            border-radius: 5px;
         }
         
         .profile img {
@@ -39,6 +43,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: space-between;
         }
         
         .chart-wrapper {
@@ -46,27 +51,94 @@
             min-width: 300px;
             height: 300px;
             position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
         }
         
         .calendar {
+            width: 300px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+        
+        .calendar-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        .calendar-day {
+            padding: 5px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .calendar-day:last-child {
+            border-bottom: none;
+        }
+        
+        .calendar-day:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: scale(1.02);
+        }
+        
+        .btn {
+            border-radius: 5px;
+        }
+        
+        .table-responsive {
             margin-top: 20px;
         }
         
-        .calendar-table th,
-        .calendar-table td {
-            width: 14.2857%;
-            text-align: center;
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .content {
+                padding: 10px;
+            }
+            .toggle-sidebar {
+                display: block;
+                font-size: 1.5rem;
+                color: #343a40;
+                cursor: pointer;
+                margin-bottom: 15px;
+            }
+            .chart-wrapper {
+                flex: 1 1 100%;
+            }
         }
     </style>
 </head>
 
 <body>
+    <span class="toggle-sidebar" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i> Menu
+    </span>
+
     <div class="d-flex">
-        <nav class="sidebar">
+        <nav class="sidebar" id="sidebar">
             <div class="profile d-flex align-items-center mb-3">
                 <img src="<%= user.imageUrl %>" alt="Profile Image">
                 <div class="profile-info ml-2">
-                    <span><%= user.name %></span>
+                    <span class="font-weight-bold"><%= user.name %></span>
                 </div>
             </div>
             <ul class="nav flex-column">
@@ -94,55 +166,30 @@
         </nav>
 
         <div class="content flex-grow-1 p-4">
-            <h1>Statistics</h1>
+            <h1 class="font-weight-bold mb-4">Statistics</h1>
             <div class="row mb-4">
-                <!-- Ensure all cards are correctly wrapped in a column -->
-                <div class="col-md-6">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="card-title">Total Users</h5>
+                            <h5 class="card-title"><i class="fas fa-users"></i> Total Users</h5>
                             <p class="card-text">
                                 <!-- Dynamic total users data here -->
                             </p>
                         </div>
                     </div>
                 </div>
-                <!-- Adding additional cards with consistent structure -->
-                <div class="col-md-6">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="card-title">Total Something</h5>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Total Something Else</h5>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Total Bookings</h5>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Total Another Thing</h5>
+                            <h5 class="card-title"><i class="fas fa-chart-line"></i> Total Something</h5>
                             <p class="card-text"></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2>Booking and Car Rental Statistics</h2>
+
+            <h2 class="mt-4">Booking and Car Rental Statistics</h2>
             <div class="chart-container">
                 <div class="chart-wrapper">
                     <canvas id="bookingChart"></canvas>
@@ -152,120 +199,77 @@
                 </div>
             </div>
 
-            <h2 class="mt-4">Calendar</h2>
-            <div class="calendar">
-                <div class="calendar-header mb-2 d-flex justify-content-between">
-                    <button class="btn btn-secondary" id="prevMonth">&lt;</button>
-                    <h4 id="currentMonth" class="d-inline mx-2"></h4>
-                    <button class="btn btn-secondary" id="nextMonth">&gt;</button>
-                </div>
-                <table class="table table-bordered calendar-table">
+            <h2 class="mt-4">Bookings</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Pickup Location</th>
+                            <th>Destination</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="calendarBody"></tbody>
+                    <tbody>
+                        <% bookings.forEach(booking => { %>
+                            <tr id="booking-<%= booking._id %>">
+                                <td>
+                                    <%= booking.name %>
+                                </td>
+                                <td>
+                                    <a href="mailto:<%= booking.email %>">
+                                        <%= booking.email %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="tel:<%= booking.phone %>">
+                                        <%= booking.phone %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= booking.pickupLocation %>
+                                </td>
+                                <td>
+                                    <%= booking.destination %>
+                                </td>
+                                <td>
+                                    <%= booking.date ? booking.date.toLocaleDateString() : '' %>
+                                </td>
+                                <td>
+                                    <%= booking.time %>
+                                </td>
+                                <td>
+                                    <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#approveModal<%= booking._id %>">Approve</button>
+                                    <button class="btn btn-danger btn-sm ml-2" onclick="deleteBooking('<%= booking._id %>')">Delete</button>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
                 </table>
             </div>
-
-            <h2 class="mt-4">Bookings</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Pickup Location</th>
-                        <th>Destination</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% bookings.forEach(booking => { %>
-                        <tr id="booking-<%= booking._id %>">
-                            <td>
-                                <%= booking.name %>
-                            </td>
-                            <td>
-                                <a href="mailto:<%= booking.email %>">
-                                    <%= booking.email %>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="tel:<%= booking.phone %>">
-                                    <%= booking.phone %>
-                                </a>
-                            </td>
-                            <td>
-                                <%= booking.pickupLocation %>
-                            </td>
-                            <td>
-                                <%= booking.destination %>
-                            </td>
-                            <td>
-                                <%= booking.date ? booking.date.toLocaleDateString() : '' %>
-                            </td>
-                            <td>
-                                <%= booking.time %>
-                            </td>
-                            <td>
-                                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#approveModal<%= booking._id %>">Approve</button>
-                                <button class="btn btn-danger btn-sm ml-2" onclick="deleteBooking('<%= booking._id %>')">Delete</button>
-                                <div class="modal fade" id="approveModal<%= booking._id %>" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="approveModalLabel">Approve Booking</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure you want to approve this booking?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                <button type="button" class="btn btn-primary" onclick="approveBooking('<%= booking._id %>')">Approve</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <% }) %>
-                </tbody>
-            </table>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Chart.js - Sample Data for Bookings
-        var ctxBooking = document.getElementById('bookingChart').getContext('2d');
-        var bookingChart = new Chart(ctxBooking, {
+        const ctx1 = document.getElementById('bookingChart').getContext('2d');
+        const bookingChart = new Chart(ctx1, {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [{
                     label: 'Bookings',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    data: [10, 20, 15, 25, 30, 28, 40],
                     borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderWidth: 1
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -274,21 +278,21 @@
             }
         });
 
-        // Chart.js - Sample Data for Car Rentals
-        var ctxCarRental = document.getElementById('carRentalChart').getContext('2d');
-        var carRentalChart = new Chart(ctxCarRental, {
+        const ctx2 = document.getElementById('carRentalChart').getContext('2d');
+        const carRentalChart = new Chart(ctx2, {
             type: 'bar',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
                 datasets: [{
                     label: 'Car Rentals',
-                    data: [10, 15, 8, 12, 5, 6],
+                    data: [5, 10, 15, 20, 25, 30, 35],
                     backgroundColor: 'rgba(153, 102, 255, 0.2)',
                     borderColor: 'rgba(153, 102, 255, 1)',
                     borderWidth: 1
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -297,20 +301,24 @@
             }
         });
 
-        // Calendar Functionality
-        // Note: You'll need to implement calendar logic and events
-        document.addEventListener('DOMContentLoaded', function() {
-            // Implement your calendar logic here
-        });
-
-        function approveBooking(id) {
-            // Implement booking approval logic here
-        }
-
         function deleteBooking(id) {
-            // Implement booking deletion logic here
+            fetch(`/bookings/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById(`booking-${id}`).remove();
+                    } else {
+                        alert('Failed to delete booking.');
+                    }
+                });
         }
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
