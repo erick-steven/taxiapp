@@ -149,6 +149,7 @@
             color: #d35400;
             /* Orange color */
         }
+        /* Include the CSS styles here */
         
         .welcome-section {
             background-color: #f7f7f7;
@@ -162,7 +163,6 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
             /* Smooth transition */
         }
-        /* Animation */
         
         @keyframes fadeInUp {
             from {
@@ -205,7 +205,7 @@
             position: absolute;
             top: 15px;
             left: 15px;
-            width: 100px;
+            width: 120px;
             /* Increased foreground image size */
             border: 3px solid white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -245,7 +245,8 @@
             font-weight: bold;
             padding: 12px 24px;
             /* Increased padding for button */
-            background-color: #007bff;
+            background-color: #d35400;
+            /* Orange button */
             color: white;
             border: none;
             border-radius: 5px;
@@ -254,25 +255,26 @@
         }
         
         .cta-button:hover {
-            background-color: #0056b3;
+            background-color: #c24400;
+            /* Darker shade on hover */
         }
         /* Responsive Adjustments */
         
         @media (max-width: 576px) {
             .foreground-img {
-                width: 70px;
+                width: 90px;
+                /* Adjusted foreground image size */
                 top: 10px;
                 left: 10px;
             }
             .overlay-text {
                 top: 30px;
-                left: 90px;
+                left: 80px;
                 font-size: 1.35rem;
             }
             .text-section h1 {
                 font-size: 1.75rem;
             }
-            /* Center text content for small screens */
             .text-section {
                 text-align: center;
                 /* Center text */
@@ -321,14 +323,16 @@
         .service-item {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
-            padding: 70px;
+            padding: 40px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            height: 400px;
+            /* Set a constant height */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         
         .service-item:hover {
-            transform: translateY(-5px);
+            transform: trans l ateY(-5px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
         
@@ -400,7 +404,7 @@
         .gallery-scroll-container {
             display: flex;
             align-items: center;
-            overflow-x: hidden;
+            overflow: hidden;
             /* Keeps scroll hidden for the overall container */
             white-space: nowrap;
             /* Prevents line breaks in the container */
@@ -413,8 +417,6 @@
             /* Aligns images in a row */
             transition: transform 0.3s ease;
             /* Smooth transition effect */
-            overflow-x: auto;
-            /* Allow horizontal scrolling */
             padding: 10px;
             /* Padding inside the scroll area */
         }
@@ -426,8 +428,21 @@
             overflow: hidden;
             margin-right: 10px;
             /* Space between images */
-            flex: 0 0 auto;
-            /* Prevent items from shrinking */
+            flex: 0 0 25%;
+            /* Each item takes up 25% of the container */
+            max-width: 250px;
+            /* Set a max-width to keep images consistent */
+            height: 200px;
+            /* Fixed height for each image */
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            /* Ensure images fill the item width */
+            height: 100%;
+            /* Ensure images fill the item height */
+            object-fit: cover;
+            /* Maintain aspect ratio */
         }
         
         .gallery-item:hover {
@@ -438,6 +453,24 @@
             color: #ff9c00;
             font-size: 2.5rem;
             font-weight: bold;
+        }
+        /* Style for navigation buttons */
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            /* Default Bootstrap secondary color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin: 0 10px;
+            /* Space around buttons */
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            /* Darker on hover */
         }
         
         .reviews {
@@ -607,6 +640,10 @@
         .offer-container {
             padding: 50px 20px;
             text-align: center;
+            max-width: 1200px;
+            /* Set a maximum width for the container */
+            margin: 0 auto;
+            /* Center the container */
         }
         
         .offer-container h2 {
@@ -625,48 +662,47 @@
         .car-scroll-container {
             display: flex;
             align-items: center;
-            overflow-x: hidden;
-            /* Keeps scroll hidden for the overall container */
-            white-space: nowrap;
-            /* Prevents line breaks in the container */
+            overflow: hidden;
+            /* Hide overflow */
             padding: 10px 0;
-            /* Adds some vertical padding */
         }
         
         #car-grid {
             display: flex;
-            /* Aligns cards in a row */
             transition: transform 0.3s ease;
-            /* Smooth transition effect */
             overflow-x: auto;
             /* Allow horizontal scrolling */
-            padding: 10px;
-            /* Padding inside the scroll area */
+            padding: 20px;
+            white-space: nowrap;
+            /* Prevent line breaks in the container */
+            margin: 0;
         }
         
         .car-card {
-            background: #fff;
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
             display: inline-block;
-            /* Allows cards to be side by side */
-            width: 200px;
-            /* Fixed width for uniformity */
+            width: 1000px;
+            /* Increased width of the card */
             margin-right: 10px;
             /* Space between cards */
         }
         
         .car-image {
             width: 100%;
-            height: 120px;
-            /* Adjusted height for better fit */
+            /* Use 100% to ensure it fits within the card */
+            height: 220px;
+            /* Height of the image */
             object-fit: cover;
+            /* Maintain aspect ratio */
             border-radius: 12px;
+            /* Round corners */
             margin-bottom: 15px;
+            /* Space below the image */
         }
         
         .price {
@@ -899,6 +935,41 @@
         };
     </script>
 
+
+
+    <section class="welcome-section">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <!-- Left Side: Image Section -->
+                <div class="col-md-6">
+                    <div class="image-section">
+                        <img src="uploads/pexels-esmihel-15256361.jpg" class="background-img img-fluid" alt="Background Image">
+                        <img src="uploads/pexels-esmihel-15256361.jpg" class="foreground-img img-fluid" alt="Foreground Image">
+                        <div class="overlay-text">Your Ride, Anywhere, Anytime.</div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Text Content -->
+                <div class="col-md-6 text-section text-center text-md-start">
+                    <h1>Welcome.</h1>
+                    <p>Experience the difference with our dedicated team ready to serve you. With a vast network of reliable drivers, we ensure you reach your destination safely and swiftly.</p>
+                    <p>Whether it's a quick trip across town or an airport transfer, we’re here to make your journey smooth and enjoyable. Choose us for comfort, convenience, and peace of mind!</p>
+
+                    <!-- Call to Action Button -->
+                    <a href="#" class="cta-button btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add the 'visible' class to the welcome section when the DOM is fully loaded
+            const welcomeSection = document.querySelector('.welcome-section');
+            welcomeSection.classList.add('visible');
+        });
+    </script>
+
     <section class="services">
         <div class="container">
             <h2>Our Services</h2>
@@ -906,7 +977,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
                         <div class="icon"><img src="uploads/pexels-esmihel-15256361.jpg" alt="Taxi Service" class="service-icon"></div>
-                        <h3>Taxi Service</h3>
+                        <h3>Taxi Service/parcels</h3>
                         <p>Enjoy seamless rides with our reliable taxi services, available at your fingertips.</p>
                         <hr>
                         <a href="/taxi" class="read-more">Read More</a>
@@ -923,7 +994,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon"><img src="uploads/download (3).jpg" alt="Event Transportation" class="service-icon"></div>
+                        <div class="icon"><img src="uploads/Romantic Cabo Oceanfront Wedding at Solaz.jpg" alt="Event Transportation" class="service-icon"></div>
                         <h3>Event Transportation</h3>
                         <p>Arrive in style with our dedicated event transportation services.</p>
                         <hr>
@@ -942,7 +1013,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
                         <div class="icon"><img src="uploads/Cloud Hotel Reservation System.jpg" alt="Hotel Reservation" class="service-icon"></div>
-                        <h3>Hotel Reservation</h3>
+                        <h3>Hotel/Apartment Reservation</h3>
                         <p>Book premium accommodations with ease for your travel needs.</p>
                         <hr>
                         <a href="/hotel" class="read-more">Read More</a>
@@ -950,24 +1021,28 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item">
-                        <div class="icon"><img src="uploads/Shoe pallets.jpg" alt="Apartment Rentals" class="service-icon"></div>
-                        <h3>Apartment Rentals</h3>
-                        <p>Find comfortable apartment rentals for short or long stays.</p>
+                        <div class="icon">
+                            <img src="uploads/220-2200303_carros-png.png" alt="Car Rentals" class="service-icon">
+                            <!-- Update the image path -->
+                        </div>
+                        <h3>Car Rentals</h3>
+                        <p>Choose from a wide selection of vehicles for your travel needs, whether for business or leisure.</p>
+                        <!-- Updated description -->
                         <hr>
-                        <a href="/apartment" class="read-more">Read More</a>
+                        <a href="/car-rental" class="read-more">Read More</a>
+                        <!-- Updated link -->
                     </div>
                 </div>
-            </div>
-        </div>
+
     </section>
     <section class="offer-section">
         <div class="container offer-container">
             <h2>Find Your Ideal Ride</h2>
             <p class="subtitle">Choose Your Car</p>
 
-            <div class="car-scroll-container">
-                <button id="prev-btn" class="btn btn-secondary">← Back</button>
-                <div class="car-grid" id="car-grid">
+            <div class="car-scroll-container d-flex align-items-center">
+                <button id="prev-btn" class="btn btn-secondary me-2">← Back</button>
+                <div class="car-grid overflow-auto" id="car-grid">
                     <% if (cars && cars.length) { %>
                         <% cars.slice(0, 4).forEach(car => { %>
                             <div class="car-card">
@@ -988,7 +1063,7 @@
                                     <p>No cars available at the moment.</p>
                                     <% } %>
                 </div>
-                <button id="next-btn" class="btn btn-secondary">Next →</button>
+                <button id="next-btn" class="btn btn-secondary ms-2">Next →</button>
             </div>
 
             <% if (cars.length > 4) { %>
@@ -998,6 +1073,31 @@
                 <% } %>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carGrid = document.getElementById('car-grid');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Define the width of each card plus margin (adjust this as necessary)
+            const cardWidth = 220; // Width of the card plus some margin
+
+            nextBtn.addEventListener('click', () => {
+                carGrid.scrollBy({
+                    left: cardWidth, // Scroll to the right
+                    behavior: 'smooth' // Smooth scroll effect
+                });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                carGrid.scrollBy({
+                    left: -cardWidth, // Scroll to the left
+                    behavior: 'smooth' // Smooth scroll effect
+                });
+            });
+        });
+    </script>
+
 
 
 
@@ -1024,7 +1124,6 @@
         </div>
     </section>
 
-
     <div class="container my-5">
         <h1 class="gallery-h1 text-center">Image Gallery</h1>
         <p class="text-center">Sharing our love for the eco-friendly system.</p>
@@ -1041,14 +1140,48 @@
             <button id="gallery-next-btn" class="btn btn-secondary">Next →</button>
         </div>
     </div>
+    <script>
+        const galleryRow = document.getElementById('gallery-row');
+        const prevBtn = document.getElementById('gallery-prev-btn');
+        const nextBtn = document.getElementById('gallery-next-btn');
+        const itemWidth = document.querySelector('.gallery-item').offsetWidth; // Width of one item
+        const visibleItems = 4; // Number of items to show at once
+        let currentIndex = 0; // Starting index
+
+        // Function to update gallery position
+        function updateGalleryPosition() {
+            const offset = currentIndex * itemWidth;
+            galleryRow.style.transform = `translateX(-${offset}px)`;
+        }
+
+        // Next button functionality
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < galleryRow.children.length - visibleItems) {
+                currentIndex++;
+                updateGalleryPosition();
+            }
+        });
+
+        // Previous button functionality
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGalleryPosition();
+            }
+        });
+    </script>
+
     <section class="support-section ">
         <div class="support-container ">
             <h2>Experience Great Support</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
             <div class="support-call-to-action ">
-                <h3>REACH OUR SUPPORT TEAM</h3><button class="support-button ">Contact Us</button></div>
+                <h3>REACH OUR SUPPORT TEAM</h3>
+                <button class="support-button ">Contact Us</button>
+            </div>
         </div>
     </section>
+
     <div class="reviews-container container mt-5">
         <h2>Client's Reviews</h2>
         <p>What our clients say about their love for eco-friendly solutions.</p>
@@ -1238,174 +1371,11 @@
                 modalCustomLocationField.style.display = "none ";
             }
         }
-
-
-
-
-
-
-        const cars = <%- JSON.stringify(cars) %>; // Get the cars array from EJS
-        const carGrid = document.getElementById('car-grid');
-        const loadMoreButton = document.getElementById('load-more');
-        const itemsPerPage = 4; // Number of items to display at once
-        let currentIndex = 0; // Track the current index of displayed cars
-
-        // Function to render cars based on the current index
-        function renderCars() {
-            // Clear existing cars in the grid
-            carGrid.innerHTML = '';
-
-            // Calculate the range of cars to display
-            const start = currentIndex * itemsPerPage;
-            const end = start + itemsPerPage;
-            const carsToDisplay = cars.slice(start, end);
-
-            // Append cars to the grid
-            carsToDisplay.forEach(car => {
-                const carCard = document.createElement('div');
-                carCard.className = 'car-card';
-                carCard.innerHTML = `
-                <img src="${car.carImage}" alt="${car.carName}" class="car-image" />
-                <h3>${car.carName}</h3>
-                <p class="price">$${car.carPrice} FROM / DAY</p>
-                <p class="description">${car.carDescription}</p>
-                <div class="rating">⭐⭐⭐⭐⭐</div>
-                <button onclick="alert('Booking ${car.carName}!')" class="book-now">Book Now</button>
-            `;
-                carGrid.appendChild(carCard);
-            });
-
-            // Update button visibility
-            document.getElementById('prev-btn').style.display = currentIndex === 0 ? 'none' : 'inline-block';
-            document.getElementById('next-btn').style.display = end >= cars.length ? 'none' : 'inline-block';
-
-            // Hide load more button if all cars are displayed
-            loadMoreButton.style.display = end >= cars.length ? 'none' : 'block';
-        }
-
-        // Load cars initially
-        renderCars();
-
-        // Add event listeners for navigation buttons
-        document.getElementById('prev-btn').addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                renderCars();
-            }
-        });
-
-        document.getElementById('next-btn').addEventListener('click', () => {
-            if ((currentIndex + 1) * itemsPerPage < cars.length) {
-                currentIndex++;
-                renderCars();
-            }
-        });
-
-        // Load more cars on button click
-        loadMoreButton.addEventListener('click', () => {
-            if (currentIndex * itemsPerPage < cars.length) {
-                currentIndex++;
-                renderCars();
-            }
-        });
-
-
-
-
-
-        const galleryRow = document.getElementById('gallery-row');
-        const images = <%- JSON.stringify(images) %>; // Get the images array from EJS
-        const itemsPerPage = 3; // Adjust this based on how many items you want visible
-        let currentGalleryIndex = 0; // Track the current index of displayed images
-
-        // Function to render images based on the current index
-        function renderGallery() {
-            // Calculate the range of images to display
-            const start = currentGalleryIndex * itemsPerPage;
-            const end = start + itemsPerPage;
-            const imagesToDisplay = images.slice(start, end);
-
-            // Clear existing images in the gallery
-            galleryRow.innerHTML = '';
-
-            // Append images to the gallery row
-            imagesToDisplay.forEach(image => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'col-md-4 mb-4 gallery-item';
-                galleryItem.onclick = () => openModal(image.path);
-                galleryItem.innerHTML = `<img src="${image.path}" class="img-fluid" alt="Eco Image">`;
-                galleryRow.appendChild(galleryItem);
-            });
-
-            // Update button visibility
-            document.getElementById('gallery-prev-btn').style.display = currentGalleryIndex === 0 ? 'none' : 'inline-block';
-            document.getElementById('gallery-next-btn').style.display = end >= images.length ? 'none' : 'inline-block';
-        }
-
-        // Load images initially
-        renderGallery();
-
-        // Add event listeners for gallery navigation buttons
-        document.getElementById('gallery-prev-btn').addEventListener('click', () => {
-            if (currentGalleryIndex > 0) {
-                currentGalleryIndex--;
-                renderGallery();
-            }
-        });
-
-        document.getElementById('gallery-next-btn').addEventListener('click', () => {
-            if ((currentGalleryIndex + 1) * itemsPerPage < images.length) {
-                currentGalleryIndex++;
-                renderGallery();
-            }
-        });
-
-
-
-        const reviews = document.querySelectorAll('.review'); // Get all review elements
-        const totalReviews = reviews.length;
-        const reviewsPerPage = 4; // Number of reviews to show at once
-        let currentIndex = 0; // Current index of the review being displayed
-
-        // Function to display reviews
-        function displayReviews() {
-            // Hide all reviews first
-            reviews.forEach((review, index) => {
-                review.classList.remove('active'); // Remove active class to hide
-                if (index >= currentIndex && index < currentIndex + reviewsPerPage) {
-                    review.classList.add('active'); // Show active reviews
-                }
-            });
-
-            // Update button states
-            document.getElementById('prev-btn').disabled = currentIndex === 0;
-            document.getElementById('next-btn').disabled = currentIndex + reviewsPerPage >= totalReviews;
-        }
-
-        // Event listeners for navigation buttons
-        document.getElementById('prev-btn').addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex -= reviewsPerPage; // Decrease index to show previous reviews
-                if (currentIndex < 0) currentIndex = 0; // Prevent going out of bounds
-                displayReviews();
-            }
-        });
-
-        document.getElementById('next-btn').addEventListener('click', () => {
-            if (currentIndex + reviewsPerPage < totalReviews) {
-                currentIndex += reviewsPerPage; // Increase index to show next reviews
-                if (currentIndex >= totalReviews) currentIndex = totalReviews - reviewsPerPage; // Prevent going out of bounds
-                displayReviews();
-            }
-        });
-
-        // Initial display of reviews
-        displayReviews();
     </script>
 
 
     </body>
 
-</html>
+
 
 </html>
