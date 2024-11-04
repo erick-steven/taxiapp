@@ -10,16 +10,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="styles.css">
     <!-- Custom styles -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <style>
-        body {
+        /* General Styles */
+        
+        body,
+        html {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
+        /* Logo and Navbar */
         
         .home {
             position: relative;
@@ -46,169 +52,60 @@
             z-index: 1;
         }
         
-        .content {
-            position: relative;
+        .home .content {
             z-index: 2;
-            max-width: 1200px;
-            width: 100%;
-            padding: 50px;
         }
-        
-        .logo-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            color: beige;
-            padding: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            z-index: 100;
-            cursor: pointer;
-        }
-        
-        .logo-container img {
-            height: 60px;
-            width: 60px;
-            margin-right: 10px;
-        }
-        
-        .logo-container h1 {
-            font-size: 24px;
-        }
-        
-        .navbar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            z-index: 100;
-        }
-        
-        .navbar-nav .nav-link {
-            color: #ffcc00;
-            font-weight: bold;
-            margin-left: 20px;
-            transition: color 0.3s;
-        }
-        
-        .navbar-nav .nav-link:hover {
-            color: #ff9900;
-        }
-        
-        .left-section {
-            flex: 1;
-            padding: 40px;
-            margin-top: 80px;
-            text-align: left;
-        }
-        
-        p {
-            color: #e1f5fe;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            /* Adjusted for large screens */
-        }
-        
-        h2 {
-            color: #ff9c00;
-            font-size: 2rem;
-            /* Adjusted for large screens */
-            font-weight: bold;
-        }
-        
-        .right-section {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .booking-form input,
-        .booking-form select,
-        .booking-form button {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        .booking-form button {
-            background-color: #ffcc00;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        
-        .booking-form button:hover {
-            background-color: #ff9900;
-            transform: translateY(-2px);
-        }
-        /* Card for large screens */
-        
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 400px;
-            /* Increased max width for larger screens */
-            margin-top: 70px;
-            padding: 10px;
-        }
-        /* CTA Button */
+        /* CTA Button Styling */
         
         .cta-button {
-            padding: 6px 12px;
-            background-color: #ffcc00;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.2s, transform 0.2s;
+            margin: 15px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
         
-        .cta-button:hover {
-            background-color: #ff9900;
-            transform: translateY(-1px);
+        .btn-primary {
+            background-color: #ffcc00;
+            color: black;
+            border: none;
         }
-        /* Modal */
+        
+        .btn-primary:hover {
+            background-color: #ff9900;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #fff;
+            color: black;
+            border: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #ddd;
+        }
+        /* Booking Modal */
         
         .modal {
             display: none;
-            /* Hidden by default */
             position: fixed;
-            /* Stay in place */
             z-index: 1000;
-            /* Sit on top */
             left: 0;
             top: 0;
             width: 100%;
-            /* Full width */
             height: 100%;
-            /* Full height */
             overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
             background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
         }
         
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto;
-            /* 15% from the top and centered */
+            margin: 10% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            /* Could be more or less, depending on screen size */
+            max-width: 500px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
@@ -223,42 +120,34 @@
         .close:hover,
         .close:focus {
             color: black;
-            text-decoration: none;
             cursor: pointer;
         }
-        /* Responsive Design */
+        /* Responsive Styles */
         
-        @media (max-width: 768px) {
-            .left-section,
-            .right-section {
-                flex: 1 1 100%;
-                text-align: center;
-                /* Center text on smaller screens */
-            }
-            .navbar-nav .nav-link {
-                margin: 0 10px;
-            }
-            .content {
-                padding: 20px;
-            }
+        .custom-navbar {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 40%, #ff9c00 40%);
+        }
+        /* Optional: Style the navbar links for better contrast */
+        
+        .custom-navbar .nav-link {
+            color: #fff;
+            font-weight: 500;
         }
         
-        @media (max-width: 576px) {
-            .logo-container h1 {
-                font-size: 20px;
-            }
-            .logo-container img {
-                height: 50px;
-                width: 50px;
-            }
-            .left-section h1 {
-                font-size: 1.8rem;
-                /* Adjusted for smaller screens */
-            }
-            h2 {
-                font-size: 1.5rem;
-                /* Adjusted for smaller screens */
-            }
+        .custom-navbar .nav-link:hover {
+            color: #f8f9fa;
+        }
+        
+        .custom-navbar .navbar-brand h1 {
+            color: #fff;
+            font-size: 1.75rem;
+            /* Increased text size */
+            font-weight: bold;
+        }
+        
+        .home .content h1 {
+            color: #d35400;
+            /* Orange color */
         }
         
         .welcome-section {
@@ -888,98 +777,126 @@
 
 
     </body>
-    <div class="logo-container" onclick="window.location.href='/'">
-        <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo">
-        <h1>FMK</h1>
-    </div>
+
+    <!-- Updated Header with Custom CSS Class -->
+    <header class="navbar navbar-expand-lg custom-navbar shadow-sm">
+        <div class="container-fluid">
+            <!-- Logo and Brand Name -->
+            <a class="navbar-brand d-flex align-items-center" href="/" style="cursor: pointer;">
+                <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo" class="me-2" style="height: 40px;">
+                <h1 class="h5 mb-0">FMK</h1>
+            </a>
+
+            <!-- Toggler button for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
 
     <!-- Home Section -->
     <section class="home">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <div class="container content">
-            <div class="row">
-                <div class="col-md-6 left-section">
-                    <h1>Need a Taxi? Just Call</h1>
-                    <p>Enjoy city breaks or extended holidays with convenient travel. Stay in a small and friendly setting for a unique experience.</p>
-                    <button class="cta-button btn btn-primary" onclick="window.location.href='tel:0677231271'">Call Now</button>
-                    <button class="toggle-button btn btn-secondary" onclick="toggleModal()">Book Your Taxi</button>
-                </div>
-                <div class="col-md-6 right-section">
-                    <div class="card" id="bookingCard">
-                        <h2>Book Your Taxi!</h2>
-                        <form class="booking-form" action="/api/bookings" method="POST">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                            <label for="destinationLocation">Destination</label>
-                            <input type="text" id="destinationLocation" name="destinationLocation" required>
-                            <label for="pickupDate">Pickup Date</label>
-                            <input type="date" id="pickupDate" name="pickupDate" required>
-                            <button type="submit" class="btn-submit">Book Now</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="welcome-section">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <!-- Left Side: Image Section -->
-                <div class="col-md-6">
-                    <div class="image-section">
-                        <img src="uploads/pexels-esmihel-15256361.jpg" class="background-img img-fluid" alt="Background Image">
-                        <img src="uploads/pexels-esmihel-15256361.jpg" class="foreground-img" alt="Foreground Image">
-                        <div class="overlay-text">Your Ride, Anywhere, Anytime.</div>
-                    </div>
-                </div>
-
-                <!-- Right Side: Text Content -->
-                <div class="col-md-6 text-section">
-                    <h1>Welcome.</h1>
-                    <p>Experience the difference with our dedicated team ready to serve you. With a vast network of reliable drivers, we ensure you reach your destination safely and swiftly.</p>
-                    <p>Whether it's a quick trip across town or an airport transfer, we’re here to make your journey smooth and enjoyable. Choose us for comfort, convenience, and peace of mind!</p>
-
-                    <!-- Call to Action Button -->
-                    <a href="#" class="cta-button">Get Started</a>
-                </div>
-            </div>
+        <div class="content">
+            <h1>Need a Taxi? Just Call</h1>
+            <p>Enjoy city breaks or extended holidays with convenient travel.</p>
+            <button class="cta-button btn btn-primary" onclick="window.location.href='tel:0677231271'">Call Now</button>
+            <button class="cta-button btn btn-secondary" onclick="toggleModal()">Book Your Taxi</button>
         </div>
     </section>
 
-    <!-- Include the JavaScript for scroll animation -->
+    <!-- Booking Modal -->
+
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <h2 class="text-center">Book Your Taxi!</h2>
+            <form action="/api/bookings" method="POST" class="p-4">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" id="phone" name="phone" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pickupLocation" class="form-label">Pickup Location</label>
+                    <input type="text" id="pickupLocation" name="pickupLocation" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="customPickup" class="form-label">Custom Pickup</label>
+                    <input type="text" id="customPickup" name="customPickup" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="destinationLocation" class="form-label">Destination Location</label>
+                    <input type="text" id="destinationLocation" name="destinationLocation" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="time" class="form-label">Time</label>
+                    <input type="time" id="time" name="time" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const welcomeSection = document.querySelector('.welcome-section');
+        function toggleModal() {
+            const modal = document.getElementById("bookingModal");
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
 
-            function checkScroll() {
-                const sectionPosition = welcomeSection.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2; // Trigger when section is near the viewport
-
-                if (sectionPosition < screenPosition) {
-                    welcomeSection.classList.add('visible');
-                }
+        window.onclick = function(event) {
+            const modal = document.getElementById("bookingModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
             }
-
-            window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Check on page load
-        });
+        };
     </script>
 
     <section class="services">
@@ -1223,6 +1140,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         // Modal Functions
         function openModal(imageSrc) {
