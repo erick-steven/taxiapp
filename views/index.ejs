@@ -68,18 +68,23 @@
             text-align: center;
             /* Default to center for smaller screens */
             margin-left: auto;
-            /* Center alignment for smaller screens */
             margin-right: auto;
+            font-size: 1.2em;
+            /* Default font size */
+            line-height: 1.5;
+            /* Default line height for readability */
         }
         
         @media (min-width: 768px) {
-            /* Adjust this width as needed for "large screens" */
+            /* Larger screens */
             .home .content {
                 text-align: left;
                 margin-left: -20px;
-                /* Move it further to the left on large screens */
                 margin-right: 0;
-                /* Remove right margin for left alignment */
+                font-size: 1.5em;
+                /* Larger font size on big screens */
+                line-height: 1.8;
+                /* Taller line height on big screens */
             }
         }
         
