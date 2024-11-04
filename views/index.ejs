@@ -63,6 +63,26 @@
         }
         /* CTA Button Styling */
         
+        .home .content {
+            z-index: 2;
+            text-align: center;
+            /* Default to center for smaller screens */
+            margin-left: auto;
+            /* Center alignment for smaller screens */
+            margin-right: auto;
+        }
+        
+        @media (min-width: 768px) {
+            /* Adjust this width as needed for "large screens" */
+            .home .content {
+                text-align: left;
+                margin-left: -20px;
+                /* Move it further to the left on large screens */
+                margin-right: 0;
+                /* Remove right margin for left alignment */
+            }
+        }
+        
         .cta-button {
             margin: 15px;
             padding: 10px 20px;
