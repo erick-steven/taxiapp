@@ -63,29 +63,44 @@
         }
         /* CTA Button Styling */
         
-        .home .content {
-            z-index: 2;
-            text-align: center;
-            /* Default to center for smaller screens */
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.2em;
-            /* Default font size */
-            line-height: 1.5;
-            /* Default line height for readability */
-        }
-        
         @media (min-width: 768px) {
             /* Larger screens */
             .home .content {
-                text-align: left;
-                margin-left: -20px;
-                margin-right: 0;
+                text-align: center;
                 font-size: 1.5em;
                 /* Larger font size on big screens */
                 line-height: 1.8;
                 /* Taller line height on big screens */
             }
+        }
+        
+        .home .content h1 {
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        
+        .home .content p {
+            color: white;
+        }
+        /* Styling for larger screens (768px and above) */
+        
+        @media (min-width: 768px) {
+            .home .content {
+                font-size: 1.5em;
+            }
+        }
+        
+        .home .content h1 {
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            /* Make the text bold */
+        }
+        
+        .home .content p {
+            color: white;
+            /* Make the text bold */
         }
         
         .cta-button {
