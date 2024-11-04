@@ -56,7 +56,7 @@
             z-index: 2;
             text-align: left;
             /* Align text to the left */
-            margin-left: -90px;
+            margin-left: -10px;
             /* Move content further to the left, adjust the value as needed */
             padding: 0;
             /* Adjust padding as needed */
@@ -177,16 +177,23 @@
         }
         
         .home .content h1 {
-            color: #d35400;
-            /* Orange color */
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            /* Make the text bold */
+            margin-left: -90px;
         }
-        /* Include the CSS styles here */
+        
+        .home .content p {
+            color: white;
+            /* Make the text bold */
+            margin-left: -90px;
+        }
         
         .welcome-section {
             background-color: #f7f7f7;
             padding: 100px 0;
-            max-width: 1400px;
-            margin: auto;
+            max-width: auto;
             opacity: 0;
             /* Start as invisible */
             transform: translateY(20px);
@@ -219,7 +226,7 @@
         
         .image-section {
             position: relative;
-            max-width: 500px;
+            max-width: 700px;
             /* Increased image section width */
             margin: auto;
         }
@@ -227,7 +234,7 @@
         .background-img {
             width: 100%;
             border-radius: 10px;
-            max-height: 400px;
+            height: 500px;
             /* Increased image height */
             object-fit: cover;
         }
@@ -249,6 +256,7 @@
             left: 130px;
             font-size: 1.75rem;
             /* Increased text size */
+            margin: 40px;
             font-weight: bold;
             color: #333;
             background-color: rgba(255, 255, 255, 0.9);
@@ -263,12 +271,14 @@
             font-weight: bold;
             color: #ff9c00;
             margin-bottom: 20px;
+            margin-left: 30px
         }
         
         .text-section p {
             font-size: 1.1rem;
             color: #666;
             margin-bottom: 25px;
+            margin-left: 30px
         }
         
         .cta-button {
