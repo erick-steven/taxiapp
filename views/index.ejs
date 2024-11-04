@@ -39,6 +39,41 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding: 20px;
+            /* Add padding for spacing on small screens */
+        }
+        
+        .home .content {
+            z-index: 2;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 1.2em;
+            line-height: 1.5;
+            max-width: 90%;
+            /* Limit width for better readability */
+        }
+        
+        .home .content h1 {
+            font-size: 2em;
+            /* Slightly smaller for mobile */
+            font-weight: bold;
+            margin-bottom: 15px;
+            /* Space below heading */
+            color: white;
+        }
+        
+        .home .content p {
+            font-size: 1em;
+            color: white;
+            margin-bottom: 10px;
+            /* Space between paragraphs */
+        }
+        
+        @media (max-width: 767px) {
+            .home {
+                height: 80vh;
+                /* Reduced height for small screens */
+            }
         }
         
         .home::before {
@@ -63,10 +98,24 @@
         }
         /* CTA Button Styling */
         
+        .home .content {
+            z-index: 2;
+            text-align: center;
+            /* Default to center for smaller screens */
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.2em;
+            /* Default font size */
+            line-height: 1.5;
+            /* Default line height for readability */
+        }
+        
         @media (min-width: 768px) {
             /* Larger screens */
             .home .content {
-                text-align: center;
+                text-align: left;
+                margin-left: -20px;
+                margin-right: 0;
                 font-size: 1.5em;
                 /* Larger font size on big screens */
                 line-height: 1.8;
@@ -101,6 +150,7 @@
         .home .content p {
             color: white;
             /* Make the text bold */
+            margin-left: -90px;
         }
         
         .cta-button {
