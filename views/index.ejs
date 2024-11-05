@@ -18,6 +18,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <style>
         /* General Styles */
+        /* Reset */
         
         body,
         html {
@@ -25,99 +26,39 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
-        /* Logo and Navbar */
+        /* Root Variables */
+        
+         :root {
+            --primary-color: #ffcc00;
+            --secondary-color: #ff9900;
+            --text-color: white;
+        }
+        /* Navbar */
+        
+        .custom-navbar {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 40%, var(--primary-color) 40%);
+        }
+        
+        .custom-navbar .nav-link,
+        .custom-navbar .navbar-brand h1 {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .custom-navbar .nav-link:hover {
+            color: #f8f9fa;
+        }
+        /* Home Section */
         
         .home {
-            position: relative;
-            background-image: url('../uploads/istockphoto-519870714-1024x1024.jpg');
-            background-size: cover;
-            background-position: center;
+            background: url('../uploads/background.jpg') center/cover no-repeat;
+            color: var(--text-color);
             height: 100vh;
-            color: white;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
-            /* Add padding for spacing */
-        }
-        
-        .home .content {
-            z-index: 2;
-            text-align: center;
-            margin: 0 auto;
-            font-size: 1.1em;
-            /* Base font size for readability */
-            line-height: 1.4;
-            max-width: 90%;
-            /* Limit width for better readability */
-            padding: 10px 0;
-            /* Add padding for content block */
-        }
-        
-        .home .content h1 {
-            font-size: 1.8em;
-            /* Reduced size for mobile */
-            font-weight: bold;
-            margin-bottom: 10px;
-            /* Space below heading */
-            color: white;
-        }
-        
-        .home .content p {
-            font-size: 0.95em;
-            /* Smaller font size for mobile */
-            color: white;
-            margin-bottom: 8px;
-            /* Space between paragraphs */
-        }
-        
-        @media (max-width: 767px) {
-            .home {
-                height: 80vh;
-                /* Reduced height for small screens */
-            }
-        }
-        /* Mobile-only styles for .home .content */
-        
-        @media (max-width: 480px) {
-            .home .content h1 {
-                font-size: 1.5em;
-                /* Adjust heading size for smaller screens */
-                font-weight: bold;
-                margin-bottom: 10px;
-                /* Space below heading */
-                color: white;
-            }
-            .home .content p {
-                font-size: 0.9em;
-                /* Smaller font size for readability on mobile */
-                color: white;
-                margin-bottom: 8px;
-                /* Spacing between paragraphs */
-                line-height: 1.4;
-                /* Increase line height for readability */
-            }
-            .home .content {
-                padding: 10px 20px;
-                /* Add padding for content spacing on small screens */
-                text-align: center;
-                /* Center text for better presentation on mobile */
-                max-width: 90%;
-                /* Limit width for readability */
-                margin: 0 auto;
-                /* Center the content block */
-            }
-        }
-        /* General styling for larger screens */
-        
-        .home .content {
-            z-index: 2;
-            font-size: 1.2em;
-            /* Default font size */
-            line-height: 1.5;
-            /* Any other general styling */
+            position: relative;
         }
         
         .home::before {
@@ -133,69 +74,24 @@
         
         .home .content {
             z-index: 2;
-            text-align: left;
-            /* Align text to the left */
-            margin-left: -10px;
-            /* Move content further to the left, adjust the value as needed */
-            padding: 0;
-            /* Adjust padding as needed */
-        }
-        /* CTA Button Styling */
-        
-        .home .content {
-            z-index: 2;
             text-align: center;
-            /* Default to center for smaller screens */
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.2em;
-            /* Default font size */
-            line-height: 1.5;
-            /* Default line height for readability */
-        }
-        
-        @media (min-width: 768px) {
-            /* Larger screens */
-            .home .content {
-                text-align: left;
-                margin-left: -20px;
-                margin-right: 0;
-                font-size: 1.5em;
-                /* Larger font size on big screens */
-                line-height: 1.8;
-                /* Taller line height on big screens */
-            }
+            max-width: 90%;
+            padding: 10px 20px;
+            line-height: 1.4;
+            margin: 0 auto;
         }
         
         .home .content h1 {
-            color: white;
             font-size: 2.5em;
             font-weight: bold;
+            color: white;
         }
         
         .home .content p {
+            font-size: 1em;
             color: white;
         }
-        /* Styling for larger screens (768px and above) */
-        
-        @media (min-width: 768px) {
-            .home .content {
-                font-size: 1.5em;
-            }
-        }
-        
-        .home .content h1 {
-            color: white;
-            font-size: 2.5em;
-            font-weight: bold;
-            /* Make the text bold */
-        }
-        
-        .home .content p {
-            color: white;
-            /* Make the text bold */
-            margin-left: -90px;
-        }
+        /* CTA Button */
         
         .cta-button {
             margin: 15px;
@@ -206,13 +102,13 @@
         }
         
         .btn-primary {
-            background-color: #ffcc00;
+            background-color: var(--primary-color);
             color: black;
             border: none;
         }
         
         .btn-primary:hover {
-            background-color: #ff9900;
+            background-color: var(--secondary-color);
             color: white;
         }
         
@@ -225,7 +121,7 @@
         .btn-secondary:hover {
             background-color: #ddd;
         }
-        /* Booking Modal */
+        /* Modal */
         
         .modal {
             display: none;
@@ -235,7 +131,6 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0, 0, 0, 0.4);
         }
         
@@ -264,39 +159,24 @@
         }
         /* Responsive Styles */
         
-        .custom-navbar {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 40%, #ff9c00 40%);
-        }
-        /* Optional: Style the navbar links for better contrast */
-        
-        .custom-navbar .nav-link {
-            color: #fff;
-            font-weight: 500;
-        }
-        
-        .custom-navbar .nav-link:hover {
-            color: #f8f9fa;
+        @media (max-width: 767px) {
+            .home {
+                height: 80vh;
+            }
+            .home .content h1 {
+                font-size: 1.8em;
+            }
+            .home .content p {
+                font-size: 0.95em;
+            }
         }
         
-        .custom-navbar .navbar-brand h1 {
-            color: #fff;
-            font-size: 1.75rem;
-            /* Increased text size */
-            font-weight: bold;
-        }
-        
-        .home .content h1 {
-            color: white;
-            font-size: 2.5em;
-            font-weight: bold;
-            /* Make the text bold */
-            margin-left: -90px;
-        }
-        
-        .home .content p {
-            color: white;
-            /* Make the text bold */
-            margin-left: -90px;
+        @media (min-width: 768px) {
+            .home .content {
+                text-align: left;
+                font-size: 1.5em;
+                line-height: 1.8;
+            }
         }
         
         .welcome-section {
@@ -968,108 +848,50 @@
         <div class="container-fluid">
             <!-- Logo and Brand Name -->
             <a class="navbar-brand d-flex align-items-center" href="/" style="cursor: pointer;">
-                <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo" class="me-2" style="height: 40px;">
+                <img src="uploads/logo.png" alt="FMK Logo" class="me-2" style="height: 40px;">
                 <h1 class="h5 mb-0">FMK</h1>
             </a>
 
             <!-- Toggler button for mobile view -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-
-
-    <!-- Home Section -->
     <section class="home">
         <div class="content">
             <h1>Reliable way to get <br> around the town</h1>
-            <p>Whether you need a quick ride to the airport, a trip to a business meeting,or a <br> night out on the town, our fleet of well-maintained taxis and professional drivers<br> are at your service..</p>
-            <button class="cta-button btn btn-primary" onclick="window.location.href='tel:0677231271'">Call Now</button>
+            <p>Our fleet of well-maintained taxis and professional drivers are at your service for quick rides or special occasions.</p>
+            <button class="cta-button btn btn-primary" aria-label="Call Now at 0677231271" onclick="window.location.href='tel:0677231271'">Call Now</button>
             <button class="cta-button btn btn-secondary" onclick="toggleModal()">Book Your Taxi</button>
         </div>
     </section>
 
-    <!-- Booking Modal -->
-
-
-    <div id="bookingModal" class="modal">
+    <div id="bookingModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
-            <span class="close" onclick="toggleModal()">&times;</span>
+            <span class="close" onclick="toggleModal()" aria-hidden="true">&times;</span>
             <h2 class="text-center">Book Your Taxi!</h2>
             <form action="/api/bookings" method="POST" class="p-4">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input type="text" id="phone" name="phone" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="pickupLocation" class="form-label">Pickup Location</label>
-                    <input type="text" id="pickupLocation" name="pickupLocation" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="customPickup" class="form-label">Custom Pickup</label>
-                    <input type="text" id="customPickup" name="customPickup" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label for="destinationLocation" class="form-label">Destination Location</label>
-                    <input type="text" id="destinationLocation" name="destinationLocation" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input type="date" id="date" name="date" class="form-control" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="time" class="form-label">Time</label>
-                    <input type="time" id="time" name="time" class="form-control" required>
-                </div>
-
+                <div class="mb-3"><label for="name" class="form-label">Name</label><input type="text" id="name" name="name" class="form-control" required></div>
+                <!-- Other form fields -->
                 <button type="submit" class="btn btn-primary btn-block">Book Now</button>
             </form>
         </div>
     </div>
 
-
-    <!-- JavaScript -->
     <script>
         function toggleModal() {
             const modal = document.getElementById("bookingModal");
@@ -1083,8 +905,6 @@
             }
         };
     </script>
-
-
 
     <section class="welcome-section">
         <div class="container">
