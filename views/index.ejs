@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -185,29 +186,67 @@
                 line-height: 1.8;
             }
         }
+        /* Offcanvas styling for small screens */
+        
+        .offcanvas-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            /* Initially hidden off-screen */
+            width: 70%;
+            /* Adjust width as needed */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            padding-top: 60px;
+        }
+        
+        .offcanvas-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .offcanvas-menu a {
+            color: white;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        .offcanvas-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        /* Toggle visibility on small screens */
+        
+        @media (max-width: 768px) {
+            .offcanvas-menu.active {
+                left: 0;
+                /* Slide in from left */
+            }
+        }
         
         .welcome-section {
             background-color: #f7f7f7;
-            padding: 100px 0;
-            max-width: auto;
+            padding: 80px 0;
             opacity: 0;
             /* Start as invisible */
             transform: translateY(20px);
             /* Start lower */
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            /* Smooth transition */
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            /* Reduced duration */
         }
         
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
-                /* Start slightly lower */
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
-                /* End at original position */
             }
         }
         
@@ -216,14 +255,13 @@
             /* Make visible */
             transform: translateY(0);
             /* Move to original position */
-            animation: fadeInUp 0.6s forwards;
-            /* Trigger animation */
+            animation: fadeInUp 0.4s forwards;
+            /* Trigger animation with reduced duration */
         }
         
         .image-section {
             position: relative;
             max-width: 700px;
-            /* Increased image section width */
             margin: auto;
         }
         
@@ -231,7 +269,6 @@
             width: 100%;
             border-radius: 10px;
             height: 500px;
-            /* Increased image height */
             object-fit: cover;
         }
         
@@ -240,7 +277,6 @@
             top: 15px;
             left: 15px;
             width: 120px;
-            /* Increased foreground image size */
             border: 3px solid white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             border-radius: 8px;
@@ -251,39 +287,34 @@
             top: 70px;
             left: 130px;
             font-size: 1.75rem;
-            /* Increased text size */
             margin: 40px;
             font-weight: bold;
             color: #333;
             background-color: rgba(255, 255, 255, 0.9);
             padding: 15px 25px;
-            /* Increased padding for more space around text */
             border-radius: 5px;
         }
         
         .text-section h1 {
             font-size: 2.5rem;
-            /* Increased font size */
             font-weight: bold;
             color: #ff9c00;
             margin-bottom: 20px;
-            margin-left: 30px
+            margin-left: 30px;
         }
         
         .text-section p {
             font-size: 1.1rem;
             color: #666;
             margin-bottom: 25px;
-            margin-left: 30px
+            margin-left: 30px;
         }
         
         .cta-button {
             font-size: 1.1rem;
             font-weight: bold;
             padding: 12px 24px;
-            /* Increased padding for button */
             background-color: #d35400;
-            /* Orange button */
             color: white;
             border: none;
             border-radius: 5px;
@@ -293,14 +324,11 @@
         
         .cta-button:hover {
             background-color: #c24400;
-            /* Darker shade on hover */
         }
-        /* Responsive Adjustments */
         
         @media (max-width: 576px) {
             .foreground-img {
                 width: 90px;
-                /* Adjusted foreground image size */
                 top: 10px;
                 left: 10px;
             }
@@ -314,17 +342,11 @@
             }
             .text-section {
                 text-align: center;
-                /* Center text */
                 margin: 0 auto;
-                /* Center the section */
             }
             .text-section p {
-                margin-left: auto;
-                /* Center paragraph */
-                margin-right: auto;
-                /* Center paragraph */
+                margin: 0 auto;
                 width: 90%;
-                /* Optional: Limit width for better readability */
             }
         }
         /* Offcanvas styling for small screens */
@@ -369,157 +391,212 @@
             }
         }
         
-        .services {
-            position: relative;
+        .welcome-section {
             padding: 60px 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
+            background-color: #f8f9fa;
+            position: relative;
         }
         
-        .services::before {
-            content: '';
+        .image-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .background-img {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+        }
+        
+        .foreground-img {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(173, 155, 120, 0.2), rgba(255, 204, 128, 0.1), rgba(245, 130, 130, 0.2));
-            backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            z-index: -1;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            opacity: 0.5;
         }
+        
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            z-index: 2;
+        }
+        /* Glassmorphic effect for the section background */
+        
+        .services {
+            padding: 60px 0;
+            background: rgba(199, 198, 198, 0.767);
+            /* Semi-transparent background */
+            backdrop-filter: blur(10px);
+            /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+        /* Header style for the services section */
         
         .services h2 {
-            font-weight: bold;
             text-align: center;
+            /* Center the heading */
             margin-bottom: 40px;
+            /* Space below the heading */
+            font-size: 2.5rem;
+            /* Font size for the heading */
+            font-weight: bold;
+            color: #ff9c00;
+            /* Bright color for emphasis */
+            text-transform: uppercase;
+            /* Transform text to uppercase for a bold look */
+            letter-spacing: 1.5px;
+            /* Space between letters */
+            position: relative;
+            /* Allow for positioning of the underline effect */
+        }
+        /* Optional: Adding an underline effect for the heading */
+        
+        .services h2::after {
+            content: '';
+            /* Empty content for the underline */
+            display: block;
+            /* Block element to stretch full width */
+            width: 60px;
+            /* Width of the underline */
+            height: 4px;
+            /* Thickness of the underline */
+            background: #ff9c00;
+            /* Color of the underline */
+            margin: 10px auto;
+            /* Center the underline below the heading */
+        }
+        
+        .row {
+            justify-content: center;
+            /* Center the row */
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            /* White background for cards */
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            position: relative;
+            height: 350px;
+            /* Set a fixed height for consistency */
+            display: flex;
+            /* Use flexbox for alignment */
+            flex-direction: column;
+            /* Stack items vertically */
+            justify-content: space-between;
+            /* Space between content and button */
+        }
+        
+        .service-image {
+            flex-grow: 1;
+            /* Allow the image to take available space */
+        }
+        
+        .service-image img {
+            width: 100%;
+            /* Full width for images */
+            height: 150px;
+            /* Fixed height for images */
+            object-fit: cover;
+            /* Cover to maintain aspect ratio */
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            /* Lift effect on hover */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+            /* Scale up image on hover */
+        }
+        
+        .service-content {
+            padding: 20px;
+            /* Padding for content */
+            text-align: center;
+            /* Center content */
+        }
+        
+        .service-content h2 {
             font-size: 2.5rem;
             color: #ff9c00;
-        }
-        
-        .service-item {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 400px;
-            /* Set a constant height */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .service-item:hover {
-            transform: trans l ateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .service-item .icon {
-            width: 120px;
-            /* Set a fixed width for the icon */
-            height: 120px;
-            /* Set a fixed height for the icon */
-            margin: 0 auto 15px;
-            /* Center the icon */
-            overflow: hidden;
-            /* Hide overflow */
-            border-radius: 10px;
-            /* Optional: rounded corners */
-            display: flex;
-            /* Use flexbox for centering */
-            justify-content: center;
-            /* Center the image horizontally */
-            align-items: center;
-            /* Center the image vertically */
-            background-color: rgba(255, 255, 255, 0.8);
-            /* Optional: background color */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            /* Optional: shadow for better visibility */
-        }
-        
-        .service-icon {
-            width: 100%;
-            /* Fill the width of the icon container */
-            height: 100%;
-            /* Fill the height of the icon container */
-            object-fit: cover;
-            /* Maintain aspect ratio while covering the area */
-        }
-        
-        .service-item h3 {
-            font-size: 1.75rem;
             font-weight: bold;
-            color: #ff9c00;
+            margin-bottom: 10px;
         }
         
-        .service-item p {
-            color: #555;
-            font-size: 1rem;
+        .service-content p {
+            color: #666;
+            /* Soft gray for text */
             margin-bottom: 20px;
+            flex-grow: 1;
+            /* Allow paragraph to grow */
         }
         
         .read-more {
-            background-color: #007bff;
-            color: white;
+            --secondary-color: #ff9900;
+            /* Primary color for buttons */
+            color: #e88b00;
+            /* White text */
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 1rem;
-            transition: background-color 0.3s;
             text-decoration: none;
+            transition: background-color 0.3s;
+            text-align: center;
+            /* Center button */
         }
         
         .read-more:hover {
-            background-color: orange;
+            --secondary-color: #ff9900;
+            /* Darker shade on hover */
         }
         
-        hr {
-            background-color: orange;
-            height: 2px;
-            border: none;
-            margin: 20px 0;
-        }
-        
-        .gallery-scroll-container {
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            /* Keeps scroll hidden for the overall container */
-            white-space: nowrap;
-            /* Prevents line breaks in the container */
-            padding: 10px 0;
-            /* Adds some vertical padding */
-        }
-        
-        #gallery-row {
-            display: flex;
-            /* Aligns images in a row */
-            transition: transform 0.3s ease;
-            /* Smooth transition effect */
-            padding: 10px;
-            /* Padding inside the scroll area */
+        @media (max-width: 768px) {
+            .service-card {
+                margin-bottom: 30px;
+                /* Spacing between cards on mobile */
+            }
         }
         
         .gallery-item {
             cursor: pointer;
             transition: transform 0.3s;
-            border-radius: 8px;
             overflow: hidden;
-            margin-right: 10px;
-            /* Space between images */
-            flex: 0 0 25%;
-            /* Each item takes up 25% of the container */
-            max-width: 250px;
-            /* Set a max-width to keep images consistent */
-            height: 200px;
-            /* Fixed height for each image */
         }
         
-        .gallery-item img {
+        .gallery-img-container {
             width: 100%;
-            /* Ensure images fill the item width */
-            height: 100%;
-            /* Ensure images fill the item height */
-            object-fit: cover;
+            /* Full width of the column */
+            height: 200px;
+            /* Fixed height for uniformity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .gallery-img-container img {
+            width: 100%;
             /* Maintain aspect ratio */
+            height: 400px;
+            /* Ensure the image fills the height */
+            object-fit: cover;
+            /* Crop the image to fit the container */
         }
         
         .gallery-item:hover {
@@ -531,67 +608,72 @@
             font-size: 2.5rem;
             font-weight: bold;
         }
-        /* Style for navigation buttons */
-        
-        .btn-secondary {
-            background-color: #6c757d;
-            /* Default Bootstrap secondary color */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            margin: 0 10px;
-            /* Space around buttons */
-        }
-        
-        .btn-secondary:hover {
-            background-color: #5a6268;
-            /* Darker on hover */
-        }
         
         .reviews {
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
+            overflow: hidden;
+            /* Hide overflowing content */
             position: relative;
+            /* Position for absolute child elements */
         }
         
         .review-list {
             display: flex;
-            overflow: hidden;
-            /* Hide overflowing content */
-            transition: transform 0.3s ease;
-            height: 200px;
-            /* Set a fixed height for consistency */
+            /* Use flexbox for layout */
+            transition: transform 0.5s ease;
+            /* Smooth transition for sliding */
         }
         
         .review {
-            flex: 0 0 100%;
-            /* Ensure each review takes full width */
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 0 0 300px;
+            /* Fixed width for each review card */
+            margin: 10px;
+            /* Spacing between reviews */
+            padding: 20px;
+            /* Padding inside each card */
+            background-color: rgba(249, 249, 249, 0.8);
+            /* Light background with transparency */
+            border-radius: 10px;
+            /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
             opacity: 0;
-            /* Initially hide all reviews */
-            transition: opacity 0.5s ease;
+            /* Initially hidden for animation */
+            transform: translateY(20px);
+            /* Slide-in effect */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            /* Smooth transition */
         }
         
-        .active {
+        .review.visible {
             opacity: 1;
-            /* Show active reviews */
+            /* Fully visible */
+            transform: translateY(0);
+            /* Move to original position */
+        }
+        
+        .navigation-buttons {
+            margin-top: 20px;
+            /* Space above navigation buttons */
+        }
+        
+        button {
+            margin: 0 5px;
+            /* Spacing between buttons */
         }
         
         .footer {
             background-color: #2c3e50;
             color: white;
-            padding: 20px 0;
+            padding: 40px 0;
+            /* Increased padding for a more spacious look */
         }
         
         .footer-links h3,
         .footer-social h3,
         .footer-newsletter h3 {
             color: #f39c12;
+            margin-bottom: 20px;
+            /* Added margin for spacing */
         }
         
         .footer-links a,
@@ -600,12 +682,15 @@
             text-decoration: none;
         }
         
-        .footer-links a:hover {
+        .footer-links a:hover,
+        .footer-social a:hover {
             text-decoration: underline;
         }
         
         .footer-newsletter .form-control {
             border-radius: 5px;
+            margin-right: 10px;
+            /* Added space between input and button */
         }
         
         .footer-newsletter .btn {
@@ -642,12 +727,25 @@
             .footer-newsletter .btn {
                 width: 100%;
                 max-width: 300px;
+                margin-bottom: 10px;
+                /* Added margin for vertical spacing */
             }
+        }
+        
+        .social-link {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            color: #f39c12;
+            /* Change color on hover for social links */
         }
         
         .support-section {
             background-color: #f1c40f;
-            /* Yellow background */
+            /* Yellow
+    background */
             padding: 40px 20px;
             /* Padding for the section */
             text-align: center;
@@ -694,7 +792,8 @@
             padding: 10px 20px;
             /* Padding for button */
             font-size: 1em;
-            /* Button text size */
+            /* Button text
+    size */
             border: none;
             /* No border */
             border-radius: 5px;
@@ -763,8 +862,8 @@
             padding: 10px;
             text-align: center;
             display: inline-block;
-            width: 1000px;
-            /* Increased width of the card */
+            width: 220px;
+            /* Set fixed width for cards for better responsiveness */
             margin-right: 10px;
             /* Space between cards */
         }
@@ -798,6 +897,27 @@
             font-size: 1rem;
             transition: background-color 0.3s;
             cursor: pointer;
+        }
+        
+        .book-now:hover {
+            background-color: #e65c00;
+            /* Darker shade on hover */
+        }
+        
+        @media (max-width: 768px) {
+            .car-card {
+                width: 150px;
+                /* Smaller width on mobile */
+                margin-right: 5px;
+                /* Smaller margin for mobile */
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .car-card {
+                width: 120px;
+                /* Even smaller width on extra small screens */
+            }
         }
         
         .why-choose-us {
@@ -899,35 +1019,24 @@
             </a>
 
             <!-- Toggler button for mobile view -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" onclick="toggleOffcanvas()">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Navbar Links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="offcanvas-menu" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </header>
+
 
 
 
@@ -1027,7 +1136,7 @@
             <div class="row d-flex align-items-center">
                 <!-- Left Side: Image Section -->
                 <div class="col-md-6">
-                    <div class="image-section">
+                    <div class="image-section position-relative">
                         <img src="uploads/pexels-esmihel-15256361.jpg" class="background-img img-fluid" alt="Background Image">
                         <img src="uploads/pexels-esmihel-15256361.jpg" class="foreground-img img-fluid" alt="Foreground Image">
                         <div class="overlay-text">Your Ride, Anywhere, Anytime.</div>
@@ -1049,9 +1158,24 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Add the 'visible' class to the welcome section when the DOM is fully loaded
             const welcomeSection = document.querySelector('.welcome-section');
-            welcomeSection.classList.add('visible');
+
+            // Create an intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the 'visible' class when the section comes into view
+                        welcomeSection.classList.add('visible');
+                        // Stop observing after the animation is triggered
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0
+            }); // Trigger as soon as any part is in view
+
+            // Observe the welcome section
+            observer.observe(welcomeSection);
         });
     </script>
 
@@ -1059,67 +1183,106 @@
         <div class="container">
             <h2>Our Services</h2>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="icon"><img src="uploads/pexels-esmihel-15256361.jpg" alt="Taxi Service" class="service-icon"></div>
-                        <h3>Taxi Service/parcels</h3>
-                        <p>Enjoy seamless rides with our reliable taxi services, available at your fingertips.</p>
-                        <hr>
-                        <a href="/taxi" class="read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="icon"><img src="uploads/istockphoto-1313422727-1024x1024.jpg" alt="Office Pick-ups" class="service-icon"></div>
-                        <h3>Office Pick-ups</h3>
-                        <p>Convenient transportation solutions for your daily commutes and meetings.</p>
-                        <hr>
-                        <a href="/office" class="read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="icon"><img src="uploads/Romantic Cabo Oceanfront Wedding at Solaz.jpg" alt="Event Transportation" class="service-icon"></div>
-                        <h3>Event Transportation</h3>
-                        <p>Arrive in style with our dedicated event transportation services.</p>
-                        <hr>
-                        <a href="/event" class="read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="icon"><img src="uploads/13 Ways to Save Major Cash on Holiday Travel.jpg" alt="Airport Transfers" class="service-icon"></div>
-                        <h3>Airport Transfers</h3>
-                        <p>Efficient airport transfer services for a stress-free travel experience.</p>
-                        <hr>
-                        <a href="/airport" class="read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="icon"><img src="uploads/Cloud Hotel Reservation System.jpg" alt="Hotel Reservation" class="service-icon"></div>
-                        <h3>Hotel/Apartment Reservation</h3>
-                        <p>Book premium accommodations with ease for your travel needs.</p>
-                        <hr>
-                        <a href="/hotel" class="read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="uploads/220-2200303_carros-png.png" alt="Car Rentals" class="service-icon">
-                            <!-- Update the image path -->
+                <div class="col-lg-4 col-md-6 service-item">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="uploads/pexels-esmihel-15256361.jpg" alt="Taxi Service" class="service-icon">
                         </div>
-                        <h3>Car Rentals</h3>
-                        <p>Choose from a wide selection of vehicles for your travel needs, whether for business or leisure.</p>
-                        <!-- Updated description -->
-                        <hr>
-                        <a href="/car-rental" class="read-more">Read More</a>
-                        <!-- Updated link -->
+                        <div class="service-content">
+                            <h3>Taxi Service/Parcels</h3>
+                            <p>Enjoy seamless rides with our reliable taxi services, available at your fingertips.</p>
+                            <a href="/taxi" class="read-more">Read More</a>
+                        </div>
                     </div>
                 </div>
-
+                <div class="col-lg-4 col-md-6 service-item">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="uploads/istockphoto-1313422727-1024x1024.jpg" alt="Office Pick-ups" class="service-icon">
+                        </div>
+                        <div class="service-content">
+                            <h3>Office Pick-ups</h3>
+                            <p>Convenient transportation solutions for your daily commutes and meetings.</p>
+                            <a href="/office" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 service-item">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="uploads/Romantic Cabo Oceanfront Wedding at Solaz.jpg" alt="Event Transportation" class="service-icon">
+                        </div>
+                        <div class="service-content">
+                            <h3>Event Transportation</h3>
+                            <p>Arrive in style with our dedicated event transportation services.</p>
+                            <a href="/event" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 service-item">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="uploads/13 Ways to Save Major Cash on Holiday Travel.jpg" alt="Airport Transfers" class="service-icon">
+                        </div>
+                        <div class="service-content">
+                            <h3>Airport Transfers</h3>
+                            <p>Efficient airport transfer services for a stress-free travel experience.</p>
+                            <a href="/airport" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 service-item">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="uploads/Cloud Hotel Reservation System.jpg" alt="Hotel Reservation" class="service-icon">
+                        </div>
+                        <div class="service-content">
+                            <h3>Hotel/Apartment Reservation</h3>
+                            <p>Book premium accommodations with ease for your travel needs.</p>
+                            <a href="/hotel" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 service-item">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="uploads/220-2200303_carros-png.png" alt="Car Rentals" class="service-icon">
+                        </div>
+                        <div class="service-content">
+                            <h3>Car Rentals</h3>
+                            <p>Choose from a wide selection of vehicles for your travel needs, whether for business or leisure.</p>
+                            <a href="/car-rental" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+
+    <SCript>
+        document.addEventListener("DOMContentLoaded", function() {
+            const serviceItems = document.querySelectorAll('.service-item');
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, {
+                threshold: 0.2
+            });
+
+            serviceItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </SCript>
+
     <section class="offer-section">
         <div class="container offer-container">
             <h2>Find Your Ideal Ride</h2>
@@ -1158,13 +1321,14 @@
                 <% } %>
         </div>
     </section>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carGrid = document.getElementById('car-grid');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
 
-            // Define the width of each card plus margin (adjust this as necessary)
+            // Define the width of each card plus margin
             const cardWidth = 220; // Width of the card plus some margin
 
             nextBtn.addEventListener('click', () => {
@@ -1213,63 +1377,33 @@
         <h1 class="gallery-h1 text-center">Image Gallery</h1>
         <p class="text-center">Sharing our love for the eco-friendly system.</p>
 
-        <div class="gallery-scroll-container">
-            <button id="gallery-prev-btn" class="btn btn-secondary">← Back</button>
-            <div class="row" id="gallery-row">
-                <% images.forEach(image => { %>
-                    <div class="col-md-4 mb-4 gallery-item" onclick="openModal('<%= image.path %>')">
+        <div class="row">
+            <% images.forEach(image => { %>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 gallery-item" onclick="openModal('<%= image.path %>')">
+                    <div class="gallery-img-container">
                         <img src="<%= image.path %>" class="img-fluid" alt="Eco Image">
                     </div>
-                    <% }) %>
-            </div>
-            <button id="gallery-next-btn" class="btn btn-secondary">Next →</button>
+                </div>
+                <% }) %>
         </div>
     </div>
-    <script>
-        const galleryRow = document.getElementById('gallery-row');
-        const prevBtn = document.getElementById('gallery-prev-btn');
-        const nextBtn = document.getElementById('gallery-next-btn');
-        const itemWidth = document.querySelector('.gallery-item').offsetWidth; // Width of one item
-        const visibleItems = 4; // Number of items to show at once
-        let currentIndex = 0; // Starting index
 
-        // Function to update gallery position
-        function updateGalleryPosition() {
-            const offset = currentIndex * itemWidth;
-            galleryRow.style.transform = `translateX(-${offset}px)`;
-        }
 
-        // Next button functionality
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < galleryRow.children.length - visibleItems) {
-                currentIndex++;
-                updateGalleryPosition();
-            }
-        });
 
-        // Previous button functionality
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateGalleryPosition();
-            }
-        });
-    </script>
-
-    <section class="support-section ">
-        <div class="support-container ">
-            <h2>Experience Great Support</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <div class="support-call-to-action ">
-                <h3>REACH OUR SUPPORT TEAM</h3>
-                <button class="support-button ">Contact Us</button>
+    <section class="support-section">
+        <div class="support-container">
+            <h2>Exceptional Taxi Service Support</h2>
+            <p>At our taxi service, we are committed to providing outstanding support to ensure your rides are comfortable and stress-free. Whether you have questions about your booking or need assistance during your journey, our dedicated team is here to
+                help you.</p>
+            <div class="support-call-to-action">
+                <h3>Contact Our Support Team</h3>
+                <button class="support-button">Get in Touch</button>
             </div>
         </div>
     </section>
-
     <div class="reviews-container container mt-5">
-        <h2>Client's Reviews</h2>
-        <p>What our clients say about their love for eco-friendly solutions.</p>
+        <h2 class="text-center">Client's Reviews</h2>
+        <p class="text-center">What our clients say about their love for eco-friendly solutions.</p>
 
         <div class="review-form mb-4">
             <h3>Leave a Review</h3>
@@ -1282,7 +1416,7 @@
         </div>
 
         <div class="reviews" id="reviews">
-            <div class="review-list" id="review-list">
+            <div class="review-list d-flex flex-row justify-content-center">
                 <% if (reviews && reviews.length) { %>
                     <% reviews.forEach(review => { %>
                         <div class="review">
@@ -1301,58 +1435,96 @@
             </div>
         </div>
 
-        <div class="navigation-buttons text-center mt-3">
-            <button id="prev-btn" class="btn btn-secondary" disabled>← Previous</button>
-            <button id="next-btn" class="btn btn-secondary">Next →</button>
-        </div>
+
     </div>
 
-    <footer class="footer py-4 ">
-        <div class="container ">
-            <div class="row ">
+
+
+
+    <script>
+        let currentReviewIndex = 0; // Start from the first review
+        const reviews = document.querySelectorAll('.review');
+        const totalReviews = reviews.length;
+
+        // Function to show the current review
+        function showReview(index) {
+            reviews.forEach((review, i) => {
+                review.classList.remove('visible'); // Hide all reviews
+                if (i === index) {
+                    review.classList.add('visible'); // Show the current review
+                }
+            });
+        }
+
+        // Function to cycle through reviews
+        function cycleReviews() {
+            showReview(currentReviewIndex);
+            currentReviewIndex = (currentReviewIndex + 1) % totalReviews; // Increment index and wrap around
+        }
+
+        // Initially show the first review
+        showReview(currentReviewIndex);
+
+        // Cycle through reviews every 5 seconds
+        setInterval(cycleReviews, 2000);
+    </script>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
                 <!-- Quick Links -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-links ">
-                    <h3 class="text-warning ">Quick Links</h3>
-                    <ul class="list-unstyled ">
-                        <li><a href="# ">Book a Taxi</a></li>
-                        <li><a href="# ">Hotel Reservations</a></li>
-                        <li><a href="# ">Car Rentals</a></li>
-                        <li><a href="# ">Airport Transfers</a></li>
-                        <li><a href="# ">Travel Insurance</a></li>
-                        <li><a href="# ">Customer Support</a></li>
+                <div class="col-md-3 col-sm-6 mb-4 footer-links">
+                    <h3 class="text-warning">Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fas fa-taxi"></i> Book a Taxi</a></li>
+                        <li><a href="#"><i class="fas fa-hotel"></i> Hotel Reservations</a></li>
+                        <li><a href="#"><i class="fas fa-car"></i> Car Rentals</a></li>
+                        <li><a href="#"><i class="fas fa-plane-arrival"></i> Airport Transfers</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Travel Insurance</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> Customer Support</a></li>
                     </ul>
                 </div>
                 <!-- Additional Services -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-links ">
-                    <h3 class="text-warning ">Additional Services</h3>
-                    <ul class="list-unstyled ">
-                        <li><a href="# ">City Tours</a></li>
-                        <li><a href="# ">Group Bookings</a></li>
-                        <li><a href="# ">Loyalty Program</a></li>
-                        <li><a href="# ">Promotions</a></li>
-                        <li><a href="# ">FAQs</a></li>
-                        <li><a href="# ">Contact Us</a></li>
+                <div class="col-md-3 col-sm-6 mb-4 footer-links">
+                    <h3 class="text-warning">Additional Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fas fa-map"></i> City Tours</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Group Bookings</a></li>
+                        <li><a href="#"><i class="fas fa-gift"></i> Loyalty Program</a></li>
+                        <li><a href="#"><i class="fas fa-tags"></i> Promotions</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- Follow Us -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-social ">
-                    <h3 class="text-warning ">Follow Us</h3>
+                <div class="col-md-3 col-sm-6 mb-4 footer-social">
+                    <h3 class="text-warning">Follow Us</h3>
                     <p>Stay connected with us</p>
-                    <div class="d-flex gap-3 "><a href="# ">Facebook</a><a href="# ">Twitter</a><a href="# ">Instagram</a><a href="# ">LinkedIn</a></div>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    </div>
                 </div>
                 <!-- Newsletter -->
-                <div class="col-md-3 col-sm-6 mb-4 footer-newsletter ">
-                    <h3 class="text-warning ">Newsletter</h3>
+                <div class="col-md-3 col-sm-6 mb-4 footer-newsletter">
+                    <h3 class="text-warning">Newsletter</h3>
                     <p>Stay updated with our latest</p>
-                    <div class="input-group "><input type="email " class="form-control " placeholder="Enter Email " aria-label="Email "><button class="btn btn-warning " type="button ">Subscribe</button></div>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter Email" aria-label="Email">
+                        <button class="btn btn-warning" type="button">Subscribe</button>
+                    </div>
                 </div>
             </div>
             <!-- Footer Bottom -->
-            <div class="footer-bottom text-center mt-4 ">
+            <div class="footer-bottom text-center mt-4">
                 <p>Copyright ©2024 All rights reserved | This template is made with ❤️ by Colorlib</p>
             </div>
         </div>
     </footer>
+
+
     <!-- JavaScript files and Libraries -->
     <script src="/script.js "></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "></script>
@@ -1463,12 +1635,16 @@
 
 
 
-</html> customLocationField.style.display = "block "; modalCustomLocationField.style.display = "block "; } else { customLocationField.style.display = "none "; modalCustomLocationField.style.display = "none "; } }
+</html>
 </script>
 
 
 </body>
 
 
+
+</html>
+
+</html>
 
 </html>
