@@ -51,7 +51,7 @@
         /* Home Section */
         
         .home {
-            background: url('../uploads/background.jpg') center/cover no-repeat;
+            background: url('../uploads/istockphoto-519870714-1024x1024.jpg') center/cover no-repeat;
             color: var(--text-color);
             height: 100vh;
             display: flex;
@@ -318,6 +318,47 @@
                 /* Center paragraph */
                 width: 90%;
                 /* Optional: Limit width for better readability */
+            }
+        }
+        /* Offcanvas styling for small screens */
+        
+        .offcanvas-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            /* Initially hidden off-screen */
+            width: 70%;
+            /* Adjust width as needed */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            padding-top: 60px;
+        }
+        
+        .offcanvas-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .offcanvas-menu a {
+            color: white;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        .offcanvas-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        /* Toggle visibility on small screens */
+        
+        @media (max-width: 768px) {
+            .offcanvas-menu.active {
+                left: 0;
+                /* Slide in from left */
             }
         }
         
@@ -843,22 +884,21 @@
 
     </body>
 
-    <!-- Updated Header with Custom CSS Class -->
     <header class="navbar navbar-expand-lg custom-navbar shadow-sm">
         <div class="container-fluid">
             <!-- Logo and Brand Name -->
             <a class="navbar-brand d-flex align-items-center" href="/" style="cursor: pointer;">
-                <img src="uploads/logo.png" alt="FMK Logo" class="me-2" style="height: 40px;">
+                <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo" class="me-2" style="height: 40px;">
                 <h1 class="h5 mb-0">FMK</h1>
             </a>
 
             <!-- Toggler button for mobile view -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" onclick="toggleOffcanvas()">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Navbar Links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="offcanvas-menu" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
@@ -870,6 +910,7 @@
             </div>
         </div>
     </header>
+
 
     <section class="home">
         <div class="content">
@@ -904,6 +945,11 @@
                 modal.style.display = "none";
             }
         };
+
+        function toggleOffcanvas() {
+            const offcanvasMenu = document.getElementById("navbarNav");
+            offcanvasMenu.classList.toggle("active");
+        }
     </script>
 
     <section class="welcome-section">
