@@ -6,22 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Section</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <!-- Bootstrap CSS (Latest Version) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <link rel="stylesheet" href="styles.css">
-    <!-- Custom styles -->
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+        <!-- Animate.css for Animations -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -430,147 +425,6 @@
         }
         /* Glassmorphic effect for the section background */
         
-        .services {
-            padding: 60px 0;
-            background: rgba(199, 198, 198, 0.767);
-            /* Semi-transparent background */
-            backdrop-filter: blur(10px);
-            /* Rounded corners */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow */
-        }
-        /* Header style for the services section */
-        
-        .services h2 {
-            text-align: center;
-            /* Center the heading */
-            margin-bottom: 40px;
-            /* Space below the heading */
-            font-size: 2.5rem;
-            /* Font size for the heading */
-            font-weight: bold;
-            color: #ff9c00;
-            /* Bright color for emphasis */
-            text-transform: uppercase;
-            /* Transform text to uppercase for a bold look */
-            letter-spacing: 1.5px;
-            /* Space between letters */
-            position: relative;
-            /* Allow for positioning of the underline effect */
-        }
-        /* Optional: Adding an underline effect for the heading */
-        
-        .services h2::after {
-            content: '';
-            /* Empty content for the underline */
-            display: block;
-            /* Block element to stretch full width */
-            width: 60px;
-            /* Width of the underline */
-            height: 4px;
-            /* Thickness of the underline */
-            background: #ff9c00;
-            /* Color of the underline */
-            margin: 10px auto;
-            /* Center the underline below the heading */
-        }
-        
-        .row {
-            justify-content: center;
-            /* Center the row */
-        }
-        
-        .service-card {
-            background: rgba(255, 255, 255, 0.9);
-            /* White background for cards */
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            overflow: hidden;
-            position: relative;
-            height: 350px;
-            /* Set a fixed height for consistency */
-            display: flex;
-            /* Use flexbox for alignment */
-            flex-direction: column;
-            /* Stack items vertically */
-            justify-content: space-between;
-            /* Space between content and button */
-        }
-        
-        .service-image {
-            flex-grow: 1;
-            /* Allow the image to take available space */
-        }
-        
-        .service-image img {
-            width: 100%;
-            /* Full width for images */
-            height: 150px;
-            /* Fixed height for images */
-            object-fit: cover;
-            /* Cover to maintain aspect ratio */
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            /* Lift effect on hover */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .service-card:hover .service-image img {
-            transform: scale(1.05);
-            /* Scale up image on hover */
-        }
-        
-        .service-content {
-            padding: 20px;
-            /* Padding for content */
-            text-align: center;
-            /* Center content */
-        }
-        
-        .service-content h2 {
-            font-size: 2.5rem;
-            color: #ff9c00;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .service-content p {
-            color: #666;
-            /* Soft gray for text */
-            margin-bottom: 20px;
-            flex-grow: 1;
-            /* Allow paragraph to grow */
-        }
-        
-        .read-more {
-            --secondary-color: #ff9900;
-            /* Primary color for buttons */
-            color: #e88b00;
-            /* White text */
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            text-align: center;
-            /* Center button */
-        }
-        
-        .read-more:hover {
-            --secondary-color: #ff9900;
-            /* Darker shade on hover */
-        }
-        
-        @media (max-width: 768px) {
-            .service-card {
-                margin-bottom: 30px;
-                /* Spacing between cards on mobile */
-            }
-        }
         
         .gallery-item {
             cursor: pointer;
@@ -834,176 +688,253 @@
             color: #777;
             margin-bottom: 30px;
         }
-        
-        .car-scroll-container {
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            /* Hide overflow */
-            padding: 10px 0;
-        }
-        
-        #car-grid {
-            display: flex;
-            transition: transform 0.3s ease;
-            overflow-x: auto;
-            /* Allow horizontal scrolling */
-            padding: 20px;
-            white-space: nowrap;
-            /* Prevent line breaks in the container */
-            margin: 0;
-        }
-        
-        .car-card {
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            padding: 10px;
-            text-align: center;
-            display: inline-block;
-            width: 220px;
-            /* Set fixed width for cards for better responsiveness */
-            margin-right: 10px;
-            /* Space between cards */
-        }
-        
-        .car-image {
-            width: 100%;
-            /* Use 100% to ensure it fits within the card */
-            height: 220px;
-            /* Height of the image */
-            object-fit: cover;
-            /* Maintain aspect ratio */
-            border-radius: 12px;
-            /* Round corners */
-            margin-bottom: 15px;
-            /* Space below the image */
-        }
-        
-        .price {
-            font-size: 1.2rem;
-            color: #ff6600;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .book-now {
-            background-color: #ff6600;
-            color: #fff;
-            padding: 10px 20px;
+         
+
+        Scrollbar Styling */
+.scrolling-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.scrolling-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.scrolling-wrapper {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.card {
+  scroll-snap-align: start;
+}
+
+/* Same height image wrapper */
+.image-wrapper {
+  height: 200px;
+  overflow: hidden;
+}
+.car-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Navigation arrows */
+.scroll-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  opacity: 0.8;
+  z-index: 10;
+}
+.scroll-btn:hover {
+  opacity: 1;
+}
+
+
+
+
+
+           .why-choose-us .card {
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .book-now:hover {
-            background-color: #e65c00;
-            /* Darker shade on hover */
+
+        .why-choose-us .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-        
-        @media (max-width: 768px) {
-            .car-card {
-                width: 150px;
-                /* Smaller width on mobile */
-                margin-right: 5px;
-                /* Smaller margin for mobile */
-            }
+
+        .why-choose-us .card i {
+            font-size: 40px;
+            color: #007bff;
+            margin-bottom: 20px;
         }
-        
-        @media (max-width: 576px) {
-            .car-card {
-                width: 120px;
-                /* Even smaller width on extra small screens */
-            }
-        }
-        
-        .why-choose-us {
-            background-color: #f9f9f9;
-            padding: 60px 0;
-        }
-        
-        .why-choose-us h2 {
-            color: #ff9c00;
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-        
-        .why-choose-us .icon {
-            font-size: 3rem;
-            color: #ff9c00;
+
+        .why-choose-us .card h4 {
+            font-size: 24px;
             margin-bottom: 15px;
         }
-        
-        .why-choose-us h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .why-choose-us p {
+
+        .why-choose-us .card p {
+            font-size: 16px;
             color: #666;
         }
-        /* Fade-in animation for welcome section */
-        
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
+.services-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+/* Service Item Card */
+.service-item {
+    background-color: hsla(210, 20%, 98%, 0.233);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 550px; /* Fixed height for consistency */
+    border-radius: 12px;
+}
+
+/* Image Styling */
+.service-item img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Content Styling */
+.service-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+/* Hover Effect */
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Button Area */
+.explore-btn {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive Layout - Grid Columns */
+.row-cols-1.row-cols-sm-2.row-cols-md-4 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-cols-1.row-cols-sm-2.row-cols-md-4 > .col {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+/* 2x2 layout on small screens */
+@media (max-width: 767.98px) {
+    .row-cols-1.row-cols-sm-2.row-cols-md-4 > .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .service-content h5 {
+        font-size: 16px;
+    }
+
+    .service-content p,
+    .service-content a {
+        font-size: 14px;
+    }
+}
+
+
+
+.gallery-section {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery a {
+            flex: 1 1 calc(25% - 20px); /* 4 items per row on larger screens */
+            max-width: calc(25% - 20px);
+            box-sizing: border-box;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery a {
+                flex: 1 1 calc(50% - 10px); /* 2 items per row on tablets */
+                max-width: calc(50% - 10px);
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            .gallery a {
+                flex: 1 1 100%; /* 1 item per row on mobile */
+                max-width: 100%;
             }
         }
-        
-        .welcome-section .text-section,
-        .welcome-section .image-section img,
-        .services .service-item,
-        .car-grid .car-card,
-        .why-choose-us .icon,
-        .gallery-item,
-        .reviews-container h2,
-        .support-section h2,
-        .support-section p,
-        .support-call-to-action {
-            opacity: 0;
-            animation: fadeIn 1s ease-out forwards;
+
+        .contact-section {
+            padding: 60px 0;
         }
-        /* Delays for staggered effect */
-        
-        .welcome-section .text-section {
-            animation-delay: 0.5s;
+
+        .contact-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
-        .welcome-section .image-section img {
-            animation-delay: 0.7s;
+
+        .contact-form .form-control {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
         }
-        
-        .services .service-item:nth-child(1) {
-            animation-delay: 0.2s;
+
+        .contact-form .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
         }
-        
-        .services .service-item:nth-child(2) {
-            animation-delay: 0.4s;
+
+        .contact-form .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        
-        .services .service-item:nth-child(3) {
-            animation-delay: 0.6s;
+
+        .contact-form .btn:hover {
+            background-color: #0056b3;
         }
-        
-        .car-grid .car-card {
-            animation-delay: 0.3s;
+
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 30px;
         }
-        
-        .gallery-item {
-            animation-delay: 0.2s;
+
+        .social-links {
+            margin-top: 30px;
         }
-        
-        .support-call-to-action {
-            animation-delay: 0.4s;
+
+        .social-links a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0056b3;
         }
     </style>
 
@@ -1178,216 +1109,265 @@
             observer.observe(welcomeSection);
         });
     </script>
+<section class="services-section">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-lg-8 mx-auto">
+                <p class="text-danger">Services We Offer</p>
+                <h2>We Manage Lead Logistics For World's Multinational Companies.</h2>
+                <p>Our global logistics expertise, advanced supply chain technology & customized logistics solutions will help you analyze, develop, and implement successful supply chain management strategies from end to end.</p>
+            </div>
+        </div>
 
-    <section class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 service-item">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="uploads/pexels-esmihel-15256361.jpg" alt="Taxi Service" class="service-icon">
-                        </div>
-                        <div class="service-content">
-                            <h3>Taxi Service/Parcels</h3>
-                            <p>Enjoy seamless rides with our reliable taxi services, available at your fingertips.</p>
-                            <a href="/taxi" class="read-more">Read More</a>
-                        </div>
+        <!-- Grid Section -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-0">
+            <!-- First Row -->
+            <div class="col">
+                <div class="service-item equal-height">
+                    <div class="service-content">
+                        <i class="fas fa-plane fa-3x text-danger mb-3"></i>
+                        <h5>Air Freight</h5>
+                        <p>We have more than twenty years of experience. We’ve become experts in freight transportation by air.</p>
+                        <a href="#" class="text-danger">Read More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 service-item">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="uploads/istockphoto-1313422727-1024x1024.jpg" alt="Office Pick-ups" class="service-icon">
-                        </div>
-                        <div class="service-content">
-                            <h3>Office Pick-ups</h3>
-                            <p>Convenient transportation solutions for your daily commutes and meetings.</p>
-                            <a href="/office" class="read-more">Read More</a>
-                        </div>
+            </div>
+            <div class="col">
+                <div class="service-item equal-height">
+                    <img src="uploads/images/1724249410242-1000136822.png" alt="Air Freight">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="service-item equal-height">
+                    <div class="service-content">
+                        <i class="fas fa-ship fa-3x text-danger mb-3"></i>
+                        <h5>Ocean Freight</h5>
+                        <p>The sea freight service has grown to become a significant part of global trade.</p>
+                        <a href="#" class="text-danger">Read More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 service-item">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="uploads/Romantic Cabo Oceanfront Wedding at Solaz.jpg" alt="Event Transportation" class="service-icon">
-                        </div>
-                        <div class="service-content">
-                            <h3>Event Transportation</h3>
-                            <p>Arrive in style with our dedicated event transportation services.</p>
-                            <a href="/event" class="read-more">Read More</a>
-                        </div>
+            </div>
+            <div class="col">
+                <div class="service-item equal-height">
+                    <img src="uploads/images/1724249410242-1000136822.png" alt="Ocean Freight">
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="col">
+                <div class="service-item equal-height">
+                    <img src="uploads/images/1724249410242-1000136822.png" alt="Ocean Freight">
+                </div>
+            </div>
+            <div class="col">
+                <div class="service-item equal-height">
+                    <div class="service-content">
+                        <i class="fas fa-truck fa-3x text-danger mb-3"></i>
+                        <h5>Road Freight</h5>
+                        <p>Road freight has a crucial role in transportation and logistics worldwide.</p>
+                        <a href="#" class="text-danger">Read More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 service-item">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="uploads/13 Ways to Save Major Cash on Holiday Travel.jpg" alt="Airport Transfers" class="service-icon">
-                        </div>
-                        <div class="service-content">
-                            <h3>Airport Transfers</h3>
-                            <p>Efficient airport transfer services for a stress-free travel experience.</p>
-                            <a href="/airport" class="read-more">Read More</a>
-                        </div>
-                    </div>
+            </div>
+            <div class="col">
+                <div class="service-item equal-height">
+                    <img src="uploads/images/1724249410242-1000136822.png" alt="Ocean Freight">
                 </div>
-                <div class="col-lg-4 col-md-6 service-item">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="uploads/Cloud Hotel Reservation System.jpg" alt="Hotel Reservation" class="service-icon">
-                        </div>
-                        <div class="service-content">
-                            <h3>Hotel/Apartment Reservation</h3>
-                            <p>Book premium accommodations with ease for your travel needs.</p>
-                            <a href="/hotel" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 service-item">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="uploads/220-2200303_carros-png.png" alt="Car Rentals" class="service-icon">
-                        </div>
-                        <div class="service-content">
-                            <h3>Car Rentals</h3>
-                            <p>Choose from a wide selection of vehicles for your travel needs, whether for business or leisure.</p>
-                            <a href="/car-rental" class="read-more">Read More</a>
-                        </div>
+            </div>
+            <div class="col">
+                <div class="service-item equal-height">
+                    <div class="service-content">
+                        <i class="fas fa-warehouse fa-3x text-danger mb-3"></i>
+                        <h5>Warehousing</h5>
+                        <p>Our warehouses at different locations enable efficient storage and distribution.</p>
+                        <a href="#" class="text-danger">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-
-    <SCript>
-        document.addEventListener("DOMContentLoaded", function() {
-            const serviceItems = document.querySelectorAll('.service-item');
-
-            const observerCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            };
-
-            const observer = new IntersectionObserver(observerCallback, {
-                threshold: 0.2
-            });
-
-            serviceItems.forEach(item => {
-                observer.observe(item);
-            });
-        });
-    </SCript>
-
-    <section class="offer-section">
-        <div class="container offer-container">
-            <h2>Find Your Ideal Ride</h2>
-            <p class="subtitle">Choose Your Car</p>
-
-            <div class="car-scroll-container d-flex align-items-center">
-                <button id="prev-btn" class="btn btn-secondary me-2">← Back</button>
-                <div class="car-grid overflow-auto" id="car-grid">
-                    <% if (cars && cars.length) { %>
-                        <% cars.slice(0, 4).forEach(car => { %>
-                            <div class="car-card">
-                                <img src="<%= car.carImage %>" alt="<%= car.carName %>" class="car-image" />
-                                <h3>
-                                    <%= car.carName %>
-                                </h3>
-                                <p class="price">$
-                                    <%= car.carPrice %> FROM / DAY</p>
-                                <p class="description">
-                                    <%= car.carDescription %>
-                                </p>
-                                <div class="rating">⭐⭐⭐⭐⭐</div>
-                                <button onclick="alert('Booking <%= car.carName %>!')" class="book-now">Book Now</button>
-                            </div>
-                            <% }); %>
-                                <% } else { %>
-                                    <p>No cars available at the moment.</p>
-                                    <% } %>
-                </div>
-                <button id="next-btn" class="btn btn-secondary ms-2">Next →</button>
-            </div>
-
-            <% if (cars.length > 4) { %>
-                <div class="text-center mt-4">
-                    <button id="load-more" class="btn btn-warning">Load More Cars →</button>
-                </div>
-                <% } %>
+        <div class="explore-btn">
+            <button class="btn btn-danger">Explore Services</button>
         </div>
-    </section>
+    </div>
+</section>
+<section class="car-rental-section py-5 bg-light">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Choose Your Car</h2>
+        <a href="/categories" class="btn btn-outline-primary">Browse by Category</a>
+      </div>
+  
+      <% if (cars && cars.length) { %>
+        <div class="position-relative">
+          <!-- Scroll Buttons -->
+          <button class="scroll-btn left-scroll-btn btn btn-secondary position-absolute top-50 start-0 translate-middle-y z-1" onclick="scrollLeft()">
+            ←
+          </button>
+  
+          <div class="scrolling-wrapper d-flex overflow-auto gap-3 pb-3 px-5">
+            <% cars.forEach(car => { %>
+              <div class="card flex-shrink-0 shadow-sm border-0" style="min-width: 300px;">
+                <div class="image-wrapper">
+                  <img src="<%= car.carImage %>" class="card-img-top car-image" alt="<%= car.carName %>">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><%= car.carName %></h5>
+                  <p class="text-muted"><%= car.carDescription %></p>
+                  <p class="fw-bold">$<%= car.carPrice %> / day</p>
+                  <div class="rating mb-2">⭐⭐⭐⭐⭐</div>
+                  <a href="/book/<%= car._id %>" class="btn btn-sm btn-primary">More Details</a>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+  
+          <button class="scroll-btn right-scroll-btn btn btn-secondary position-absolute top-50 end-0 translate-middle-y z-1" onclick="scrollRight()">
+            →
+          </button>
+        </div>
+      <% } else { %>
+        <p class="text-center">No cars available at the moment.</p>
+      <% } %>
+  
+      <% if (cars.length > 4) { %>
+        <div class="text-center mt-4">
+          <a href="/cars" class="btn btn-warning">Load More Cars →</a>
+        </div>
+      <% } %>
+    </div>
+  </section>
+  
+  
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const carGrid = document.getElementById('car-grid');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-
-            // Define the width of each card plus margin
-            const cardWidth = 220; // Width of the card plus some margin
-
-            nextBtn.addEventListener('click', () => {
-                carGrid.scrollBy({
-                    left: cardWidth, // Scroll to the right
-                    behavior: 'smooth' // Smooth scroll effect
-                });
-            });
-
-            prevBtn.addEventListener('click', () => {
-                carGrid.scrollBy({
-                    left: -cardWidth, // Scroll to the left
-                    behavior: 'smooth' // Smooth scroll effect
-                });
-            });
-        });
-    </script>
-
-
-
-
-    <section id="why-choose-us " class="why-choose-us py-5 ">
-        <div class="container ">
-            <h2 class="text-center mb-4 ">Why Choose Us</h2>
-            <div class="row ">
-                <div class="col-md-4 text-center ">
-                    <div class="icon display-4 ">🚖</div>
-                    <h3>Reliable Service</h3>
+     
+   <!-- Why Choose Us Section -->
+   <section class="why-choose-us">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Why Choose Us</h2>
+        <div class="row">
+            <!-- Reliable Service -->
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card text-center p-4">
+                    <i class="fas fa-taxi"></i>
+                    <h4>🚖 Reliable Service</h4>
                     <p>Our drivers are prompt, courteous, and professional, ensuring a smooth journey every time.</p>
                 </div>
-                <div class="col-md-4 text-center ">
-                    <div class="icon display-4 ">📍</div>
-                    <h3>Wide Coverage</h3>
+            </div>
+
+            <!-- Wide Coverage -->
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card text-center p-4">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h4>📍 Wide Coverage</h4>
                     <p>We cover multiple regions, making it easier to get where you need to go.</p>
                 </div>
-                <div class="col-md-4 text-center ">
-                    <div class="icon display-4 ">💼</div>
-                    <h3>Professional Drivers</h3>
+            </div>
+
+            <!-- Professional Drivers -->
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card text-center p-4">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>💼 Professional Drivers</h4>
                     <p>Our experienced drivers provide a safe and comfortable travel experience.</p>
                 </div>
             </div>
         </div>
+    </div>
+</section> 
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000, // Animation duration
+        once: true, // Animation only happens once
+    });
+</script>
+    <section class="gallery-section">
+        <h2 class="text-center">📸 Fancybox Layout</h2>
+
+        <div class="gallery">
+            <a href="uploads/images/1724249410242-1000136822.png" data-fancybox="gallery">
+                <img src="uploads/images/1724249410242-1000136822.png" alt="Gallery Image 1">
+            </a>
+            <a href="uploads/images/1724249410242-1000136822.png" data-fancybox="gallery">
+                <img src="uploads/images/1724249410242-1000136822.png" alt="Gallery Image 2">
+            </a>
+            <a href="uploads/images/1724249410242-1000136822.png" data-fancybox="gallery">
+                <img src="uploads/images/1724249410242-1000136822.png" alt="Gallery Image 3">
+            </a>
+            <a href="uploads/images/1724249410242-1000136822.png" data-fancybox="gallery">
+                <img src="uploads/images/1724249410242-1000136822.png" alt="Gallery Image 3">
+                <a href="uploads/images/1724249410242-1000136822.png" data-fancybox="gallery">
+                    <img src="uploads/images/1724249410242-1000136822.png" alt="Gallery Image 3">
+                </a>
+            </a>
+            <a href="uploads/images/1724249410242-1000136822.png" data-fancybox="gallery">
+                <img src="uploads/images/1724249410242-1000136822.png" alt="Gallery Image 3">
+            </a>
+            <!-- Add more images as needed -->
+        </div>
     </section>
 
-    <div class="container my-5">
-        <h1 class="gallery-h1 text-center">Image Gallery</h1>
-        <p class="text-center">Sharing our love for the eco-friendly system.</p>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+            // Fancybox options
+        });
+    </script>
 
-        <div class="row">
-            <% images.forEach(image => { %>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 gallery-item" onclick="openModal('<%= image.path %>')">
-                    <div class="gallery-img-container">
-                        <img src="<%= image.path %>" class="img-fluid" alt="Eco Image">
+    <!-- Contact Us Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Contact Us</h2>
+                    <p class="mb-4">We'd love to hear from you! Fill out the form below, and we'll get back to you as soon as possible.</p>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Your Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="social-links text-center">
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
-                <% }) %>
-        </div>
-    </div>
 
+                <!-- Google Map -->
+                <div class="col-lg-6">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d144.95373531531664!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d2d2b2a1b5b5!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1633033456789!5m2!1sen!2sus"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <section class="support-section">
@@ -1530,8 +1510,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
+   
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+   <script>
         // Modal Functions
         function openModal(imageSrc) {
             const modal = document.getElementById("imageModal ");
@@ -1628,6 +1617,27 @@
                 modalCustomLocationField.style.display = "none ";
             }
         }
+
+
+
+
+
+
+
+
+
+
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Animation only happens once
+        });
+        function scrollLeft() {
+    document.querySelector('.scrolling-wrapper').scrollBy({ left: -300, behavior: 'smooth' });
+  }
+  function scrollRight() {
+    document.querySelector('.scrolling-wrapper').scrollBy({ left: 300, behavior: 'smooth' });
+  }
+
     </script>
 
 
@@ -1635,16 +1645,8 @@
 
 
 
-</html>
-</script>
-
+ 
 
 </body>
 
-
-
-</html>
-
-</html>
-
-</html>
+ 
