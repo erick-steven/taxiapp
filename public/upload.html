@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Image | Taxi App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+    }
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .upload-container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .preview-container {
+      height: 300px;
+      border: 2px dashed #dee2e6;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #f8f9fa;
+      position: relative;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .preview-container:hover {
+      border-color: var(--primary-color);
+    }
+    .preview-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: none;
+    }
+    .preview-text {
+      text-align: center;
+      color: #6c757d;
+    }
+    .preview-text i {
+      font-size: 3rem;
+      color: #adb5bd;
+      margin-bottom: 1rem;
+    }
+    .btn-remove {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: none;
+      z-index: 10;
+    }
+    .btn-upload {
+      background-color: var(--primary-color);
+      border: none;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-upload:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #495057;
+    }
+    .review-section {
+      background-color: #f1f3f5;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      display: none;
+    }
+    .review-image {
+      max-height: 150px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+
+
+    .navbar-orange {
+  background-color: #ff9900 !important;
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-orange sticky-top">
+
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <i class="fas fa-car me-2"></i>
+            <span class="fw-bold">fmk</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+              
+            </ul>
+            <div class="d-flex">
+             
+                <a href="/login" class="btn btn-primary">
+                    <i class="fas fa-user me-1"></i> Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+  <div class="upload-container">
+    <h1 class="text-center mb-4">
+      <i class="fas fa-cloud-upload-alt text-primary me-2"></i>Upload New Image
+    </h1>
+    
+    <form id="uploadForm">
+      <!-- Image Preview Section -->
+      <div class="preview-container" id="previewContainer">
+        <div class="preview-text">
+          <i class="fas fa-image"></i>
+          <p>No image selected</p>
+        </div>
+        <img id="previewImage" alt="Preview">
+        <button type="button" class="btn btn-danger btn-remove" id="removeImageBtn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- File Input -->
+      <div class="mb-4">
+        <label for="image" class="form-label">Choose Image</label>
+        <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+        <div class="form-text">Max file size: 10MB. Supported formats: JPG, PNG, GIF</div>
+      </div>
+
+      <!-- Image Details -->
+      <div class="mb-4">
+        <label for="title" class="form-label">Image Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter a descriptive title" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" 
+                  placeholder="Tell us about this image..."></textarea>
+      </div>
+
+      <!-- Review Section (shown before submission) -->
+      <div class="review-section" id="reviewSection">
+        <h5 class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Review Your Upload</h5>
+        <div class="row">
+          <div class="col-md-4">
+            <img id="reviewImage" class="review-image img-thumbnail" alt="Review">
+          </div>
+          <div class="col-md-8">
+            <h5 id="reviewTitle"></h5>
+            <p id="reviewDescription" class="text-muted"></p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+          <button type="button" class="btn btn-outline-secondary" id="editBtn">
+            <i class="fas fa-edit me-1"></i> Edit
+          </button>
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-check me-1"></i> Confirm Upload
+          </button>
+        </div>
+      </div>
+
+      <!-- Initial Upload Button (hidden during review) -->
+      <div class="text-center" id="uploadButtonContainer">
+        <button type="button" class="btn btn-upload btn-lg" id="reviewBtn">
+          <i class="fas fa-eye me-2"></i>Review Upload
+        </button>
+      </div>
+
+      <!-- Message Alert -->
+      <div id="message" class="mt-4"></div>
+    </form>
+  </div>
+
+  <script>
+    // DOM Elements
+    const imageInput = document.getElementById('image');
+    const previewContainer = document.getElementById('previewContainer');
+    const previewImage = document.getElementById('previewImage');
+    const previewText = document.querySelector('.preview-text');
+    const removeImageBtn = document.getElementById('removeImageBtn');
+    const reviewBtn = document.getElementById('reviewBtn');
+    const editBtn = document.getElementById('editBtn');
+    const reviewSection = document.getElementById('reviewSection');
+    const uploadButtonContainer = document.getElementById('uploadButtonContainer');
+    const reviewImage = document.getElementById('reviewImage');
+    const reviewTitle = document.getElementById('reviewTitle');
+    const reviewDescription = document.getElementById('reviewDescription');
+    const uploadForm = document.getElementById('uploadForm');
+    const messageDiv = document.getElementById('message');
+
+    // Image Preview Functionality
+    imageInput.addEventListener('change', function() {
+      const file = this.files[0];
+      
+      if (file) {
+        const reader = new FileReader();
+        
+        previewText.style.display = "none";
+        previewImage.style.display = "block";
+        removeImageBtn.style.display = "block";
+        
+        reader.addEventListener("load", function() {
+          previewImage.setAttribute("src", this.result);
+        });
+        
+        reader.readAsDataURL(file);
+      } else {
+        resetPreview();
+      }
+    });
+
+    // Remove Image Functionality
+    removeImageBtn.addEventListener('click', function() {
+      imageInput.value = '';
+      resetPreview();
+    });
+
+    // Review Button Click
+    reviewBtn.addEventListener('click', function() {
+      if (!imageInput.files[0]) {
+        showMessage('Please select an image first', 'danger');
+        return;
+      }
+
+      if (!document.getElementById('title').value) {
+        showMessage('Please add a title', 'danger');
+        return;
+      }
+
+      // Populate review section
+      reviewImage.src = previewImage.src;
+      reviewTitle.textContent = document.getElementById('title').value;
+      reviewDescription.textContent = document.getElementById('description').value || 'No description provided';
+
+      // Switch to review mode
+      uploadButtonContainer.style.display = 'none';
+      reviewSection.style.display = 'block';
+    });
+
+    // Edit Button Click
+    editBtn.addEventListener('click', function() {
+      reviewSection.style.display = 'none';
+      uploadButtonContainer.style.display = 'block';
+    });
+
+    // Form Submission
+    uploadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData();
+      formData.append('image', imageInput.files[0]);
+      formData.append('title', document.getElementById('title').value);
+      formData.append('description', document.getElementById('description').value);
+      
+      try {
+        showMessage('Uploading image...', 'info');
+        
+        const response = await fetch('/api/images/upload', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+          showMessage(`Image uploaded successfully! <a href="/index.html" class="alert-link">View gallery</a>`, 'success');
+          resetForm();
+        } else {
+          throw new Error(result.error || 'Upload failed');
+        }
+      } catch (err) {
+        showMessage(`Error: ${err.message}`, 'danger');
+        console.error(err);
+      }
+    });
+
+    // Helper Functions
+    function resetPreview() {
+      previewText.style.display = "block";
+      previewImage.style.display = "none";
+      previewImage.setAttribute("src", "");
+      removeImageBtn.style.display = "none";
+    }
+
+    function resetForm() {
+      uploadForm.reset();
+      resetPreview();
+      reviewSection.style.display = 'none';
+      uploadButtonContainer.style.display = 'block';
+    }
+
+    function showMessage(text, type) {
+      messageDiv.innerHTML = `
+        <div class="alert alert-${type} alert-dismissible fade show">
+          ${text}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      `;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

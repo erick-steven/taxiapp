@@ -1,20 +1,19 @@
-// carRoutes.js
 const express = require('express');
 const multer = require('multer');
+const path = require('path');
 const router = express.Router();
-const Car = require('../models/Car'); // Adjust the path as necessary
+const Car = require('../models/Car');
 
 // Set up multer for file uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/'); // Specify the directory to save the uploaded files
+        cb(null, 'uploads/'); // Save images in the "uploads" folder
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname); // Save with a unique name
+        cb(null, Date.now() + path.extname(file.originalname)); // Unique filename
     }
 });
 
-// Only allow images to be uploaded
 const upload = multer({
     storage: storage,
     fileFilter: (req, file, cb) => {
@@ -23,61 +22,67 @@ const upload = multer({
         } else {
             cb(new Error('Only image files are allowed'), false);
         }
-    }
+    },
+    limits: { fileSize: 5 * 1024 * 1024 } // 5MB file size limit
 });
 
-// Assuming you have a route that renders the index page
-router.get('/', async(req, res) => {
+// Serve the static upload form (car_upload.html)
+router.get('/upload', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/car_upload.html')); // ✅ Fix
+});
+
+// Handle file upload and save car details
+router.post('/add', upload.single('carImage'), async (req, res) => {
     try {
-        // Fetch cars from the database
-        const cars = await Car.find(); // Ensure your Car model is defined correctly
-        console.log(cars); // Debug: Check if cars are fetched properly
-        // Pass the cars to the view
-        res.render('index', { cars });
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Server Error');
-    }
-});
+        const { carName, carPrice, carDescription } = req.body;
+        if (!req.file) {
+            return res.status(400).send('Please upload an image.');
+        }
 
+        const carImage = `/uploads/${req.file.filename}`; // Store image path
 
-router.get('/', async(req, res) => {
-    try {
-        const cars = await Car.find(); // Fetch cars from the database
-        console.log(cars); // Log the cars to see if they are fetched
-        res.render('index', { cars }); // Pass cars to the EJS template
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Server Error');
-    }
-});
+        const newCar = new Car({
+            carName,
+            carPrice,
+            carDescription,
+            carImage
+        });
 
-// Route to render the form for adding a new car
-router.get('/form', (req, res) => {
-    res.render('car_form'); // Ensure car_form.ejs is in the views directory
-});
-
-// Route to handle adding a new car
-router.post('/add', upload.single('carImage'), async(req, res) => {
-    const { carName, carPrice, carDescription } = req.body;
-    const carImage = req.file ? req.file.path : ''; // Path to the uploaded image
-
-    const newCar = new Car({
-        carName,
-        carPrice,
-        carDescription,
-        carImage
-    });
-
-    try {
         await newCar.save();
-        res.redirect('/cars'); // Redirect to the /cars page after saving
+        res.redirect('/cars'); // Redirect to car listing page
     } catch (error) {
         console.error('Error saving car:', error);
         res.status(500).send('Error saving car data.');
     }
 });
 
-// Other routes can be added here...
+// Serve the static index page (index.html)
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html')); // ✅ Fix
+});
+
+// API to get all car details in JSON (For frontend to fetch)
+router.get('/api', async (req, res) => {
+    try {
+        const cars = await Car.find();
+        res.json(cars); // Send data as JSON for frontend to render dynamically
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+});
+
+// Route to display all cars
+// Your route to render the index page and pass the car data
+router.get('/', async (req, res) => {
+    try {
+        const cars = await Car.find(); // Fetch cars from database
+        // Instead of rendering HTML directly, pass the data to the view
+        res.render('index', { cars: JSON.stringify(cars) }); // Pass the cars as JSON
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+});
 
 module.exports = router;

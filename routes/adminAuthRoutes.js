@@ -40,14 +40,10 @@ const isAuthenticated = (req, res, next) => {
 };
 
 
-router.get('/register', (req, res) => {
-    res.render('admin/register'); // Render the registration page
-});
+ 
 
 
-router.get('/register', (req, res) => {
-    res.render('admin/register'); // Render the registration page
-});
+ 
 // Registration endpoint with image upload
 router.post('/register', upload.single('image'), async(req, res) => {
     const { email, password, name } = req.body; // Include name in the destructuring
@@ -86,11 +82,7 @@ router.post('/register', upload.single('image'), async(req, res) => {
     }
 });
 
-// Login route
-router.get('/login', (req, res) => {
-    res.render('admin/login'); // Render the login page
-});
-
+ 
 // Login endpoint
 router.post('/login', async(req, res) => {
     const { email, password } = req.body;
@@ -108,7 +100,7 @@ router.post('/login', async(req, res) => {
         const match = await bcrypt.compare(password, user.password);
         if (match) {
             req.session.userId = user._id; // Set session variable
-            return res.redirect('/admin/dashboard'); // Redirect to admin dashboard
+            return res.redirect('/admin/dashboard.html'); // Redirect to admin dashboard
         } else {
             res.status(400).send('Login failed. Check your credentials or verify your email.');
         }
@@ -137,24 +129,31 @@ router.get('/verify/:token', async(req, res) => {
 });
 // Register route
 router.get('/register', (req, res) => {
-    res.render('admin/register'); // Render the registration page
+    res.render('admin/register.html'); // Render the registration page
 });
+router.get('/login', (req, res) => {
+    res.render('admin/login.html'); // Render the registration page
+});
+ 
 
-router.get('/dashboard', async(req, res) => {
+router.get('/dashboard', async (req, res) => {
     try {
-        // Fetch the user data using the session userId
-        const user = await User.findById(req.session.userId);
+        if (!req.session.userId) {
+            return res.redirect('/login');
+        }
 
-        // Check if user exists
+        const user = await User.findById(req.session.userId);
         if (!user) {
             return res.status(404).send('User not found');
         }
 
-        // Fetch all bookings to get the total count
-        const bookings = await Booking.find();
+        // Fix image path (replace backslashes with forward slashes)
+        if (user.imageUrl) {
+            user.imageUrl = user.imageUrl.replace(/\\/g, '/');
+        }
 
-        // Render the dashboard, passing both user and bookings data
-        res.render('admin/dashboard', { user, bookings });
+        const bookings = await Booking.find();
+        res.render('admin/dashboard.html', { user, bookings });
     } catch (error) {
         console.error(error);
         res.status(500).send('Server error');

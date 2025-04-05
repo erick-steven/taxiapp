@@ -27,6 +27,7 @@
         "nodemailer": "^6.9.14",
         "passport": "^0.7.0",
         "passport-local": "^1.0.0",
+        "sharp": "^0.33.5",
         "socket.io": "^4.7.5",
         "ws": "^8.18.0"
     }

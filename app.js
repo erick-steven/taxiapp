@@ -41,39 +41,50 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Set EJS as the template engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Ensure uploads folder is served
+// Serve static files from the 'public' directory
+app.use(express.static('public')); // Serve static HTML, CSS, JS
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded images
+ 
+
+// Serve images from /uploads/images
+app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images')));
+
 
 // Use routes
 app.use('/admin', adminAuthRoutes);
 app.use('/reviews', reviewRoutes);
 app.use('/cars', carRoutes);
 app.use('/api', bookingRoutes);
-app.use('/gallery', imageRoutes);
+// Routes
+app.use('/api/images', imageRoutes);
+
 
 
 
 // Default route to render index.ejs with car and review data
-app.get('/', async(req, res) => {
+// Fetch cars, reviews, and images data as JSON
+app.get('/api/cars', async (req, res) => {
     try {
         const cars = await Car.find(); // Fetch cars
         const reviews = await Review.find(); // Fetch reviews
-        const images = await Image.find(); // Fetch images for the gallery
-        res.render('index', { cars, reviews, images }); // Pass cars, reviews, and images to the view
+        const images = await Image.find(); // Fetch images
+        res.json({ cars, reviews, images }); // Send data as JSON
     } catch (error) {
         console.error(error);
         res.status(500).send('Server Error');
     }
 });
 
+
 // Render registration page
 app.get('/register', (req, res) => {
     res.render('admin/register'); // Ensure the path is correct
+});
+
+// Render registration page
+app.get('/login', (req, res) => {
+    res.render('admin/login'); // Ensure the path is correct
 });
 
 // Car form route
@@ -81,10 +92,11 @@ app.get('/form', (req, res) => {
     res.render('car_form'); // Ensure car_form.ejs exists in your views folder
 });
 
-// Render image upload page
+ 
 app.get('/upload', (req, res) => {
-    res.render('upload'); // Ensure upload.ejs exists in your views folder
-});
+    res.sendFile(path.join(__dirname, 'public', 'upload.html'));
+  });
+  
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {

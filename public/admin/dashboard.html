@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMK Admin Dashboard</title>
+    <!-- Modern CSS Frameworks -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f72585;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar - Glassmorphism Effect */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #ff9900;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-right: 1rem;
+        }
+
+        .profile-info {
+            line-height: 1.4;
+        }
+
+        .profile-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .profile-role {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            margin-bottom: 0.25rem;
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .nav-link i {
+            margin-right: 1rem;
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+            transition: var(--transition);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            position: relative;
+        }
+
+        .search-bar input {
+            padding: 0.65rem 1rem 0.65rem 2.75rem;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 280px;
+            transition: var(--transition);
+            background-color: rgba(0, 0, 0, 0.03);
+            font-size: 0.9rem;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
+            background-color: white;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 1rem;
+        }
+
+        /* Notification */
+        .notification {
+            position: relative;
+            color: #6c757d;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card.users {
+            border-left-color: var(--success);
+        }
+
+        .stat-card.bookings {
+            border-left-color: var(--accent);
+        }
+
+        .stat-card.revenue {
+            border-left-color: var(--warning);
+        }
+
+        .stat-card.cars {
+            border-left-color: var(--danger);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .stat-card.users .stat-icon {
+            background-color: var(--success);
+        }
+
+        .stat-card.bookings .stat-icon {
+            background-color: var(--accent);
+        }
+
+        .stat-card.revenue .stat-icon {
+            background-color: var(--warning);
+        }
+
+        .stat-card.cars .stat-icon {
+            background-color: var(--danger);
+        }
+
+        .stat-title {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .stat-change.positive {
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            color: var(--danger);
+        }
+
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .chart-container:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .chart-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chart-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .chart-btn:hover {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+
+        .chart-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        /* Recent Bookings */
+        .recent-bookings {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .recent-bookings:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .view-all:hover {
+            color: var(--primary-dark);
+        }
+
+        .view-all i {
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 800px;
+        }
+
+        .table thead th {
+            background-color: rgba(0, 0, 0, 0.02);
+            color: #6c757d;
+            font-weight: 600;
+            padding: 1rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            white-space: nowrap;
+        }
+
+        .table tbody tr {
+            transition: var(--transition);
+        }
+
+        .table tbody tr:hover {
+            background-color: rgba(67, 97, 238, 0.03);
+        }
+
+        .table tbody td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-pending {
+            background-color: rgba(248, 150, 30, 0.1);
+            color: var(--warning);
+        }
+
+        .status-approved {
+            background-color: rgba(76, 201, 240, 0.1);
+            color: var(--success);
+        }
+
+        .status-cancelled {
+            background-color: rgba(247, 37, 133, 0.1);
+            color: var(--danger);
+        }
+
+        .action-btn {
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-btn i {
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+        }
+
+        .btn-approve {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-approve:hover {
+            background-color: #3aa8d8;
+            transform: translateY(-2px);
+        }
+
+        .btn-delete {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #e5176f;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Toggle Button */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1100;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .sidebar-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .sidebar-toggle {
+                display: flex;
+            }
+            .search-bar input {
+                width: 200px;
+            }
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .search-bar input {
+                width: 100%;
+            }
+            .main-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .table thead {
+                display: none;
+            }
+            .table tbody tr {
+                display: block;
+                margin-bottom: 1rem;
+                border-radius: var(--radius-sm);
+                box-shadow: var(--shadow-sm);
+                position: relative;
+            }
+            .table tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                text-align: right;
+            }
+            .table tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                margin-right: 1rem;
+                color: #6c757d;
+                text-align: left;
+            }
+            .action-btns {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            .table tbody td:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(67, 97, 238, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(67, 97, 238, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar Toggle Button (Mobile) -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="mb-0">FMK Admin</h3>
+        </div>
+        
+        <div class="profile">
+            <% if (user.imageUrl) { %>
+                <img src="/<%= user.imageUrl.replace(/\\/g, '/') %>" alt="Profile Image">
+            <% } else { %>
+                <img src="/default-profile.png" alt="Default Profile Image">
+            <% } %>
+            <div class="profile-info">
+                <div class="profile-name"><%= user.name %></div>
+                <div class="profile-role">Administrator</div>
+            </div>
+        </div>
+        
+        <div class="nav-menu">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-users"></i>
+                        <span>User Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/upload">
+                        <i class="fas fa-images"></i>
+                        <span>Gallery Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cars/upload">
+                        <i class="fas fa-car"></i>
+                        <span>Car upload</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="header">
+            <h1 class="page-title">Dashboard Overview</h1>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card users fade-in" style="animation-delay: 0.1s;">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-title">Total Users</div>
+                <div class="stat-value">1,248</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> 12% from last month
+                </div>
+            </div>
+            
+            <div class="stat-card bookings fade-in" style="animation-delay: 0.2s;">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="stat-title">Active Bookings</div>
+                <div class="stat-value">86</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> 5% from last week
+                </div>
+            </div>
+            
+            <div class="stat-card revenue fade-in" style="animation-delay: 0.3s;">
+                <div class="stat-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-title">Total Revenue</div>
+                <div class="stat-value">$24,580</div>
+                <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i> 8% from last month
+                </div>
+            </div>
+            
+            <div class="stat-card cars fade-in" style="animation-delay: 0.4s;">
+                <div class="stat-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="stat-title">Available Cars</div>
+                <div class="stat-value">24</div>
+                <div class="stat-change negative">
+                    <i class="fas fa-arrow-down"></i> 3 from last week
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container fade-in" style="animation-delay: 0.5s;">
+                <div class="chart-header">
+                    <h3 class="chart-title">Monthly Bookings</h3>
+                    <div class="chart-actions">
+                        <button class="chart-btn">Day</button>
+                        <button class="chart-btn active">Week</button>
+                        <button class="chart-btn">Month</button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="bookingChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-container fade-in" style="animation-delay: 0.6s;">
+                <div class="chart-header">
+                    <h3 class="chart-title">Car Rental Statistics</h3>
+                    <div class="chart-actions">
+                        <button class="chart-btn">Day</button>
+                        <button class="chart-btn active">Week</button>
+                        <button class="chart-btn">Month</button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="carRentalChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Bookings Table -->
+        <div class="recent-bookings fade-in" style="animation-delay: 0.7s;">
+            <div class="section-header">
+                <h2 class="section-title">Recent Bookings</h2>
+                <a href="#" class="view-all">
+                    View All
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Contact</th>
+                            <th>Pickup</th>
+                            <th>Destination</th>
+                            <th>Date/Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% bookings.forEach(booking => { %>
+                            <tr id="booking-<%= booking._id %>">
+                                <td data-label="Customer">
+                                    <%= booking.name %>
+                                </td>
+                                <td data-label="Contact">
+                                    <div class="d-flex flex-column">
+                                        <a href="mailto:<%= booking.email %>" class="text-primary">
+                                            <%= booking.email %>
+                                        </a>
+                                        <a href="tel:<%= booking.phone %>" class="text-muted">
+                                            <%= booking.phone %>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td data-label="Pickup">
+                                    <%= booking.pickupLocation %>
+                                </td>
+                                <td data-label="Destination">
+                                    <%= booking.destination %>
+                                </td>
+                                <td data-label="Date/Time">
+                                    <div class="d-flex flex-column">
+                                        <span><%= booking.date ? booking.date.toLocaleDateString() : '' %></span>
+                                        <small class="text-muted"><%= booking.time %></small>
+                                    </div>
+                                </td>
+                                <td data-label="Status">
+                                    <span class="status-badge status-pending">Pending</span>
+                                </td>
+                                <td data-label="Actions">
+                                    <div class="action-btns">
+                                        <button class="action-btn btn-approve" data-bs-toggle="modal" data-bs-target="#approveModal<%= booking._id %>">
+                                            <i class="fas fa-check"></i> Approve
+                                        </button>
+                                        <button class="action-btn btn-delete ml-2" onclick="deleteBooking('<%= booking._id %>')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Booking Chart
+            const bookingCtx = document.getElementById('bookingChart').getContext('2d');
+            const bookingChart = new Chart(bookingCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Bookings',
+                        data: [45, 60, 75, 82, 78, 95, 110, 105, 120, 115, 130, 145],
+                        borderColor: '#4361ee',
+                        backgroundColor: 'rgba(67, 97, 238, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true,
+                        pointBackgroundColor: '#4361ee',
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: '#4361ee',
+                        pointHoverBorderColor: '#fff',
+                        pointHitRadius: 10,
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#1a1a2e',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 12
+                            },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                stepSize: 25
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Car Rental Chart
+            const carRentalCtx = document.getElementById('carRentalChart').getContext('2d');
+            const carRentalChart = new Chart(carRentalCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Economy', 'Compact', 'Mid-size', 'Full-size', 'Luxury', 'SUV'],
+                    datasets: [{
+                        label: 'Rentals',
+                        data: [120, 90, 75, 60, 45, 30],
+                        backgroundColor: [
+                            'rgba(67, 97, 238, 0.7)',
+                            'rgba(72, 149, 239, 0.7)',
+                            'rgba(76, 201, 240, 0.7)',
+                            'rgba(248, 150, 30, 0.7)',
+                            'rgba(247, 37, 133, 0.7)',
+                            'rgba(153, 102, 255, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(67, 97, 238, 1)',
+                            'rgba(72, 149, 239, 1)',
+                            'rgba(76, 201, 240, 1)',
+                            'rgba(248, 150, 30, 1)',
+                            'rgba(247, 37, 133, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#1a1a2e',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 12
+                            },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Toggle sidebar on mobile
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                mainContent.classList.toggle('main-content-expanded');
+            });
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 992) {
+                    const isClickInsideSidebar = sidebar.contains(event.target);
+                    const isClickOnToggle = sidebarToggle.contains(event.target);
+                    
+                    if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                        mainContent.classList.remove('main-content-expanded');
+                    }
+                }
+            });
+
+            // Delete booking function
+            window.deleteBooking = function(id) {
+                if (confirm('Are you sure you want to delete this booking?')) {
+                    fetch(`/bookings/${id}`, {
+                        method: 'DELETE'
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            document.getElementById(`booking-${id}`).remove();
+                            showToast('Booking deleted successfully', 'success');
+                        } else {
+                            throw new Error('Failed to delete booking');
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        showToast('Failed to delete booking', 'error');
+                    });
+                }
+            };
+
+            // Toast notification function
+            function showToast(message, type) {
+                // Implement toast notification UI here
+                console.log(`${type}: ${message}`);
+                // In a real implementation, you would show a visual toast notification
+            }
+        });
+    </script>
+</body>
+</html>
