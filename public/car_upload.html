@@ -121,45 +121,86 @@
                 </button>
                 <img id="previewImage" style="display: none;">
             </div>
-
+        
             <!-- File Input -->
             <div class="mb-3">
                 <label for="carImage" class="form-label">Upload Car Image</label>
-                <input class="form-control" type="file" id="carImage" name="carImage" accept="image/*" required>
+                <input class="form-control" type="file" id="carImage" name="image" accept="image/*" required>
             </div>
-
+        
             <!-- Car Details -->
             <div class="mb-3">
                 <label for="carName" class="form-label">Car Name</label>
-                <input type="text" class="form-control" id="carName" name="carName" placeholder="Enter car name" required>
+                <input type="text" class="form-control" id="carName" name="name" placeholder="Enter car name" required>
             </div>
-
+        
             <div class="mb-3">
-                <label for="carPrice" class="form-label">Daily Price ($)</label>
-                <input type="number" class="form-control" id="carPrice" name="carPrice" placeholder="Enter daily price" min="0" step="0.01" required>
+                <label for="carBrand" class="form-label">Brand</label>
+                <input type="text" class="form-control" id="carBrand" name="brand" placeholder="Enter brand" required>
             </div>
+        
+           <!-- Model Year (Change name from modelYear to model) -->
+<div class="mb-3">
+    <label for="model" class="form-label">Model Year</label>
+    <input type="number" class="form-control" id="model" name="model" placeholder="e.g. 2023" required>
+</div>
 
-            <div class="mb-3">
-                <label for="carDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="carDescription" name="carDescription" rows="3" placeholder="Enter car description" required></textarea>
-            </div>
+<
 
+        
             <div class="mb-3">
                 <label for="carType" class="form-label">Car Type</label>
-                <select class="form-select" id="carType" name="carType" required>
-                    <option value="" selected disabled>Select car type</option>
-                    <option value="Economy">Economy</option>
-                    <option value="Standard">Standard</option>
-                    <option value="Luxury">Luxury</option>
-                    <option value="SUV">SUV</option>
-                    <option value="Premium">Premium</option>
-                </select>
+               
+<!-- For Form Selection -->
+<select class="form-select" id="carType" name="type" required>
+    <option value="" selected disabled>Select vehicle type</option>
+    <option value="Economy">Economy</option>
+    <option value="Compact">Compact</option>
+    <option value="Mid-size">Mid-size</option>
+    <option value="Standard">Standard</option>
+    <option value="Full-size">Full-size</option>
+    <option value="Premium">Premium</option>
+    <option value="Luxury">Luxury</option>
+    <option value="SUV">SUV</option>
+    <option value="Minivan">Minivan</option>
+    <option value="Truck">Truck</option>
+</select>
             </div>
-
+        
+            !-- Daily Price (Change name from rentalRatePerDay to rentalPrice) -->
+            <div class="mb-3">
+                <label for="rentalPrice" class="form-label">Daily Price ($)</label>
+                <input type="number" class="form-control" id="rentalPrice" name="rentalPrice" placeholder="Enter daily price" min="0" step="0.01" required>
+            </div>
+        
+            <div class="mb-3">
+                <label for="fuelType" class="form-label">Fuel Type</label>
+                <input type="text" class="form-control" id="fuelType" name="fuelType" placeholder="e.g. Petrol, Diesel" required>
+            </div>
+        
+            <div class="mb-3">
+                <label for="seats" class="form-label">Number of Seats</label>
+                <input type="number" class="form-control" id="seats" name="seats" placeholder="e.g. 4" required>
+            </div>
+        
+            <div class="mb-3">
+                <label for="transmission" class="form-label">Transmission</label>
+                <select name="transmission" id="transmission" required>
+                    <option value="automatic">Automatic</option>
+                    <option value="manual">Manual</option>
+                  </select>
+            </div>
+        
+            <div class="mb-3">
+                <label for="carDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="carDescription" name="description" rows="3" placeholder="Enter car description" required></textarea>
+            </div>
+        
             <button type="submit" class="btn btn-primary btn-submit">
                 <i class="fas fa-plus-circle me-2"></i>Add Car
             </button>
         </form>
+        
     </div>
 
     <script>

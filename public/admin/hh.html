@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMK - Modern Taxi Service</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --secondary: #ff9900;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            color: var(--dark);
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode {
+            background-color: #121212;
+            color: #f8f9fa;
+        }
+        
+        /* Navbar Styles */
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 0.8rem 1rem;
+        }
+        
+        .dark-mode .custom-navbar {
+            background: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar-brand h1 {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        .dark-mode .nav-link:hover {
+            background: rgba(0, 102, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #0066ff 0%, #00ccff 100%);
+            color: white;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-btns .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            background-color: transparent;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            max-width: 800px;
+            z-index: 1;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        .dark-mode .modal-content {
+            background-color: #1e1e1e;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        /* Form Styles */
+        .form-control {
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+        }
+        
+        .input-group-text {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .dark-mode .services-section {
+            background-color: #1a1a1a;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .dark-mode .service-card {
+            background: #242424;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Car Rental Section */
+        .car-rental-section {
+            padding: 5rem 0;
+        }
+        
+        .car-card {
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scrollable-row {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 1rem;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        
+        .scrollable-row::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* App Download Section */
+        .app-download-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-links h3 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-link:hover {
+            color: white;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-image {
+                width: 60%;
+                opacity: 0.7;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                padding: 6rem 0;
+                text-align: center;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg custom-navbar sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="https://via.placeholder.com/40" alt="FMK Logo" class="me-2" style="height: 40px;">
+                <h1 class="h5 mb-0">FMK</h1>
+            </a>
+        
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#car-rental">Car Rental</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    
+                    <li class="nav-item ms-lg-3 my-2 my-lg-0">
+                        <a class="btn btn-outline-primary" href="#download">
+                            <i class="fas fa-download me-2"></i>Get App
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item ms-2">
+                        <button class="btn btn-outline-secondary rounded-circle" onclick="toggleDarkMode()">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ride with confidence</h1>
+                <p>Safe, reliable transportation at your fingertips. Book in seconds, ride in minutes.</p>
+                
+                <div class="hero-btns">
+                    <button class="btn btn-primary" onclick="toggleModal()">
+                        <i class="fas fa-car me-2"></i>Book Now
+                    </button>
+                    <button class="btn btn-outline-light" onclick="window.location.href='tel:0677231271'">
+                        <i class="fas fa-phone me-2"></i>Call Now
+                    </button>
+                </div>
+                
+                <div class="ride-estimate mt-4 p-3 rounded-3" style="background: rgba(255,255,255,0.2);">
+                    <h5 class="mb-3">Estimate your fare</h5>
+                    <div class="d-flex">
+                        <input type="text" class="form-control me-2" placeholder="Pickup location">
+                        <input type="text" class="form-control" placeholder="Destination">
+                    </div>
+                    <button class="btn btn-sm btn-light mt-2">Get Estimate</button>
+                </div>
+            </div>
+        </div>
+        
+        <img src="https://illustrations.popsy.co/amber/modern-car.svg" alt="Modern Car" class="hero-image">
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <h2 class="text-center mb-4">Book Your Ride</h2>
+            
+            <ul class="nav nav-tabs mb-4" id="bookingTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="now-tab" data-bs-toggle="tab" href="#now">Ride Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="later-tab" data-bs-toggle="tab" href="#later">Schedule</a>
+                </li>
+            </ul>
+            
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="now">
+                    <form id="instantBookingForm">
+                        <div class="mb-3">
+                            <label class="form-label">Pickup Location</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter pickup address" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="getCurrentLocation()">
+                                    <i class="fas fa-location-arrow"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Destination</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-flag-checkered"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter destination" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Ride Type</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <input type="radio" class="btn-check" name="rideType" id="standard" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="standard">
+                                    <i class="fas fa-car me-2"></i>Standard
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="rideType" id="premium" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="premium">
+                                    <i class="fas fa-star me-2"></i>Premium
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="rideType" id="xl" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="xl">
+                                    <i class="fas fa-suv me-2"></i>XL
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 py-2">
+                            <i class="fas fa-search me-2"></i>Find Rides
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="tab-pane fade" id="later">
+                    <form id="scheduledBookingForm">
+                        <div class="mb-3">
+                            <label class="form-label">Pickup Location</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter pickup address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Destination</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-flag-checkered"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter destination" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Time</label>
+                                <input type="time" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 py-2">
+                            <i class="fas fa-calendar-check me-2"></i>Schedule Ride
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="how-it-works">
+        <h2>How FMK Works</h2>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Book your ride</h3>
+              <p>Enter your destination in the app</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Meet your driver</h3>
+              <p>Get matched with a verified driver</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Enjoy the ride</h3>
+              <p>Track your trip in real-time</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <style>
+      .how-it-works {
+        background: #f8f9fa;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+      
+      .steps-container {
+        max-width: 700px;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        text-align: left;
+      }
+      
+      .step-number {
+        background: #ff00bf; /* Lyft's pink */
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+      
+      .step-content h3 {
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      
+      .step-content p {
+        color: #666;
+        margin: 0;
+      }
+      
+      @media (min-width: 768px) {
+        .steps-container {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        
+        .step {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          flex: 1;
+        }
+      }
+      </style>
+    <!-- Services Section -->
+    <section id="services" class="services-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">OUR SERVICES</span>
+                <h2 class="mb-3">Transportation Solutions for Every Need</h2>
+                <p class="text-muted">From quick rides to long-term rentals, we've got you covered</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <h4>Taxi Service</h4>
+                        <p class="text-muted">Quick and reliable point-to-point transportation whenever you need it.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4>Car Rental</h4>
+                        <p class="text-muted">Flexible rental options from economy to luxury vehicles.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <h4>Airport Transfers</h4>
+                        <p class="text-muted">Timely pickups and drop-offs for stress-free travel.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card p-4 h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4>Corporate Travel</h4>
+                        <p class="text-muted">Dedicated services for business professionals and groups.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Rental Section -->
+    <section id="car-rental" class="car-rental-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">OUR FLEET</span>
+                <h2 class="mb-3">Find Your Perfect Ride</h2>
+                <p class="text-muted">Choose from our wide selection of vehicles</p>
+            </div>
+            
+            <div class="position-relative">
+                <button class="carousel-control-prev position-absolute start-0 top-50 translate-middle-y z-index-1 bg-white rounded-circle p-3 border-0 shadow-sm d-none d-md-flex" id="prev-car">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                
+                <div class="scrollable-row" id="car-list">
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 px-2">
+                        <div class="car-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d" class="card-img-top" alt="Standard Sedan" style="height: 180px; object-fit: cover;">
+                                <span class="badge bg-primary position-absolute top-0 end-0 m-2">Popular</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Standard Sedan</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="text-warning me-1">★</span>
+                                        <span>4.8</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-3">Comfortable ride for up to 4 passengers</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="fw-bold">$25</span>
+                                        <span class="text-muted small">/day</span>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 px-2">
+                        <div class="car-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a" class="card-img-top" alt="Premium SUV" style="height: 180px; object-fit: cover;">
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Premium SUV</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="text-warning me-1">★</span>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-3">Spacious luxury for up to 6 passengers</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="fw-bold">$65</span>
+                                        <span class="text-muted small">/day</span>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 px-2">
+                        <div class="car-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e" class="card-img-top" alt="Economy Car" style="height: 180px; object-fit: cover;">
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Economy Car</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="text-warning me-1">★</span>
+                                        <span>4.6</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-3">Budget-friendly option for city driving</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="fw-bold">$18</span>
+                                        <span class="text-muted small">/day</span>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 px-2">
+                        <div class="car-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1599912027806-cfec9f5944b6" class="card-img-top" alt="Luxury Sedan" style="height: 180px; object-fit: cover;">
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Luxury</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Luxury Sedan</h5>
+                                    <div class="d-flex align-items-center">
+                                        <span class="text-warning me-1">★</span>
+                                        <span>5.0</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-3">Premium comfort and style for special occasions</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="fw-bold">$90</span>
+                                        <span class="text-muted small">/day</span>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-next position-absolute end-0 top-50 translate-middle-y z-index-1 bg-white rounded-circle p-3 border-0 shadow-sm d-none d-md-flex" id="next-car">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#car-rental" class="btn btn-outline-primary">View All Vehicles</a>
+            </div>
+        </div>
+    </section>
+    <div class="coverage-section">
+        <h2>We Serve These Areas</h2>
+        <div class="coverage-map-container">
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center=City&zoom=12&size=800x400" alt="Service area map" class="map-image">
+          
+          <div class="location-pins">
+            <div class="pin downtown" style="top: 30%; left: 25%">
+              <div class="pin-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="pin-label">Downtown</div>
+            </div>
+            
+            <div class="pin airport" style="top: 60%; left: 70%">
+              <div class="pin-icon"><i class="fas fa-plane"></i></div>
+              <div class="pin-label">Airport</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="area-list">
+          <div class="area">
+            <i class="fas fa-check-circle"></i> Central Business District
+          </div>
+          <div class="area">
+            <i class="fas fa-check-circle"></i> All Major Airports
+          </div>
+        </div>
+      </div>
+      
+      <style>
+      .coverage-section {
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .coverage-map-container {
+        position: relative;
+        margin: 2rem 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      .map-image {
+        width: 100%;
+        display: block;
+      }
+      
+      .location-pins {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .pin {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      
+      .pin-icon {
+        color: #00d2c6; /* Bolt's teal */
+        font-size: 2rem;
+        text-shadow: 0 0 3px white;
+      }
+      
+      .pin-label {
+        background: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-top: 0.5rem;
+        white-space: nowrap;
+      }
+      
+      .area-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      
+      .area {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #00d2c6;
+      }
+      </style>
+
+    <!-- App Download Section -->
+    <section id="download" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="mb-3">Get the FMK App</h2>
+                    <p class="mb-4">Download our app for faster booking, real-time tracking, and exclusive offers.</p>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#" class="btn btn-dark btn-lg px-4 py-3 rounded-pill">
+                            <div class="d-flex align-items-center">
+                                <i class="fab fa-apple fs-3 me-2"></i>
+                                <div>
+                                    <small class="d-block">Download on the</small>
+                                    <strong>App Store</strong>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="btn btn-light btn-lg px-4 py-3 rounded-pill">
+                            <div class="d-flex align-items-center">
+                                <i class="fab fa-google-play fs-3 me-2"></i>
+                                <div>
+                                    <small class="d-block">Get it on</small>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <img src="https://illustrations.popsy.co/amber/mobile-app.svg" alt="Mobile App" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://via.placeholder.com/40" alt="FMK Logo" style="height: 40px;" class="mb-3">
+                    <p>Providing reliable transportation services since 2010. Your journey, our priority.</p>
+                    
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Services</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Fleet</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Taxi Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Car Rental</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Airport Transfer</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Corporate Travel</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">VIP Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="mb-4">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            <span class="text-white-50">123 Main Street, City, Country</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone-alt me-2"></i>
+                            <a href="tel:+1234567890" class="text-white-50">+1 (234) 567-890</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:info@fmk.com" class="text-white-50">info@fmk.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy; 2023 FMK. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+            
+            // Update icon
+            const darkModeBtn = document.querySelector('[onclick="toggleDarkMode()"]');
+            if (darkModeBtn) {
+                const icon = darkModeBtn.querySelector('i');
+                if (icon) {
+                    icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+                }
+            }
+        }
+        
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            const darkModeBtn = document.querySelector('[onclick="toggleDarkMode()"]');
+            if (darkModeBtn) {
+                const icon = darkModeBtn.querySelector('i');
+                if (icon) {
+                    icon.className = 'fas fa-sun';
+                }
+            }
+        }
+        
+        // Modal toggle function
+        function toggleModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+            
+            // Prevent background scrolling when modal is open
+            document.body.style.overflow = modal.style.display === 'block' ? 'hidden' : 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
+        
+        // Carousel navigation
+        const prevBtn = document.getElementById('prev-car');
+        const nextBtn = document.getElementById('next-car');
+        const carList = document.getElementById('car-list');
+        
+        if (prevBtn && nextBtn && carList) {
+            prevBtn.addEventListener('click', () => {
+                carList.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                carList.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+        }
+        
+        // Get current location for booking form
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pickupInput = document.querySelector('#instantBookingForm input[placeholder="Enter pickup address"]');
+                        if (pickupInput) {
+                            pickupInput.value = "Current Location";
+                        }
+                    },
+                    (error) => {
+                        console.error("Error getting location:", error);
+                        alert("Could not get your location. Please enter manually.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1507 @@
+html
+Copy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tax Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2f6df6;
+            --secondary: #1a365d;
+            --accent: #ff6b35;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Modern Header */
+        .tax-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .tax-hero {
+            background: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .tax-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        
+        /* Features Section */
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Calculator Section */
+        .tax-calculator {
+            background-color: #f5f7fa;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .calculator-result {
+            background-color: var(--light);
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            border-left: 4px solid var(--primary);
+        }
+        
+        /* Footer */
+        .tax-footer {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tax-hero {
+                padding: 3rem 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Modern Form Styles */
+        .form-control-modern {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control-modern:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(47, 109, 246, 0.25);
+        }
+        
+        /* Button Styles */
+        .btn-tax-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-tax-primary:hover {
+            background-color: #1a56d1;
+            transform: translateY(-2px);
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            border: 1px solid #e1e5eb;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Header with Navigation -->
+    <header class="tax-header sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="#">
+                        <i class="fas fa-calculator me-2"></i>
+                        <span class="fw-bold">TaxPro</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#features">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pricing">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#calculator">Calculator</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#support">Support</a>
+                            </li>
+                        </ul>
+                        <div class="ms-lg-3 mt-3 mt-lg-0">
+                            <a href="#" class="btn btn-outline-light me-2">Log In</a>
+                            <a href="#" class="btn btn-tax-primary">Sign Up Free</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="tax-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Smart Tax Solutions for Everyone</h1>
+                    <p class="lead mb-4">File your taxes with confidence. Our AI-powered platform helps you maximize deductions and get your maximum refund.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#calculator" class="btn btn-tax-primary btn-lg">
+                            <i class="fas fa-calculator me-2"></i> Estimate Your Refund
+                        </a>
+                        <a href="#pricing" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-star me-2"></i> See Plans
+                        </a>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center">
+                        <div class="me-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>100% Accuracy Guarantee</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-shield-alt text-success me-2"></i>
+                            <span>Bank-Level Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mb-3">
+                    <p class="text-muted mb-0">Trusted by millions and featured in:</p>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+                        <img src="https://via.placeholder.com/120x40?text=Forbes" alt="Forbes" class="img-fluid" style="height: 30px;">
+                        <img src="https://via.placeholder.com/120x40?text=WSJ" alt="Wall Street Journal" class="img-fluid" style="height: 30px;">
+                        <img src="https://via.placeholder.com/120x40?text=CNBC" alt="CNBC" class="img-fluid" style="height: 30px;">
+                        <img src="https://via.placeholder.com/120x40?text=Bloomberg" alt="Bloomberg" class="img-fluid" style="height: 30px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Everything You Need for Stress-Free Tax Filing</h2>
+                    <p class="lead text-muted">Our comprehensive platform provides all the tools you need to file with confidence and maximize your refund.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>AI-Powered Deductions</h4>
+                        <p>Our smart system identifies every possible deduction and credit you qualify for.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4>Military-Grade Security</h4>
+                        <p>256-bit encryption and multi-factor authentication protect your sensitive data.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Live Expert Help</h4>
+                        <p>Connect with CPAs and tax professionals when you need guidance.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile-Friendly</h4>
+                        <p>File from anywhere with our iOS and Android apps or mobile-optimized website.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Calculator Section -->
+    <section id="calculator" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Estimate Your Tax Refund</h2>
+                    <p class="lead">Our free calculator gives you an instant estimate of your potential refund or what you might owe.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> No registration required</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 100% private and secure</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Updated for 2024 tax laws</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tax-calculator">
+                        <form id="taxCalculatorForm">
+                            <div class="mb-3">
+                                <label for="filingStatus" class="form-label">Filing Status</label>
+                                <select class="form-select form-control-modern" id="filingStatus" required>
+                                    <option value="" selected disabled>Select your status</option>
+                                    <option value="single">Single</option>
+                                    <option value="married_joint">Married Filing Jointly</option>
+                                    <option value="married_separate">Married Filing Separately</option>
+                                    <option value="head_of_household">Head of Household</option>
+                                    <option value="widower">Qualifying Widow(er)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="income" class="form-label">Annual Income</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control form-control-modern" id="income" placeholder="Enter your annual income" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="withholdings" class="form-label">Taxes Withheld</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control form-control-modern" id="withholdings" placeholder="Enter taxes withheld" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-tax-primary w-100">Calculate My Estimate</button>
+                        </form>
+                        <div class="calculator-result" id="calculatorResult">
+                            <h5 class="mb-3">Your Estimated Results</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Estimated Refund:</span>
+                                <strong id="refundAmount">$0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Estimated Tax Owed:</span>
+                                <strong id="taxOwedAmount">$0</strong>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">This is only an estimate. Actual results may vary.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Simple, Transparent Pricing</h2>
+                    <p class="lead text-muted">Choose the plan that fits your needs. Pay only when you file.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Free Plan -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-3">Free Edition</h4>
+                            <h2 class="mb-3">$0</h2>
+                            <p class="text-muted mb-4">For simple tax returns only</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> W-2 income</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Standard deduction</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Earned Income Tax Credit</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Federal e-file</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> State e-file ($39 per state)</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> Itemized deductions</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> Self-employment income</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100">Start for Free</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deluxe Plan (Popular) -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card popular h-100">
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-3">Deluxe</h4>
+                            <h2 class="mb-3">$59</h2>
+                            <p class="text-muted mb-4">For homeowners and investors</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Everything in Free</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Mortgage interest</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Property taxes</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Charitable donations</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> State e-file included</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Investment income</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> Self-employment income</li>
+                            </ul>
+                            <a href="#" class="btn btn-tax-primary w-100">Choose Deluxe</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-3">Premium</h4>
+                            <h2 class="mb-3">$119</h2>
+                            <p class="text-muted mb-4">For self-employed and rentals</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Everything in Deluxe</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Self-employment income</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Rental property income</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Business expenses</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Deduction finder</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Priority support</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Audit defense</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100">Choose Premium</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-muted">Need help choosing? <a href="#" class="text-decoration-none">Compare all plans</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">What Our Customers Say</h2>
+                    <p class="lead text-muted">Join millions of satisfied users who've filed with confidence</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User" class="rounded-circle" width="50">
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Sarah Johnson</h5>
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">"As a small business owner, taxes used to stress me out. TaxPro found deductions I didn't even know about and saved me over $3,000 this year!"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle" width="50">
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Michael Chen</h5>
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">"The interface is so intuitive. I finished my taxes in under 30 minutes and got my refund in just 8 days. Will definitely use again next year."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="rounded-circle" width="50">
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Emily Rodriguez</h5>
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">"The live CPA chat feature saved me when I got confused about reporting my investment income. Worth every penny for the peace of mind!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Expert Support When You Need It</h2>
+                    <p class="lead mb-4">Our award-winning support team is available via chat, email, and phone to answer your tax questions.</p>
+                    
+                    <div class="d-flex mb-3">
+                        <div class="me-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Phone Support</h5>
+                            <p class="text-muted mb-0">1-800-TAX-PRO1 (1-800-829-7761)</p>
+                            <small class="text-muted">Monday-Friday, 8am-8pm EST</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-3">
+                        <div class="me-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Live Chat</h5>
+                            <p class="text-muted mb-0">Available 24/7 during tax season</p>
+                            <small class="text-muted">Average response time: 2 minutes</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="me-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Email Support</h5>
+                            <p class="text-muted mb-0">help@taxpro.com</p>
+                            <small class="text-muted">Typically responds within 4 hours</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Contact Our Support Team</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="supportName" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control form-control-modern" id="supportName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="supportEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control form-control-modern" id="supportEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="supportTopic" class="form-label">Topic</label>
+                                    <select class="form-select form-control-modern" id="supportTopic" required>
+                                        <option value="" selected disabled>Select a topic</option>
+                                        <option value="billing">Billing Question</option>
+                                        <option value="technical">Technical Support</option>
+                                        <option value="tax_help">Tax Help</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="supportMessage" class="form-label">Message</label>
+                                    <textarea class="form-control form-control-modern" id="supportMessage" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-tax-primary w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Frequently Asked Questions</h2>
+                    <p class="lead text-muted">Get answers to common questions about our tax filing services</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    How does TaxPro ensure the accuracy of my tax return?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>TaxPro uses sophisticated error-checking algorithms that review your return for over 400 potential errors and omissions. Our software is updated continuously to reflect the latest tax laws and regulations. Additionally, we offer a 100% Accuracy Guarantee - if you receive a larger refund or owe less with another tax service due to our error, we'll refund the amount you paid us and cover any IRS penalties.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Is my personal and financial information secure?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Absolutely. We use 256-bit SSL encryption (the same level as banks) to protect your data during transmission. All sensitive information is stored in secure data centers with multiple layers of physical and electronic security. We also offer multi-factor authentication for added protection. TaxPro has never had a security breach in our 15 years of operation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    How long does it take to get my refund?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Most taxpayers receive their federal refund within 21 days when filing electronically and choosing direct deposit. The IRS typically issues refunds in this timeframe for returns without errors or need for further review. State refund times vary by state but are generally faster when filed electronically. You can track your refund status using our Refund Tracker tool once your return has been accepted by the IRS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    Can I switch to TaxPro if I started my taxes elsewhere?
+                                </button>
+                            </h3>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes! You can easily import your W-2 information from many other tax services or upload a PDF of your prior-year return to get a head start. If you've already begun your return with another service, you can manually enter the information you've already gathered - our interview process will pick up right where you left off. Many users find they complete their return faster with TaxPro even after starting elsewhere.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn btn-outline-primary">View All FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">Ready to File Your Taxes the Smart Way?</h2>
+                    <p class="lead mb-5">Join over 10 million Americans who trust TaxPro for accurate, stress-free tax filing.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-play-circle me-2"></i> See How It Works
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-file-alt me-2"></i> Start Your Return
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="tax-footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- CompanyI'll analyze the layout, content, and features of modern tax services (like TurboTax, H&R Block, etc.) and redesign your template to match their professional style while keeping it responsive. Here's the improved version:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tax Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2f6df6;
+            --secondary: #1a365d;
+            --accent: #ff6b35;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Modern Header */
+        .tax-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .tax-hero {
+            background: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .tax-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        
+        /* Features Section */
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Calculator Section */
+        .tax-calculator {
+            background-color: #f5f7fa;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .calculator-result {
+            background-color: var(--light);
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            border-left: 4px solid var(--primary);
+        }
+        
+        /* Footer */
+        .tax-footer {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tax-hero {
+                padding: 3rem 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Modern Form Styles */
+        .form-control-modern {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control-modern:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(47, 109, 246, 0.25);
+        }
+        
+        /* Button Styles */
+        .btn-tax-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-tax-primary:hover {
+            background-color: #1a56d1;
+            transform: translateY(-2px);
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            border: 1px solid #e1e5eb;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Header with Navigation -->
+    <header class="tax-header sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="#">
+                        <i class="fas fa-calculator me-2"></i>
+                        <span class="fw-bold">TaxPro</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#features">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pricing">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#calculator">Calculator</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#support">Support</a>
+                            </li>
+                        </ul>
+                        <div class="ms-lg-3 mt-3 mt-lg-0">
+                            <a href="#" class="btn btn-outline-light me-2">Log In</a>
+                            <a href="#" class="btn btn-tax-primary">Sign Up Free</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="tax-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Smart Tax Solutions for Everyone</h1>
+                    <p class="lead mb-4">File your taxes with confidence. Our AI-powered platform helps you maximize deductions and get your maximum refund.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#calculator" class="btn btn-tax-primary btn-lg">
+                            <i class="fas fa-calculator me-2"></i> Estimate Your Refund
+                        </a>
+                        <a href="#pricing" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-star me-2"></i> See Plans
+                        </a>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center">
+                        <div class="me-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>100% Accuracy Guarantee</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-shield-alt text-success me-2"></i>
+                            <span>Bank-Level Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mb-3">
+                    <p class="text-muted mb-0">Trusted by millions and featured in:</p>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+                        <img src="https://via.placeholder.com/120x40?text=Forbes" alt="Forbes" class="img-fluid" style="height: 30px;">
+                        <img src="https://via.placeholder.com/120x40?text=WSJ" alt="Wall Street Journal" class="img-fluid" style="height: 30px;">
+                        <img src="https://via.placeholder.com/120x40?text=CNBC" alt="CNBC" class="img-fluid" style="height: 30px;">
+                        <img src="https://via.placeholder.com/120x40?text=Bloomberg" alt="Bloomberg" class="img-fluid" style="height: 30px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Everything You Need for Stress-Free Tax Filing</h2>
+                    <p class="lead text-muted">Our comprehensive platform provides all the tools you need to file with confidence and maximize your refund.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>AI-Powered Deductions</h4>
+                        <p>Our smart system identifies every possible deduction and credit you qualify for.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4>Military-Grade Security</h4>
+                        <p>256-bit encryption and multi-factor authentication protect your sensitive data.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Live Expert Help</h4>
+                        <p>Connect with CPAs and tax professionals when you need guidance.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile-Friendly</h4>
+                        <p>File from anywhere with our iOS and Android apps or mobile-optimized website.</p>
+                        <a href="#" class="text-decoration-none">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Calculator Section -->
+    <section id="calculator" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Estimate Your Tax Refund</h2>
+                    <p class="lead">Our free calculator gives you an instant estimate of your potential refund or what you might owe.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> No registration required</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 100% private and secure</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Updated for 2024 tax laws</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="tax-calculator">
+                        <form id="taxCalculatorForm">
+                            <div class="mb-3">
+                                <label for="filingStatus" class="form-label">Filing Status</label>
+                                <select class="form-select form-control-modern" id="filingStatus" required>
+                                    <option value="" selected disabled>Select your status</option>
+                                    <option value="single">Single</option>
+                                    <option value="married_joint">Married Filing Jointly</option>
+                                    <option value="married_separate">Married Filing Separately</option>
+                                    <option value="head_of_household">Head of Household</option>
+                                    <option value="widower">Qualifying Widow(er)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="income" class="form-label">Annual Income</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control form-control-modern" id="income" placeholder="Enter your annual income" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="withholdings" class="form-label">Taxes Withheld</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control form-control-modern" id="withholdings" placeholder="Enter taxes withheld" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-tax-primary w-100">Calculate My Estimate</button>
+                        </form>
+                        <div class="calculator-result" id="calculatorResult">
+                            <h5 class="mb-3">Your Estimated Results</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Estimated Refund:</span>
+                                <strong id="refundAmount">$0</strong>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Estimated Tax Owed:</span>
+                                <strong id="taxOwedAmount">$0</strong>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">This is only an estimate. Actual results may vary.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Simple, Transparent Pricing</h2>
+                    <p class="lead text-muted">Choose the plan that fits your needs. Pay only when you file.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Free Plan -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-3">Free Edition</h4>
+                            <h2 class="mb-3">$0</h2>
+                            <p class="text-muted mb-4">For simple tax returns only</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> W-2 income</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Standard deduction</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Earned Income Tax Credit</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Federal e-file</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> State e-file ($39 per state)</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> Itemized deductions</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> Self-employment income</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100">Start for Free</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deluxe Plan (Popular) -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card popular h-100">
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-3">Deluxe</h4>
+                            <h2 class="mb-3">$59</h2>
+                            <p class="text-muted mb-4">For homeowners and investors</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Everything in Free</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Mortgage interest</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Property taxes</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Charitable donations</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> State e-file included</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Investment income</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i> Self-employment income</li>
+                            </ul>
+                            <a href="#" class="btn btn-tax-primary w-100">Choose Deluxe</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card pricing-card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-3">Premium</h4>
+                            <h2 class="mb-3">$119</h2>
+                            <p class="text-muted mb-4">For self-employed and rentals</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Everything in Deluxe</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Self-employment income</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Rental property income</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Business expenses</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Deduction finder</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Priority support</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Audit defense</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100">Choose Premium</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-muted">Need help choosing? <a href="#" class="text-decoration-none">Compare all plans</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">What Our Customers Say</h2>
+                    <p class="lead text-muted">Join millions of satisfied users who've filed with confidence</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User" class="rounded-circle" width="50">
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Sarah Johnson</h5>
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">"As a small business owner, taxes used to stress me out. TaxPro found deductions I didn't even know about and saved me over $3,000 this year!"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle" width="50">
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Michael Chen</h5>
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">"The interface is so intuitive. I finished my taxes in under 30 minutes and got my refund in just 8 days. Will definitely use again next year."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="rounded-circle" width="50">
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Emily Rodriguez</h5>
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">"The live CPA chat feature saved me when I got confused about reporting my investment income. Worth every penny for the peace of mind!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Expert Support When You Need It</h2>
+                    <p class="lead mb-4">Our award-winning support team is available via chat, email, and phone to answer your tax questions.</p>
+                    
+                    <div class="d-flex mb-3">
+                        <div class="me-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Phone Support</h5>
+                            <p class="text-muted mb-0">1-800-TAX-PRO1 (1-800-829-7761)</p>
+                            <small class="text-muted">Monday-Friday, 8am-8pm EST</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-3">
+                        <div class="me-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Live Chat</h5>
+                            <p class="text-muted mb-0">Available 24/7 during tax season</p>
+                            <small class="text-muted">Average response time: 2 minutes</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="me-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Email Support</h5>
+                            <p class="text-muted mb-0">help@taxpro.com</p>
+                            <small class="text-muted">Typically responds within 4 hours</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Contact Our Support Team</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="supportName" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control form-control-modern" id="supportName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="supportEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control form-control-modern" id="supportEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="supportTopic" class="form-label">Topic</label>
+                                    <select class="form-select form-control-modern" id="supportTopic" required>
+                                        <option value="" selected disabled>Select a topic</option>
+                                        <option value="billing">Billing Question</option>
+                                        <option value="technical">Technical Support</option>
+                                        <option value="tax_help">Tax Help</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="supportMessage" class="form-label">Message</label>
+                                    <textarea class="form-control form-control-modern" id="supportMessage" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-tax-primary w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-3">Frequently Asked Questions</h2>
+                    <p class="lead text-muted">Get answers to common questions about our tax filing services</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    How does TaxPro ensure the accuracy of my tax return?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>TaxPro uses sophisticated error-checking algorithms that review your return for over 400 potential errors and omissions. Our software is updated continuously to reflect the latest tax laws and regulations. Additionally, we offer a 100% Accuracy Guarantee - if you receive a larger refund or owe less with another tax service due to our error, we'll refund the amount you paid us and cover any IRS penalties.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Is my personal and financial information secure?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Absolutely. We use 256-bit SSL encryption (the same level as banks) to protect your data during transmission. All sensitive information is stored in secure data centers with multiple layers of physical and electronic security. We also offer multi-factor authentication for added protection. TaxPro has never had a security breach in our 15 years of operation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    How long does it take to get my refund?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Most taxpayers receive their federal refund within 21 days when filing electronically and choosing direct deposit. The IRS typically issues refunds in this timeframe for returns without errors or need for further review. State refund times vary by state but are generally faster when filed electronically. You can track your refund status using our Refund Tracker tool once your return has been accepted by the IRS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item mb-3 border-0 rounded overflow-hidden shadow-sm">
+                            <h3 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    Can I switch to TaxPro if I started my taxes elsewhere?
+                                </button>
+                            </h3>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes! You can easily import your W-2 information from many other tax services or upload a PDF of your prior-year return to get a head start. If you've already begun your return with another service, you can manually enter the information you've already gathered - our interview process will pick up right where you left off. Many users find they complete their return faster with TaxPro even after starting elsewhere.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn btn-outline-primary">View All FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">Ready to File Your Taxes the Smart Way?</h2>
+                    <p class="lead mb-5">Join over 10 million Americans who trust TaxPro for accurate, stress-free tax filing.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-play-circle me-2"></i> See How It Works
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-file-alt me-2"></i> Start Your Return
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>
+
+</html>
