@@ -17,8 +17,11 @@ const Review = require('./models/Review');
 const imageRoutes = require('./routes/imageRoutes');
 const carRoutes = require('./routes/carRoutes');
 const adminAuthRoutes = require('./routes/adminAuthRoutes');
-const bookingRoutes = require('./routes/bookingRoutes');
+ 
 const reviewRoutes = require('./routes/reviewRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
+ 
+
 
 // Create the Express app
 const app = express();
@@ -44,8 +47,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the 'public' directory
 app.use(express.static('public')); // Serve static HTML, CSS, JS
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded images
  
+// Use this SINGLE static declaration (remove any duplicates)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 // Serve images from /uploads/images
 app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images')));
@@ -55,11 +60,11 @@ app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images')
 app.use('/admin', adminAuthRoutes);
 app.use('/reviews', reviewRoutes);
 app.use('/cars', carRoutes);
-app.use('/api', bookingRoutes);
+ 
 // Routes
 app.use('/api/images', imageRoutes);
 
-
+app.use('/api', bookingRoutes);
 
 
 // Default route to render index.ejs with car and review data

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FMK Premium Taxi & Car Rental Services</title>
+    <title>FMK travel Agence  </title>
     <meta name="description" content="Premium taxi services and luxury car rentals with professional drivers. Book your ride or rental vehicle online 24/7.">
     <meta name="keywords" content="taxi service, luxury car rental, airport transfer, chauffeur service, FMK Taxi">
     
@@ -12,7 +12,7 @@
     <link rel="icon" href="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" type="image/png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://fmktaxi.com">
+    <link rel="canonical" href="https://>FMK travel Agence .com">
     
   <!-- Open Graph / Social Media Meta Tags -->
 <meta property="og:title" content="FMK Premium Taxi & Car Rental Services">
@@ -40,7 +40,6 @@
 
 <!-- AOS (Animate On Scroll) -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
 <!-- Fancybox CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 
@@ -177,9 +176,11 @@ body.dark-mode {
 .hero-section {
   height: 100vh;
   min-height: 700px;
+  .hero-section {
   background: 
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-    url('uploads/images/istockphoto-519870714-1024x1024 (1).jpg') no-repeat center center/cover;
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('uploads/1728491070560-_MG_2464.JPG') no-repeat center/cover;
+}
   display: flex;
   align-items: center;
   position: relative;
@@ -1122,7 +1123,7 @@ textarea.form-control {
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo">
-                <span>FMK TAXI</span>
+                <span>FMK</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
@@ -1176,7 +1177,7 @@ textarea.form-control {
                         <!-- Updated Book Now button to trigger modal on mobile -->
                         <button type="button" class="btn btn-primary me-3 d-lg-none" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button>
                      <!-- Updated Book Now Button -->
-<a href="" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</a>
+ 
                         <a href="tel:0677231271" class="btn btn-secondary">Call: 0677 231 271</a>
                     </div>
                 </div>
@@ -2027,7 +2028,7 @@ function renderCars(cars) {
                         </div>
                         <button class="btn btn-sm btn-primary book-btn" 
                                 data-bs-toggle="modal" 
-                                data-bs-target="#bookingModal"
+                                data-bs-target="#bookingModal2"
                                 data-car-id="${car.id}">
                             Book Now
                         </button>
@@ -2806,74 +2807,7 @@ textarea.form-control {
         </div>
     </div>
 </footer>
-
-    <!-- Booking Modal -->
-    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="bookingModalLabel">Book Your Vehicle</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="bookingForm">
-                        <div class="mb-3">
-                            <label for="modalCar" class="form-label">Selected Vehicle</label>
-                            <input type="text" class="form-control" id="modalCar" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="modalPickup" class="form-label">Pickup Location</label>
-                            <input type="text" class="form-control" id="modalPickup" placeholder="Enter pickup address" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="modalDestination" class="form-label">Destination (for taxi service)</label>
-                            <input type="text" class="form-control" id="modalDestination" placeholder="Enter destination">
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="modalDate" class="form-label">Pickup Date</label>
-                                <input type="date" class="form-control" id="modalDate" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="modalTime" class="form-label">Pickup Time</label>
-                                <input type="time" class="form-control" id="modalTime" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="modalPassengers" class="form-label">Number of Passengers</label>
-                                <select class="form-select" id="modalPassengers">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5+">5+</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="modalDays" class="form-label">Rental Days (if applicable)</label>
-                                <select class="form-select" id="modalDays">
-                                    <option value="1">1 Day</option>
-                                    <option value="2">2 Days</option>
-                                    <option value="3">3 Days</option>
-                                    <option value="7">1 Week</option>
-                                    <option value="14">2 Weeks</option>
-                                    <option value="30">1 Month</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="modalNotes" class="form-label">Special Instructions</label>
-                            <textarea class="form-control" id="modalNotes" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Confirm Booking</button>
-                </div>
-            </div>
-        </div>
+ 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
 
@@ -2883,6 +2817,7 @@ textarea.form-control {
     
     <!-- Bootstrap Bundle JS (includes Popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     
     <!-- AOS (Animate On Scroll) -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -2895,7 +2830,8 @@ textarea.form-control {
     
     <!-- CounterUp JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Custom JS -->
     <script>
         // Preloader
@@ -3040,6 +2976,455 @@ textarea.form-control {
             var modal = $(this);
             modal.find('#modalCar').val(car);
         });
+
+
+
+
+        
     </script>
+ <!-- Booking Modal -->
+<div class="modal fade" id="bookingModal2" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Complete Your Booking</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Rental Type Toggle -->
+                <div class="rental-type-toggle mb-4">
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="rentalType" id="selfDrive" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="selfDrive">
+                            <i class="fas fa-car me-2"></i> Self-Drive
+                            <span class="badge bg-info ms-2">Save 15%</span>
+                        </label>
+                        
+                        <input type="radio" class="btn-check" name="rentalType" id="withDriver" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="withDriver">
+                            <i class="fas fa-user-tie me-2"></i> With Driver
+                            <span class="badge bg-success ms-2">Popular</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Car Info -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img id="modalCarImage" src="" class="img-fluid rounded" alt="Car Image">
+                            </div>
+                            <div class="col-md-9">
+                                <h5 id="modalCarName"></h5>
+                                <div class="d-flex flex-wrap gap-2 mb-2">
+                                    <span class="badge bg-primary" id="modalCarType"></span>
+                                    <span class="badge bg-secondary" id="modalCarFuel"></span>
+                                    <span class="badge bg-info" id="modalCarSeats"></span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="fw-bold text-primary" id="modalCarPrice"></span>
+                                        <span class="text-muted">/day</span>
+                                        <small class="text-muted d-block" id="priceNote"></small>
+                                    </div>
+                                    <input type="hidden" id="carId" name="carId">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Form -->
+                <form id="rentalForm">
+                    <!-- Location Section -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label for="pickupLocation" class="form-label">Pickup Location</label>
+                            <select class="form-select" id="pickupLocation" required>
+                                <option value="">Select location</option>
+                                <option value="airport">Airport</option>
+                                <option value="city_center">City Center</option>
+                                <option value="hotel">Hotel</option>
+                                <option value="custom">Custom Address</option>
+                            </select>
+                            <div id="customPickupAddress" class="mt-2" style="display: none;">
+                                <input type="text" class="form-control" placeholder="Enter full address">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check mt-4 pt-2">
+                                <input class="form-check-input" type="checkbox" id="sameAsPickup" checked>
+                                <label class="form-check-label" for="sameAsPickup">
+                                    Return to same location
+                                </label>
+                            </div>
+                            <div id="dropoffLocationContainer" style="display: none;">
+                                <select class="form-select mt-2" id="dropoffLocation">
+                                    <option value="">Select drop-off location</option>
+                                    <option value="airport">Airport</option>
+                                    <option value="city_center">City Center</option>
+                                    <option value="hotel">Hotel</option>
+                                    <option value="custom">Custom Address</option>
+                                </select>
+                                <div id="customDropoffAddress" class="mt-2" style="display: none;">
+                                    <input type="text" class="form-control" placeholder="Enter full address">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date/Time Section -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label for="pickupDate" class="form-label">Pickup Date & Time</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="pickupDate" required>
+                                <select class="form-select" id="pickupTime" required>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="returnDate" class="form-label">Return Date & Time</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="returnDate" required>
+                                <select class="form-select" id="returnTime" required>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Driver Options (Shows only when "With Driver" selected) -->
+                    <div class="driver-options mb-4" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-3"><i class="fas fa-user-tie me-2"></i>Driver Preferences</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="driverLanguage" class="form-label">Language Preference</label>
+                                        <select class="form-select" id="driverLanguage">
+                                            <option value="english">English</option>
+                                            <option value="arabic">Arabic</option>
+                                            <option value="french">French</option>
+                                            <option value="spanish">Spanish</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="driverExperience" class="form-label">Driver Experience</label>
+                                        <select class="form-select" id="driverExperience">
+                                            <option value="standard">Standard (3+ years)</option>
+                                            <option value="premium">Premium (5+ years)</option>
+                                            <option value="executive">Executive (10+ years)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="specialRequests" class="form-label">Special Requests</label>
+                                        <textarea class="form-control" id="specialRequests" rows="2" placeholder="Child seats, meet & greet, etc."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Self Drive Options (Shows only when "Self Drive" selected) -->
+                    <div class="self-drive-options mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-3"><i class="fas fa-id-card me-2"></i>Driver Information</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="licenseNumber" class="form-label">Driver's License Number</label>
+                                        <input type="text" class="form-control" id="licenseNumber" placeholder="Enter license number" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="licenseCountry" class="form-label">Issuing Country</label>
+                                        <select class="form-select" id="licenseCountry" required>
+                                            <option value="">Select country</option>
+                                            <option value="US">United States</option>
+                                            <option value="UK">United Kingdom</option>
+                                            <option value="UAE">United Arab Emirates</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="licenseUpload" class="form-label">Upload License (Front & Back)</label>
+                                        <input type="file" class="form-control" id="licenseUpload" multiple accept="image/*,.pdf" required>
+                                        <small class="text-muted">Upload clear images of your driver's license (max 2MB each)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Details -->
+                    <div class="user-details mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="mb-3"><i class="fas fa-user me-2"></i>Your Information</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="fullName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="fullName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phoneNumber" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="country" class="form-label">Country</label>
+                                        <select class="form-select" id="country" required>
+                                            <option value="">Select country</option>
+                                            <option value="US">United States</option>
+                                            <option value="UK">United Kingdom</option>
+                                            <option value="UAE">United Arab Emirates</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg py-3">
+                            <i class="fas fa-check-circle me-2"></i> Complete Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Modal Styles */
+#bookingModal .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#bookingModal .modal-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+#bookingModal .card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 10px;
+}
+
+#bookingModal .form-control, #bookingModal .form-select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+#bookingModal .input-group {
+    gap: 10px;
+}
+
+#bookingModal .input-group .form-control, 
+#bookingModal .input-group .form-select {
+    flex: 1;
+}
+
+/* Rental Type Toggle */
+.rental-type-toggle .btn {
+    padding: 12px 0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.rental-type-toggle .btn-group {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rental-type-toggle .btn-outline-primary {
+    border-color: #dee2e6;
+}
+
+.rental-type-toggle .btn-outline-primary:hover {
+    background-color: #f8f9fa;
+}
+
+.rental-type-toggle .btn-check:checked + .btn {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+
+.rental-type-toggle .badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Section Headers */
+#bookingModal h6 {
+    font-weight: 600;
+    color: #495057;
+}
+
+#bookingModal h6 i {
+    color: #0d6efd;
+}
+
+/* Submit Button */
+#bookingModal .btn-lg {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #bookingModal .modal-dialog {
+        margin: 10px;
+    }
+    
+    #bookingModal .row.g-3 > [class^="col-"] {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-bottom: 15px;
+    }
+    
+    #bookingModal .input-group {
+        flex-direction: column;
+    }
+    
+    #bookingModal .input-group input,
+    #bookingModal .input-group select {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+</style>
+
+<script>
+// Initialize modal with car data
+function setupBookingModal(carId) {
+    // In a real app, you would fetch car details from your API
+    const car = {
+        id: carId,
+        name: "Premium Sedan",
+        brand: "Toyota",
+        type: "Sedan",
+        fuelType: "Hybrid",
+        seats: "5 Seats",
+        image: "https://source.unsplash.com/random/600x400?sedan",
+        selfDriveRate: 89,
+        withDriverRate: 129
+    };
+    
+    // Set car details in modal
+    document.getElementById('modalCarName').textContent = car.name;
+    document.getElementById('modalCarType').textContent = car.type;
+    document.getElementById('modalCarFuel').textContent = car.fuelType;
+    document.getElementById('modalCarSeats').textContent = car.seats;
+    document.getElementById('modalCarImage').src = car.image;
+    document.getElementById('carId').value = carId;
+    
+    // Set initial price based on rental type
+    updatePriceDisplay();
+}
+
+// Update price display based on rental type
+function updatePriceDisplay() {
+    const isSelfDrive = document.getElementById('selfDrive').checked;
+    const car = {
+        selfDriveRate: 89,
+        withDriverRate: 129
+    }; // In real app, get this from your data
+    
+    if (isSelfDrive) {
+        document.getElementById('modalCarPrice').textContent = `$${car.selfDriveRate}`;
+        document.getElementById('priceNote').textContent = 'self-drive rate';
+    } else {
+        document.getElementById('modalCarPrice').textContent = `$${car.withDriverRate}`;
+        document.getElementById('priceNote').textContent = 'includes professional driver';
+    }
+}
+
+// Initialize modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle between self-drive and with-driver options
+    document.getElementById('selfDrive').addEventListener('change', function() {
+        if (this.checked) {
+            document.querySelector('.driver-options').style.display = 'none';
+            document.querySelector('.self-drive-options').style.display = 'block';
+            updatePriceDisplay();
+        }
+    });
+
+    document.getElementById('withDriver').addEventListener('change', function() {
+        if (this.checked) {
+            document.querySelector('.driver-options').style.display = 'block';
+            document.querySelector('.self-drive-options').style.display = 'none';
+            updatePriceDisplay();
+        }
+    });
+
+    // Location picker
+    document.getElementById('pickupLocation').addEventListener('change', function() {
+        const customAddress = document.getElementById('customPickupAddress');
+        customAddress.style.display = this.value === 'custom' ? 'block' : 'none';
+    });
+
+    document.getElementById('sameAsPickup').addEventListener('change', function() {
+        const dropoffContainer = document.getElementById('dropoffLocationContainer');
+        dropoffContainer.style.display = this.checked ? 'none' : 'block';
+    });
+
+    document.getElementById('dropoffLocation').addEventListener('change', function() {
+        const customAddress = document.getElementById('customDropoffAddress');
+        customAddress.style.display = this.value === 'custom' ? 'block' : 'none';
+    });
+
+    // Form submission
+    document.getElementById('rentalForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form
+        const form = e.target;
+        if (!form.checkValidity()) {
+            e.stopPropagation();
+            form.classList.add('was-validated');
+            return;
+        }
+        
+        // In a real app, you would submit the form data to your server
+        alert('Booking submitted successfully!');
+        
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+        modal.hide();
+    });
+
+    // Initialize date pickers with min date = today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('pickupDate').min = today;
+    document.getElementById('returnDate').min = today;
+    
+    // Set return date to be after pickup date
+    document.getElementById('pickupDate').addEventListener('change', function() {
+        document.getElementById('returnDate').min = this.value;
+    });
+});
+</script>
+<script src="/js/scriptwatsap.js"></script>
 </body>
 </html>
