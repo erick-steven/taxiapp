@@ -1071,53 +1071,87 @@ window.addEventListener('scroll', function() {
     backToTop.style.display = 'none';
   }
 });
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  const toggler = document.querySelector('.navbar-toggler');
-  const target = document.querySelector(toggler.getAttribute('data-bs-target'));
-  
-  toggler.addEventListener('click', function() {
-    new bootstrap.Collapse(target, { toggle: true });
-  });
-});
+ 
 </script>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo" height="30">
-                <span>FMK</span>
-            </a>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="uploads/64774cdc-0ff8-4e7f-adbf-3b5a42a06d3e.png" alt="FMK Logo" height="30">
+            <span>FMK</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#fleet">Our Fleet</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#fleet">Our Fleet</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-                
-                <div class="ms-lg-3 mt-3 mt-lg-0">
-                    <button class="btn btn-sm btn-outline-light me-2" onclick="toggleDarkMode()">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <a href="tel:0677231271" class="btn btn-primary btn-sm">
-                        <i class="fas fa-phone-alt me-1"></i> Call Now
-                    </a>
-                </div>
+            <div class="ms-lg-3 mt-3 mt-lg-0">
+                <button class="btn btn-sm btn-outline-light me-2" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="tel:0677231271" class="btn btn-primary btn-sm">
+                    <i class="fas fa-phone-alt me-1"></i> Call Now
+                </a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
     <script>
-        
+// Remove all existing navbar toggle JavaScript and replace with this:
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Close navbar when clicking on a nav link (for mobile view)
+    const navbarLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992) { // Only for mobile
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                }
+            }
+        });
+    });
+});
+
     </script>
+    <style>
+        /* Ensure navbar collapses properly on mobile */
+        @media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 60px; /* Adjust based on your navbar height */
+        left: 0;
+        right: 0;
+        background-color: var(--dark-color);
+        padding: 20px;
+        z-index: 1000;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    
+    .navbar-nav {
+        padding-top: 10px;
+    }
+    
+    .navbar-nav .nav-item {
+        margin-bottom: 5px;
+    }
+}
+    </style>
     <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="container">
@@ -2769,7 +2803,7 @@ textarea.form-control {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <!-- Bootstrap Bundle JS (includes Popper.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ 
     
     
     <!-- AOS (Animate On Scroll) -->
